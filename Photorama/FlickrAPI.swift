@@ -9,20 +9,34 @@
 import Foundation
 import CoreData
 
+/*
+ Keeps the posible method that will be used when creating the
+ URL to call the flickr API
+ */
 enum Method: String {
     case RecentPhotos = "flickr.photos.getRecent"
 }
 
+/*
+ This enum gives the list of Photos as Success after convert
+ them from the request data to the Photo Object or an Error as
+ Failure if somethhing went wrong
+ */
 enum PhotosResult {
     case Success([Photo])
     case Failure(Error)
 }
 
+/*
+ This Error is for when trying to serialize the JSON from photosData
+ there are some JSON error
+ */
 enum FlickrError: Error {
     case InvalidJSONData
 }
 
 struct FlickrAPI {
+    
     private static let baseURLString = "https://api.flickr.com/services/rest"
     
     private static let APIKey = "a6d819499131071f158fd740860a5a88"
@@ -36,13 +50,13 @@ struct FlickrAPI {
     private static func flickrURL(method: Method, parameters: [String:String]?) -> NSURL {
         let components = NSURLComponents(string: baseURLString)!
         var queryItems = [NSURLQueryItem]()
-        let vaseParams = [
+        let baseParams = [
             "method": method.rawValue,
             "format": "json",
             "nojsoncallback": "1",
             "api_key": APIKey
         ]
-        for (key,value) in vaseParams {
+        for (key,value) in baseParams {
             let item = NSURLQueryItem(name: key, value: value)
             queryItems.append(item)
         }
@@ -59,8 +73,40 @@ struct FlickrAPI {
     static func recentPhotosURL() -> NSURL {
         return flickrURL(method: .RecentPhotos, parameters: ["extras":"url_h,date_taken"])
     }
+  
+}
+
+/*
+ this extension holds the logic to serialize the data form the flicker
+ request to JSON and from JSON generates the Photo object
+ */
+extension FlickrAPI {
     
-    private static func photoFromJSONObject(json: [String: AnyObject], inContext context: NSManagedObjectContext) -> Photo? {
+    static func photosFromJSONData(data: NSData, inContext context: NSManagedObjectContext) -> PhotosResult {
+        do {
+            let jsonObject = try JSONSerialization.jsonObject(with: data as Data, options: [])
+            guard
+                let jsonDictionary = jsonObject as? [String: Any],
+                let photos = jsonDictionary["photos"] as? [String: AnyObject],
+                let photosArray = photos["photo"] as? [[String: Any]] else {
+                return .Failure(FlickrError.InvalidJSONData)
+            }
+            var finalPhotos = [Photo]()
+            for photoJSON in photosArray {
+                if let photo = photoFromJSONObject(json: photoJSON as [String : AnyObject], inContext: context) {
+                    finalPhotos.append(photo)
+                }
+            }
+            if finalPhotos.count == 0 && photosArray.count > 0 {
+                return .Failure(FlickrError.InvalidJSONData)
+            }
+            return .Success(finalPhotos)
+        } catch let error {
+            return .Failure(error)
+        }
+    }
+    
+    static func photoFromJSONObject(json: [String: AnyObject], inContext context: NSManagedObjectContext) -> Photo? {
         guard
             let photoID = json["id"] as? String,
             let title = json["title"] as? String,
@@ -89,29 +135,5 @@ struct FlickrAPI {
             photo.dateTaken = dateTaken as NSDate
         }
         return photo
-    }
-    
-    static func photosFromJSONData(data: NSData, inContext context: NSManagedObjectContext) -> PhotosResult {
-        do {
-            let jsonObject = try JSONSerialization.jsonObject(with: data as Data, options: [])
-            guard
-                let jsonDictionary = jsonObject as? [String: Any],
-                let photos = jsonDictionary["photos"] as? [String: AnyObject],
-                let photosArray = photos["photo"] as? [[String: Any]] else {
-                return .Failure(FlickrError.InvalidJSONData)
-            }
-            var finalPhotos = [Photo]()
-            for photoJSON in photosArray {
-                if let photo = photoFromJSONObject(json: photoJSON as [String : AnyObject], inContext: context) {
-                    finalPhotos.append(photo)
-                }
-            }
-            if finalPhotos.count == 0 && photosArray.count > 0 {
-                return .Failure(FlickrError.InvalidJSONData)
-            }
-            return .Success(finalPhotos)
-        } catch let error {
-            return .Failure(error)
-        }
     }
 }

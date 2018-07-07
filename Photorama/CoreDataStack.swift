@@ -29,7 +29,7 @@ class CoreDataStack {
         var coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.ManagedObjectModel)
         let pathComponent = "\(self.managedObjectModelName).sqlite"
         let url = self.applicationDocumentsDirectory.appendingPathComponent(pathComponent)
-        print("core data is in: \(url)")
+        print("core data is in: \(String(describing: url))")
         let store = try! coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         return coordinator
     }()
