@@ -15,12 +15,19 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
     var store: PhotoStore!
     let photoDataSource = PhotoDataSource()
     
+    
+    /*
+     PhotosViewController when loads ask for the recent photos to the store using
+     the fetchRecentPhotos method pasing as callback function a the clousure defined
+     where is set the photos to the data source and then reload the colection to show
+     the photos
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = photoDataSource
         collectionView.delegate = self
         store.fetchRecentPhotos() {
-            (photosResult) -> Void in
+            (result) -> Void in
             let sortByDateTaken = NSSortDescriptor(key: "dateTaken", ascending: true)
             let allPhotos = try! self.store.fetchMainQueuePhotos(predicate: nil, sortDescriptors: [sortByDateTaken])
             OperationQueue.main.addOperation{
@@ -30,9 +37,13 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    /*
+     Loads the cell image when it's going to be shown
+     */
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = photoDataSource.photos[indexPath.row]
-        store.fetchImageForPhoto(photo: photo) { (result) -> Void in
+        store.fetchImageForPhoto(photo: photo) {
+            (result) -> Void in
             OperationQueue.main.addOperation{
                 let photoIndex = self.photoDataSource.photos.index(of: photo)!
                 let photoIndexPath = NSIndexPath(row: photoIndex, section: 0)

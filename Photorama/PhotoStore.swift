@@ -21,6 +21,7 @@ enum PhotoError: Error {
 class PhotoStore {
     
     let coreDataStack = CoreDataStack(modelName: "Photorama")
+    
     let imageStore = ImageStore()
     
     let session: URLSession = {
@@ -62,6 +63,11 @@ class PhotoStore {
         return FlickrAPI.photosFromJSONData(data: jsonData, inContext: self.coreDataStack.privateQueueContext)
     }
     
+    
+    /*
+      Fetches the image for a photo Object, first try to get it from the cache but if wasn't there then
+      download it using the URL and set in the store and cache. Finally exec the completion closure
+     */
     func fetchImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
         let photoKey = photo.photoKey
         if let image = imageStore.imageForKey(key: photoKey) {
@@ -96,6 +102,9 @@ class PhotoStore {
         return .Success(image)
     }
     
+    /*
+      Return all photos that match the predicate sorted by sortDescription
+     */
     func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [Photo] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
         fetchRequest.sortDescriptors = sortDescriptors
@@ -117,6 +126,9 @@ class PhotoStore {
         
     }
     
+    /*
+     Return all tags that match the predicate sorted by sortDescription
+     */
     func fetchMainQueueTags(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
         fetchRequest.sortDescriptors = sortDescriptors
