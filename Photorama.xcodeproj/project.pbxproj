@@ -59,18 +59,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F63C45D520F0CF6300248D36 /* photosCollection */ = {
+		F63C45D520F0CF6300248D36 /* PhotosCollection */ = {
 			isa = PBXGroup;
 			children = (
+				F64C09831F2155AB0020A548 /* PhotosViewController.swift */,
+				F679E5201F239B9400BAC2C2 /* PhotoDataSource.swift */,
+				F60A65951F23A5D3007F581B /* PhotoCollectionViewCell.swift */,
 			);
-			path = photosCollection;
+			path = PhotosCollection;
 			sourceTree = "<group>";
 		};
-		F63C45D620F0CF8400248D36 /* photoInfo */ = {
+		F63C45D620F0CF8400248D36 /* PhotoInfo */ = {
 			isa = PBXGroup;
 			children = (
+				F60A65971F2407F4007F581B /* PhotoInfoViewController.swift */,
 			);
-			path = photoInfo;
+			path = PhotoInfo;
 			sourceTree = "<group>";
 		};
 		F64C09651F2155320020A548 = {
@@ -92,28 +96,80 @@
 		F64C09701F2155320020A548 /* Photorama */ = {
 			isa = PBXGroup;
 			children = (
-				F63C45D520F0CF6300248D36 /* photosCollection */,
-				F63C45D620F0CF8400248D36 /* photoInfo */,
+				F6913F3920F20A2C000A0630 /* Common */,
+				F6913F3720F209C3000A0630 /* Entities */,
+				F63C45D520F0CF6300248D36 /* PhotosCollection */,
+				F63C45D620F0CF8400248D36 /* PhotoInfo */,
+				F6913F3820F209FE000A0630 /* Tags */,
 				F64C09711F2155320020A548 /* AppDelegate.swift */,
-				F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */,
-				F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */,
-				F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */,
 				F64C09751F2155320020A548 /* Main.storyboard */,
 				F64C09781F2155320020A548 /* Assets.xcassets */,
 				F64C097A1F2155320020A548 /* LaunchScreen.storyboard */,
 				F64C097D1F2155320020A548 /* Info.plist */,
-				F64C09831F2155AB0020A548 /* PhotosViewController.swift */,
-				F60A65971F2407F4007F581B /* PhotoInfoViewController.swift */,
+				F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */,
+				F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */,
+			);
+			path = Photorama;
+			sourceTree = "<group>";
+		};
+		F6913F3720F209C3000A0630 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */,
+				F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		F6913F3820F209FE000A0630 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F3B20F20A48000A0630 /* DataManager */,
 				F69061AF1F27D95700864C40 /* TagsViewController.swift */,
-				F679E5201F239B9400BAC2C2 /* PhotoDataSource.swift */,
 				F69061B11F27DA5300864C40 /* TagsDataSource.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		F6913F3920F20A2C000A0630 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F3A20F20A34000A0630 /* DataManager */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F6913F3A20F20A34000A0630 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F3D20F20AAA000A0630 /* Remote */,
+				F6913F3C20F20AA3000A0630 /* Local */,
 				F64C09871F2161060020A548 /* PhotoStore.swift */,
 				F63C45D320F0C77000248D36 /* ImageStore.swift */,
 				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
-				F60A65951F23A5D3007F581B /* PhotoCollectionViewCell.swift */,
-				F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */,
 			);
-			path = Photorama;
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		F6913F3B20F20A48000A0630 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		F6913F3C20F20AA3000A0630 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		F6913F3D20F20AAA000A0630 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
