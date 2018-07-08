@@ -19,6 +19,8 @@ class PhotoInfoView: UIViewController {
         presenter?.viewDidLoad()
     }
     
+    
+    // this should go in the wireframe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "ShowTags" {
             let navController = segue.destination as! UINavigationController
