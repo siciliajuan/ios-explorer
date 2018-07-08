@@ -54,6 +54,16 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    /*
+     It's triggered when a cell recieves a tap
+     */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photoDataSource.photos[indexPath.row]
+        self.navigationController?.pushViewController(PhotoInfoWireFrame.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store), animated: true)
+    }
+    
+    
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowPhoto" {
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
@@ -64,4 +74,5 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             }
         }
     }
+    */
 }

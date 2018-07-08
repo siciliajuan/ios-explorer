@@ -14,21 +14,8 @@ class PhotoInfoView: UIViewController {
     
     var presenter: PhotoInfoPresenterProtocol?
     
-    var photo: Photo! {
-        didSet {
-            navigationItem.title = photo.title
-        }
-    }
-    
-    var store: PhotoStore!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // remove thees lines when everything is load by wireframe
-        presenter = PhotoInfoPresenter()
-        presenter?.view = self
-        
         presenter?.viewDidLoad()
     }
     
@@ -36,15 +23,16 @@ class PhotoInfoView: UIViewController {
         if  segue.identifier == "ShowTags" {
             let navController = segue.destination as! UINavigationController
             let tagController = navController.topViewController as! TagsViewController
-            tagController.store = store
-            tagController.photo = photo
+            tagController.store = presenter?.store
+            tagController.photo = presenter?.photo
         }
     }
 }
 
 extension PhotoInfoView: PhotoInfoViewProtocol {
     
-    func showPhotoInfo() {
+    func showPhotoInfo(forPhoto photo: Photo, forPhotoStore store: PhotoStore) {
+        navigationItem.title = photo.title
         store.fetchImageForPhoto(photo: photo) {
             (result) -> Void in
             switch result {

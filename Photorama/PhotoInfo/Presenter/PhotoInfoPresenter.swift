@@ -12,10 +12,11 @@ class PhotoInfoPresenter: PhotoInfoPresenterProtocol {
     
     var view: PhotoInfoViewProtocol?
     var wireFrame: PhotoInfoWireFrameProtocol?
+    var store: PhotoStore?
     var photo: Photo?
     
     func viewDidLoad() {
-        view?.showPhotoInfo()
+        view?.showPhotoInfo(forPhoto: photo!, forPhotoStore: store!)
     }
     
 }
