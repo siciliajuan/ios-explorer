@@ -8,9 +8,11 @@
 
 import UIKit
 
-class PhotoInfoViewController: UIViewController {
+class PhotoInfoView: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
+    
+    var presenter: PhotoInfoPresenterProtocol?
     
     var photo: Photo! {
         didSet {
@@ -22,6 +24,27 @@ class PhotoInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // remove thees lines when everything is load by wireframe
+        presenter = PhotoInfoPresenter()
+        presenter?.view = self
+        
+        presenter?.viewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "ShowTags" {
+            let navController = segue.destination as! UINavigationController
+            let tagController = navController.topViewController as! TagsViewController
+            tagController.store = store
+            tagController.photo = photo
+        }
+    }
+}
+
+extension PhotoInfoView: PhotoInfoViewProtocol {
+    
+    func showPhotoInfo() {
         store.fetchImageForPhoto(photo: photo) {
             (result) -> Void in
             switch result {
@@ -32,15 +55,6 @@ class PhotoInfoViewController: UIViewController {
             case let .Failure(error):
                 print("Error fetching image for photo: \(error)")
             }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "ShowTags" {
-            let navController = segue.destination as! UINavigationController
-            let tagController = navController.topViewController as! TagsViewController
-            tagController.store = store
-            tagController.photo = photo
         }
     }
 }

@@ -58,7 +58,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         if segue.identifier == "ShowPhoto" {
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 let photo = photoDataSource.photos[selectedIndexPath.row]
-                let destinationVC = segue.destination as! PhotoInfoViewController
+                let destinationVC = segue.destination as! PhotoInfoView
                 destinationVC.photo = photo
                 destinationVC.store = store
             }

@@ -60,7 +60,7 @@ class PhotoStore {
         guard let jsonData = data else {
             return .Failure(error!)
         }
-        return FlickrAPI.photosFromJSONData(data: jsonData, inContext: self.coreDataStack.privateQueueContext)
+        return PhotosJsonHelper.photosFromJSONData(data: jsonData, inContext: self.coreDataStack.privateQueueContext)
     }
     
     
@@ -126,9 +126,7 @@ class PhotoStore {
         
     }
     
-    /*
-     Return all tags that match the predicate sorted by sortDescription
-     */
+    
     func fetchMainQueueTags(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
         fetchRequest.sortDescriptors = sortDescriptors
