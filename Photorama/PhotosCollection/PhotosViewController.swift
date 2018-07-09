@@ -59,20 +59,6 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photo = photoDataSource.photos[indexPath.row]
-        self.navigationController?.pushViewController(PhotoInfoWireFrame.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store), animated: true)
+        self.navigationController?.pushViewController(PhotoInfoRoute.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store), animated: true)
     }
-    
-    
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowPhoto" {
-            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
-                let photo = photoDataSource.photos[selectedIndexPath.row]
-                let destinationVC = segue.destination as! PhotoInfoView
-                destinationVC.photo = photo
-                destinationVC.store = store
-            }
-        }
-    }
-    */
 }

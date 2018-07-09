@@ -9,20 +9,31 @@
 import UIKit
 
 
+// View protocols
 protocol PhotoInfoViewProtocol {
     var presenter: PhotoInfoPresenterProtocol? { get set }
-    func showPhotoInfo(forPhoto photo: Photo, forPhotoStore store: PhotoStore)
+    func showPhotoInfo(forPhoto title: String, forImage image: UIImage)
 }
 
+
+// Presenter protocols
 protocol PhotoInfoPresenterProtocol {
     var view: PhotoInfoViewProtocol? { get set }
     var wireFrame: PhotoInfoWireFrameProtocol? { get set }
-    var store: PhotoStore? { get set }
+    var interactor: PhotoInfoInteractorProtocol? { get set }
     var photo: Photo? { get set }
     
     func viewDidLoad()
 }
 
+// Router protocols
 protocol PhotoInfoWireFrameProtocol {
     static func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
+}
+
+// Interactor protocols
+protocol PhotoInfoInteractorProtocol {
+    var store: PhotoStore? { get set }
+    
+    func getPhotoImage(forPhoto photo: Photo) -> UIImage?
 }

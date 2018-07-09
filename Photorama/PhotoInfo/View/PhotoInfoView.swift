@@ -25,7 +25,7 @@ class PhotoInfoView: UIViewController {
         if  segue.identifier == "ShowTags" {
             let navController = segue.destination as! UINavigationController
             let tagController = navController.topViewController as! TagsViewController
-            tagController.store = presenter?.store
+            tagController.store = presenter?.interactor?.store
             tagController.photo = presenter?.photo
         }
     }
@@ -33,18 +33,8 @@ class PhotoInfoView: UIViewController {
 
 extension PhotoInfoView: PhotoInfoViewProtocol {
     
-    func showPhotoInfo(forPhoto photo: Photo, forPhotoStore store: PhotoStore) {
-        navigationItem.title = photo.title
-        store.fetchImageForPhoto(photo: photo) {
-            (result) -> Void in
-            switch result {
-            case let .Success(image):
-                OperationQueue.main.addOperation{
-                    self.imageView.image = image
-                }
-            case let .Failure(error):
-                print("Error fetching image for photo: \(error)")
-            }
-        }
+    func showPhotoInfo(forPhoto title: String, forImage image: UIImage) {
+        navigationItem.title = title
+        imageView.image = image
     }
 }

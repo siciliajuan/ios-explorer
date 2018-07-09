@@ -10,18 +10,22 @@ import UIKit
 
 
 
-class PhotoInfoWireFrame: PhotoInfoWireFrameProtocol {
+class PhotoInfoRoute: PhotoInfoWireFrameProtocol {
     
+    // separate en constructor and navegator
     class func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "PhotoInfoController")
+        // guard
         if let view = viewController as? PhotoInfoView {
             var presenter: PhotoInfoPresenterProtocol = PhotoInfoPresenter()
-            let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoWireFrame()
+            let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoRoute()
+            var interactor: PhotoInfoInteractorProtocol = PhotoInfoInteractor()
             view.presenter = presenter
             presenter.view = view
             presenter.photo = photo
-            presenter.store = photoStore
+            presenter.interactor = interactor
             presenter.wireFrame = wireFrame
+            interactor.store = photoStore
             return viewController
         }
         return UIViewController()
