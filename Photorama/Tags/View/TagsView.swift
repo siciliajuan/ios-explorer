@@ -11,13 +11,6 @@ import CoreData
 
 class TagsView: UIViewController {
     
-    
-    var store: PhotoStore!
-    var photo: Photo!
-    var selectedIndexPaths = [NSIndexPath]()
-    var tags: [NSManagedObject] = []
-    
-    
     @IBOutlet var tableView: UITableView!
     
     var presenter: TagsPresenterProtocol?
@@ -26,20 +19,18 @@ class TagsView: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        updateTags()
         presenter?.viewDidLoad()
     }
-    
 }
 
 extension TagsView: TagsViewProtocol {
     
     @IBAction func done(sender: AnyObject) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+        presenter?.dismissTags()
     }
     
     @IBAction func addNewTag(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
+     /*   let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
         alertController.addTextField(){
             (texField) -> Void in
             texField.placeholder = "Tag name"
@@ -48,11 +39,11 @@ extension TagsView: TagsViewProtocol {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action) -> Void in
             if let tagName = alertController.textFields?.first!.text {
-                let context = self.store.coreDataStack.mainQueueContext
+                let context = presenter!.store.coreDataStack.mainQueueContext
                 let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context)
                 newTag.setValue(tagName, forKey: "name")
                 do {
-                    try self.store.coreDataStack.saveChanges()
+                    try presenter!.store.coreDataStack.saveChanges()
                 } catch let error {
                     print("Core Data save failure: \(error)")
                 }
@@ -63,18 +54,7 @@ extension TagsView: TagsViewProtocol {
         alertController.addAction(okAction)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func updateTags() {
-        let tags = try! store.fetchMainQueueTags(predicate: nil, sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)])
-        self.tags = tags
-        for tag in photo.tags {
-            if let index = self.tags.index(of:tag) {
-                let indexPath = NSIndexPath(row: index, section: 0)
-                selectedIndexPaths.append(indexPath)
-            }
-        }
+        present(alertController, animated: true, completion: nil) */
     }
 }
 
@@ -83,24 +63,24 @@ extension TagsView: UITableViewDelegate, UITableViewDataSource {
     // Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tag = self.tags[indexPath.row]
-        if let index = selectedIndexPaths.index(of:indexPath as NSIndexPath) {
-            selectedIndexPaths.remove(at: index)
-            photo.removeTagObject(tag: tag)
+        let tag = presenter!.tags[indexPath.row]
+        if let index = presenter!.selectedIndexPaths.index(of:indexPath as NSIndexPath) {
+            presenter!.selectedIndexPaths.remove(at: index)
+            presenter!.photo.removeTagObject(tag: tag)
         } else {
-            selectedIndexPaths.append(indexPath as NSIndexPath)
-            photo.addTagObject(tag: tag)
+            presenter!.selectedIndexPaths.append(indexPath as NSIndexPath)
+            presenter!.photo.addTagObject(tag: tag)
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
         do {
-            try store.coreDataStack.saveChanges()
+            try presenter!.interactor!.store.coreDataStack.saveChanges()
         } catch let error {
             print("Core Data save failed: \(error)")
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if selectedIndexPaths.index(of:indexPath as NSIndexPath) != nil {
+        if presenter?.selectedIndexPaths.index(of:indexPath as NSIndexPath) != nil {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -110,12 +90,12 @@ extension TagsView: UITableViewDelegate, UITableViewDataSource {
     // DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tags.count
+        return presenter!.getTagsAmount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")
-        let tag = tags[indexPath.row]
+        let tag = presenter!.getTagByIndex(index: indexPath)
         let name = tag.value(forKey: "name") as! String
         cell?.textLabel?.text = name
         return cell!

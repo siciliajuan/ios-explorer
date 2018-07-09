@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 // View
@@ -15,24 +16,32 @@ protocol TagsViewProtocol {
     
     func done(sender: AnyObject)
     func addNewTag(sender: AnyObject)
-    func updateTags()
 }
 
 // Presenter
 protocol TagsPresenterProtocol {
     var view: TagsViewProtocol? { get set }
-    var wireFrame: TagsWireFrameProtocol? { get set }
+    var route: TagsWireFrameProtocol? { get set }
     var interactor: TagsInteractorProtocol? { get set }
     
+    var photo: Photo! { get set }
+    var selectedIndexPaths: [NSIndexPath] { get set }
+    var tags: [NSManagedObject] { get set }
+    
     func viewDidLoad()
+    func updateTags()
+    func dismissTags()
+    func getTagByIndex(index: IndexPath) -> NSManagedObject
+    func getTagsAmount() -> Int
 }
 
 // Router
 protocol TagsWireFrameProtocol {
     static func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
+    func dismissTags(from: UIViewController)
 }
 
 // Interactor
 protocol TagsInteractorProtocol {
-    
+    var store: PhotoStore! { get set }
 }

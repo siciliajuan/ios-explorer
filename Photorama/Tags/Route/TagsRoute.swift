@@ -9,7 +9,7 @@
 import UIKit
 
 class TagsRoute: TagsWireFrameProtocol {
- 
+    
     class func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "TagsNavigationController")
@@ -17,11 +17,19 @@ class TagsRoute: TagsWireFrameProtocol {
             return UIViewController()
         }
         var presenter: TagsPresenterProtocol = TagsPresenter()
-        let wireFrame: TagsWireFrameProtocol = TagsRoute()
+        let route: TagsWireFrameProtocol = TagsRoute()
         var interactor: TagsInteractorProtocol = TagsInteractor()
-        view.photo = photo
-        view.store = photoStore
+        interactor.store = photoStore
+        presenter.interactor = interactor
+        presenter.photo = photo
+        presenter.route = route
+        presenter.view = view
+        view.presenter = presenter
         return navController
+    }
+    
+    func dismissTags(from view: UIViewController) {
+        view.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     static var mainStoryboard: UIStoryboard {

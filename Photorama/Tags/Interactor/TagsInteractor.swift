@@ -10,4 +10,6 @@ import Foundation
 
 class TagsInteractor: TagsInteractorProtocol {
     
+    var store: PhotoStore!
+    
 }
