@@ -25,7 +25,7 @@ extension PhotoInfoView: PhotoInfoViewProtocol {
     @IBAction func showTags() {
         // this should call the router
         let navController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TagsNavigationController") as! UINavigationController
-        let tagController = navController.topViewController as! TagsViewController
+        let tagController = navController.topViewController as! TagsView
         tagController.store = presenter?.interactor?.store
         tagController.photo = presenter?.photo
         present(navController, animated: true)
