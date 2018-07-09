@@ -26,6 +26,11 @@
 		F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */; };
 		F6913F5C20F2A667000A0630 /* PhotoInfoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5B20F2A667000A0630 /* PhotoInfoRoute.swift */; };
 		F6913F5F20F3D5CA000A0630 /* PhotoInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5E20F3D5CA000A0630 /* PhotoInfoInteractor.swift */; };
+		F6913F6620F3FCBA000A0630 /* TagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6520F3FCBA000A0630 /* TagsInteractor.swift */; };
+		F6913F6820F3FCCF000A0630 /* TagsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6720F3FCCF000A0630 /* TagsPresenter.swift */; };
+		F6913F6A20F3FCDD000A0630 /* TagsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6920F3FCDD000A0630 /* TagsProtocols.swift */; };
+		F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6B20F3FCEC000A0630 /* TagsView.swift */; };
+		F6913F6E20F3FCFF000A0630 /* TagsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6D20F3FCFF000A0630 /* TagsRoute.swift */; };
 		F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */; };
 		F6B5931D1F24EBC200B4D139 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */; };
 		F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */; };
@@ -53,6 +58,11 @@
 		F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoProtocols.swift; sourceTree = "<group>"; };
 		F6913F5B20F2A667000A0630 /* PhotoInfoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRoute.swift; sourceTree = "<group>"; };
 		F6913F5E20F3D5CA000A0630 /* PhotoInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoInteractor.swift; sourceTree = "<group>"; };
+		F6913F6520F3FCBA000A0630 /* TagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInteractor.swift; sourceTree = "<group>"; };
+		F6913F6720F3FCCF000A0630 /* TagsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPresenter.swift; sourceTree = "<group>"; };
+		F6913F6920F3FCDD000A0630 /* TagsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsProtocols.swift; sourceTree = "<group>"; };
+		F6913F6B20F3FCEC000A0630 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		F6913F6D20F3FCFF000A0630 /* TagsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRoute.swift; sourceTree = "<group>"; };
 		F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -138,7 +148,11 @@
 		F6913F3820F209FE000A0630 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
-				F6913F3B20F20A48000A0630 /* DataManager */,
+				F6913F6420F3F8B3000A0630 /* Interactor */,
+				F6913F6320F3F8AC000A0630 /* Presenter */,
+				F6913F6220F3F8A5000A0630 /* Protocols */,
+				F6913F6120F3F899000A0630 /* View */,
+				F6913F6020F3F892000A0630 /* Route */,
 				F69061AF1F27D95700864C40 /* TagsViewController.swift */,
 				F69061B11F27DA5300864C40 /* TagsDataSource.swift */,
 			);
@@ -152,13 +166,6 @@
 				F64C09871F2161060020A548 /* PhotoStore.swift */,
 				F63C45D320F0C77000248D36 /* ImageStore.swift */,
 				F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */,
-			);
-			path = DataManager;
-			sourceTree = "<group>";
-		};
-		F6913F3B20F20A48000A0630 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -199,6 +206,46 @@
 			isa = PBXGroup;
 			children = (
 				F6913F5E20F3D5CA000A0630 /* PhotoInfoInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F6913F6020F3F892000A0630 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F6D20F3FCFF000A0630 /* TagsRoute.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		F6913F6120F3F899000A0630 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F6B20F3FCEC000A0630 /* TagsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6913F6220F3F8A5000A0630 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F6920F3FCDD000A0630 /* TagsProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F6913F6320F3F8AC000A0630 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F6720F3FCCF000A0630 /* TagsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F6913F6420F3F8B3000A0630 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F6913F6520F3FCBA000A0630 /* TagsInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -281,6 +328,7 @@
 				F6913F5F20F3D5CA000A0630 /* PhotoInfoInteractor.swift in Sources */,
 				F64C09881F2161060020A548 /* PhotoStore.swift in Sources */,
 				F679E5211F239B9400BAC2C2 /* PhotoDataSource.swift in Sources */,
+				F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */,
 				F60A65961F23A5D3007F581B /* PhotoCollectionViewCell.swift in Sources */,
 				F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */,
 				F69061B01F27D95700864C40 /* TagsViewController.swift in Sources */,
@@ -289,8 +337,12 @@
 				F63C45D420F0C77100248D36 /* ImageStore.swift in Sources */,
 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,
+				F6913F6E20F3FCFF000A0630 /* TagsRoute.swift in Sources */,
+				F6913F6820F3FCCF000A0630 /* TagsPresenter.swift in Sources */,
 				F60A65981F2407F4007F581B /* PhotoInfoView.swift in Sources */,
 				F6B5931D1F24EBC200B4D139 /* Photo+CoreDataProperties.swift in Sources */,
+				F6913F6A20F3FCDD000A0630 /* TagsProtocols.swift in Sources */,
+				F6913F6620F3FCBA000A0630 /* TagsInteractor.swift in Sources */,
 				F64C09721F2155320020A548 /* AppDelegate.swift in Sources */,
 				F6913F5C20F2A667000A0630 /* PhotoInfoRoute.swift in Sources */,
 			);

@@ -18,20 +18,18 @@ class PhotoInfoView: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
     }
-    
-    
-    // this should go in the wireframe
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "ShowTags" {
-            let navController = segue.destination as! UINavigationController
-            let tagController = navController.topViewController as! TagsViewController
-            tagController.store = presenter?.interactor?.store
-            tagController.photo = presenter?.photo
-        }
-    }
 }
 
 extension PhotoInfoView: PhotoInfoViewProtocol {
+    
+    @IBAction func showTags() {
+        // this should call the router
+        let navController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TagsNavigationController") as! UINavigationController
+        let tagController = navController.topViewController as! TagsViewController
+        tagController.store = presenter?.interactor?.store
+        tagController.photo = presenter?.photo
+        present(navController, animated: true)
+    }
     
     func showPhotoInfo(forPhoto title: String, forImage image: UIImage) {
         navigationItem.title = title

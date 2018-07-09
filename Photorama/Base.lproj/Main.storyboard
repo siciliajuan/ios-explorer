@@ -100,7 +100,7 @@
                                 <items>
                                     <barButtonItem title="Tags" id="L6f-jL-H6Z">
                                         <connections>
-                                            <segue destination="4KY-Du-U0l" kind="show" identifier="ShowTags" id="mKG-Tx-p9Y"/>
+                                            <action selector="showTags" destination="H4e-c7-cBm" id="7qm-oA-7P4"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -177,7 +177,7 @@
         <!--Navigation Controller-->
         <scene sceneID="rHl-St-1Z9">
             <objects>
-                <navigationController id="4KY-Du-U0l" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TagsNavigationController" id="4KY-Du-U0l" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7ew-nT-i4I">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

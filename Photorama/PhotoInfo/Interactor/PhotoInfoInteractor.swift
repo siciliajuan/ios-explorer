@@ -12,8 +12,6 @@ class PhotoInfoInteractor: PhotoInfoInteractorProtocol {
     
     var store: PhotoStore?
     
-    var photo: Photo?
-    
     func getPhotoImage(forPhoto photo: Photo) -> UIImage? {
         var returnImage: UIImage?
         store!.fetchImageForPhoto(photo: photo) {

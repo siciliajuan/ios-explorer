@@ -12,6 +12,7 @@ import UIKit
 // View protocols
 protocol PhotoInfoViewProtocol {
     var presenter: PhotoInfoPresenterProtocol? { get set }
+    func showTags()
     func showPhotoInfo(forPhoto title: String, forImage image: UIImage)
 }
 
