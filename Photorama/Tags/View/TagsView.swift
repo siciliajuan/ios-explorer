@@ -15,17 +15,16 @@ class TagsView: UIViewController {
     var store: PhotoStore!
     var photo: Photo!
     var selectedIndexPaths = [NSIndexPath]()
+    var tags: [NSManagedObject] = []
     
     
     @IBOutlet var tableView: UITableView!
     
     var presenter: TagsPresenterProtocol?
     
-    let tagDataSource = TagsDataSource()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = tagDataSource
+        tableView.dataSource = self
         tableView.delegate = self
         updateTags()
         presenter?.viewDidLoad()
@@ -34,13 +33,6 @@ class TagsView: UIViewController {
 }
 
 extension TagsView: TagsViewProtocol {
-    
-}
-
-extension TagsView: UITableViewDelegate {
-
-    
-    
     
     @IBAction func done(sender: AnyObject) {
         presentingViewController?.dismiss(animated: true, completion: nil)
@@ -76,17 +68,22 @@ extension TagsView: UITableViewDelegate {
     
     func updateTags() {
         let tags = try! store.fetchMainQueueTags(predicate: nil, sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)])
-        tagDataSource.tags = tags
+        self.tags = tags
         for tag in photo.tags {
-            if let index = tagDataSource.tags.index(of:tag) {
+            if let index = self.tags.index(of:tag) {
                 let indexPath = NSIndexPath(row: index, section: 0)
                 selectedIndexPaths.append(indexPath)
             }
         }
     }
+}
+
+extension TagsView: UITableViewDelegate, UITableViewDataSource {
+
+    // Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tag = tagDataSource.tags[indexPath.row]
+        let tag = self.tags[indexPath.row]
         if let index = selectedIndexPaths.index(of:indexPath as NSIndexPath) {
             selectedIndexPaths.remove(at: index)
             photo.removeTagObject(tag: tag)
@@ -109,6 +106,19 @@ extension TagsView: UITableViewDelegate {
             cell.accessoryType = .none
         }
     }
-
+    
+    // DataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tags.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")
+        let tag = tags[indexPath.row]
+        let name = tag.value(forKey: "name") as! String
+        cell?.textLabel?.text = name
+        return cell!
+    }
 }
 

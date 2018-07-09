@@ -16,8 +16,12 @@ class TagsRoute: TagsWireFrameProtocol {
         guard let view = navController.childViewControllers.first as? TagsView else {
             return UIViewController()
         }
-        
-        return UIViewController()
+        var presenter: TagsPresenterProtocol = TagsPresenter()
+        let wireFrame: TagsWireFrameProtocol = TagsRoute()
+        var interactor: TagsInteractorProtocol = TagsInteractor()
+        view.photo = photo
+        view.store = photoStore
+        return navController
     }
     
     static var mainStoryboard: UIStoryboard {

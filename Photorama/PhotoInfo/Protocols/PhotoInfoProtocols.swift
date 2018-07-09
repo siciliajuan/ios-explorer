@@ -20,16 +20,18 @@ protocol PhotoInfoViewProtocol {
 // Presenter protocols
 protocol PhotoInfoPresenterProtocol {
     var view: PhotoInfoViewProtocol? { get set }
-    var wireFrame: PhotoInfoWireFrameProtocol? { get set }
+    var route: PhotoInfoWireFrameProtocol? { get set }
     var interactor: PhotoInfoInteractorProtocol? { get set }
     var photo: Photo? { get set }
     
     func viewDidLoad()
+    func showTags()
 }
 
 // Router protocols
 protocol PhotoInfoWireFrameProtocol {
     static func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
+    func presentTags(from: UIViewController, photo: Photo, store: PhotoStore)
 }
 
 // Interactor protocols

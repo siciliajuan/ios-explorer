@@ -12,6 +12,10 @@ import UIKit
 // View
 protocol TagsViewProtocol {
     var presenter: TagsPresenterProtocol? { get set }
+    
+    func done(sender: AnyObject)
+    func addNewTag(sender: AnyObject)
+    func updateTags()
 }
 
 // Presenter

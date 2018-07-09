@@ -8,6 +8,6 @@
 
 import Foundation
 
-class TagsIterator: TagsInteractorProtocol {
+class TagsInteractor: TagsInteractorProtocol {
     
 }
