@@ -18,15 +18,16 @@ class PhotoInfoRoute: PhotoInfoWireFrameProtocol {
         guard let view = viewController as? PhotoInfoView else {
             return UIViewController()
         }
-        var presenter: PhotoInfoPresenterProtocol = PhotoInfoPresenter()
+        var presenter: PhotoInfoPresenterProtocol & PhotoInfoInteractorOutputProtocol = PhotoInfoPresenter()
         let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoRoute()
-        var interactor: PhotoInfoInteractorProtocol = PhotoInfoInteractor()
+        var interactor: PhotoInfoInteractorInputProtocol = PhotoInfoInteractor()
         interactor.store = photoStore
         presenter.view = view
-        presenter.photo = photo
         presenter.interactor = interactor
         presenter.route = wireFrame
+        interactor.presenter = presenter
         view.presenter = presenter
+        view.photo = photo
         return view
     }
     

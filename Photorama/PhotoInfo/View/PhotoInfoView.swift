@@ -12,18 +12,20 @@ class PhotoInfoView: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     
+    var photo: Photo?
+    
     var presenter: PhotoInfoPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        presenter?.viewDidLoad(photo!)
     }
 }
 
 extension PhotoInfoView: PhotoInfoViewProtocol {
     
     @IBAction func showTags() {
-        presenter?.showTags()
+        presenter?.showTags(photo!)
     }
     
     func showPhotoInfo(forPhoto title: String, forImage image: UIImage) {
