@@ -30,7 +30,7 @@ class PhotoInfoRoute: PhotoInfoWireFrameProtocol {
         return view
     }
     
-    func presentTags(from view: UIViewController, photo: Photo, store: PhotoStore) {
+    func presentTags(from view: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore) {
         let tagsViewController = TagsRoute.createTagsModule(forPhoto: photo, forPhotoStore: store)
         
         if let sourceView = view as? UIViewController {

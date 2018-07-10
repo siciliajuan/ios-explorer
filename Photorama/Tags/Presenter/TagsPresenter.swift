@@ -13,36 +13,25 @@ class TagsPresenter: TagsPresenterProtocol {
     
     var view: TagsViewProtocol?
     var route: TagsWireFrameProtocol?
-    var interactor: TagsInteractorProtocol?
-    
-    var photo: Photo!
-    var selectedIndexPaths = [NSIndexPath]()
-    var tags: [NSManagedObject] = []
+    var interactor: TagsInteractorInputProtocol?
     
     func viewDidLoad() {
-        updateTags()
-    }
-    
-    func updateTags() {
-        let tags = try! interactor!.store.fetchMainQueueTags(predicate: nil, sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)])
-        self.tags = tags
-        for tag in photo.tags {
-            if let index = tags.index(of:tag) {
-                let indexPath = NSIndexPath(row: index, section: 0)
-                selectedIndexPaths.append(indexPath)
-            }
-        }
-    }
-    
-    func getTagByIndex(index: IndexPath) -> NSManagedObject {
-        return tags[index.row]
-    }
-    
-    func getTagsAmount() -> Int {
-        return tags.count
+        interactor?.retrieveTags()
     }
     
     func dismissTags() {
-        route?.dismissTags(from: view! as! UIViewController)
+        route?.dismissTags(from: view!)
     }
+    
+    func commitPersistentData() {
+        interactor?.saveChanges()
+    }
+}
+
+extension TagsPresenter: TagsInteractorOutputProtocol {
+    
+    func didRetrievedTags(_ tags: [NSManagedObject]) {
+        view?.setTags(tags)
+    }
+    
 }

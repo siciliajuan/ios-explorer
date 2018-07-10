@@ -11,25 +11,27 @@ import UIKit
 class TagsRoute: TagsWireFrameProtocol {
     
     class func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
-        
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "TagsNavigationController")
         guard let view = navController.childViewControllers.first as? TagsView else {
             return UIViewController()
         }
-        var presenter: TagsPresenterProtocol = TagsPresenter()
+        var presenter: TagsPresenterProtocol & TagsInteractorOutputProtocol = TagsPresenter()
         let route: TagsWireFrameProtocol = TagsRoute()
-        var interactor: TagsInteractorProtocol = TagsInteractor()
+        var interactor: TagsInteractorInputProtocol = TagsInteractor()
         interactor.store = photoStore
         presenter.interactor = interactor
-        presenter.photo = photo
         presenter.route = route
         presenter.view = view
+        interactor.presenter = presenter
         view.presenter = presenter
+        view.photo = photo
         return navController
     }
     
-    func dismissTags(from view: UIViewController) {
-        view.presentingViewController?.dismiss(animated: true, completion: nil)
+    func dismissTags(from view: TagsViewProtocol) {
+        if let sourceView = view as? UIViewController {
+            sourceView.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     static var mainStoryboard: UIStoryboard {

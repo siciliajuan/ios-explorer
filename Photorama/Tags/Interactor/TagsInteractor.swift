@@ -7,9 +7,23 @@
 //
 
 import Foundation
+import CoreData
 
-class TagsInteractor: TagsInteractorProtocol {
+class TagsInteractor: TagsInteractorInputProtocol {
+    
+    var presenter: TagsInteractorOutputProtocol?
     
     var store: PhotoStore!
     
+    func retrieveTags() {
+        presenter?.didRetrievedTags(try! store.fetchMainQueueTags(predicate: nil, sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]))
+    }
+    
+    func saveChanges() {
+        do {
+            try store.coreDataStack.saveChanges()
+        } catch let error {
+            print("Core Data save failed: \(error)")
+        }
+    }
 }

@@ -21,6 +21,6 @@ class PhotoInfoPresenter: PhotoInfoPresenterProtocol {
     }
     
     func showTags() {
-        route?.presentTags(from: view! as! UIViewController, photo: photo!, store: interactor!.store!)
+        route?.presentTags(from: view!, photo: photo!, store: interactor!.store!)
     }
 }

@@ -10,38 +10,46 @@ import UIKit
 import CoreData
 
 
-// View
+// presenter -> view
 protocol TagsViewProtocol {
     var presenter: TagsPresenterProtocol? { get set }
     
-    func done(sender: AnyObject)
-    func addNewTag(sender: AnyObject)
+    var photo: Photo! { get set }
+    var tags: [NSManagedObject] { get set }
+    var selectedIndexPaths: [NSIndexPath] { get set }
+    
+    func setTags(_ tags: [NSManagedObject])
 }
 
-// Presenter
+// view -> presenter
 protocol TagsPresenterProtocol {
     var view: TagsViewProtocol? { get set }
     var route: TagsWireFrameProtocol? { get set }
-    var interactor: TagsInteractorProtocol? { get set }
-    
-    var photo: Photo! { get set }
-    var selectedIndexPaths: [NSIndexPath] { get set }
-    var tags: [NSManagedObject] { get set }
+    var interactor: TagsInteractorInputProtocol? { get set }
     
     func viewDidLoad()
-    func updateTags()
     func dismissTags()
-    func getTagByIndex(index: IndexPath) -> NSManagedObject
-    func getTagsAmount() -> Int
+    func commitPersistentData()
 }
 
-// Router
+// presenter -> router
 protocol TagsWireFrameProtocol {
     static func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
-    func dismissTags(from: UIViewController)
+    func dismissTags(from: TagsViewProtocol)
 }
 
-// Interactor
-protocol TagsInteractorProtocol {
+// presenter -> interactor
+protocol TagsInteractorInputProtocol {
+    var presenter: TagsInteractorOutputProtocol? { get set }
+    
     var store: PhotoStore! { get set }
+    
+    func retrieveTags()
+    func saveChanges()
+}
+
+
+// interactor -> presenter
+protocol TagsInteractorOutputProtocol {
+    func didRetrievedTags(_ tags: [NSManagedObject])
 }
