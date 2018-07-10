@@ -24,8 +24,6 @@ class PhotosRoute: PhotosWireFrameProtocol {
         presenter.view = view
         interactor.presenter = presenter
         view.presenter = presenter
-        // remove this
-        view.store = store
         return navController
     }
     
@@ -33,7 +31,7 @@ class PhotosRoute: PhotosWireFrameProtocol {
         let PhotoInfoViewController = PhotoInfoRoute.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store)
         
         if let sourceView = view as? UIViewController {
-            sourceView.present(PhotoInfoViewController, animated: true)
+            sourceView.navigationController?.pushViewController(PhotoInfoViewController, animated: true)
         }
     }
     

@@ -26,7 +26,7 @@ protocol PhotoInfoPresenterProtocol {
     var interactor: PhotoInfoInteractorInputProtocol? { get set }
     
     func viewDidLoad(_ photo: Photo?)
-    func showTags(_ photo: Photo?)
+    func goToTagsView(_ photo: Photo?)
 }
 
 // presenter -> route

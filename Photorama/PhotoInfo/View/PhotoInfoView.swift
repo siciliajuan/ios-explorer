@@ -25,7 +25,7 @@ class PhotoInfoView: UIViewController {
 extension PhotoInfoView: PhotoInfoViewProtocol {
     
     @IBAction func showTags() {
-        presenter?.showTags(photo!)
+        presenter?.goToTagsView(photo!)
     }
     
     func showPhotoInfo(forPhoto title: String, forImage image: UIImage) {

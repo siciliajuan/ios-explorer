@@ -20,7 +20,7 @@ class PhotoInfoPresenter: PhotoInfoPresenterProtocol {
         
     }
     
-    func showTags(_ photo: Photo?) {
+    func goToTagsView(_ photo: Photo?) {
         route?.presentTags(from: view!, photo: photo!, store: interactor!.store!)
     }
 }
