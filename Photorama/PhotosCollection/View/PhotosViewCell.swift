@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoCollectionViewCell: UICollectionViewCell {
+class PhotosViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!

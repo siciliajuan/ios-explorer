@@ -33,6 +33,7 @@ protocol TagsPresenterProtocol {
 }
 
 // presenter -> router
+// other route -> route
 protocol TagsWireFrameProtocol {
     static func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
     func dismissTags(from: TagsViewProtocol)
