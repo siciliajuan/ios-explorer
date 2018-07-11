@@ -17,17 +17,18 @@ class PhotosViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        prepareNib()
+        prepareCell()
     }
  
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        prepareNib()
+        prepareCell()
     }
     
-    func prepareNib() {
+    func prepareCell() {
         Bundle.main.loadNibNamed("PhotosViewCell", owner: self, options: nil)
         self.backgroundView = self.view
+        updateWithImage(image: nil)
     }
     
     func updateWithImage(image: UIImage?) {
