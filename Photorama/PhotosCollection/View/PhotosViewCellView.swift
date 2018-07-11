@@ -8,11 +8,18 @@
 
 import UIKit
 
-class PhotosViewCell: UICollectionViewCell {
+class PhotosViewCellView: UICollectionViewCell {
+    
+    @IBOutlet var view: UIView!
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
-    
+ 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        Bundle.main.loadNibNamed("PhotosViewCellView", owner: self, options: nil)
+        self.backgroundView = self.view
+    }
     func updateWithImage(image: UIImage?) {
         if let imageToDisplay = image {
             spinner.stopAnimating()

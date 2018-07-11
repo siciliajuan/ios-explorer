@@ -34,7 +34,7 @@ extension PhotosView: PhotosViewProtocol {
     func updateImageForPhoto (_ photo: Photo) {
         let photoIndex = self.photos.index(of: photo)!
         let photoIndexPath = NSIndexPath(row: photoIndex, section: 0)
-        if let cell = self.collectionView.cellForItem(at: photoIndexPath as IndexPath) as? PhotosViewCell {
+        if let cell = self.collectionView.cellForItem(at: photoIndexPath as IndexPath) as? PhotosViewCellView {
             cell.updateWithImage(image: photo.image)
         }
     }
@@ -63,7 +63,7 @@ extension PhotosView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = "UICollectionViewCell"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PhotosViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PhotosViewCellView
         return cell
     }
 }
