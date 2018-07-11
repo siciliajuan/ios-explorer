@@ -20,14 +20,14 @@
 		F6913F4A20F215D9000A0630 /* PhotosJsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */; };
 		F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */; };
 		F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */; };
-		F6913F5C20F2A667000A0630 /* PhotoInfoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5B20F2A667000A0630 /* PhotoInfoRoute.swift */; };
+		F6913F5C20F2A667000A0630 /* PhotoInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */; };
 		F6913F5F20F3D5CA000A0630 /* PhotoInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5E20F3D5CA000A0630 /* PhotoInfoInteractor.swift */; };
 		F6913F6620F3FCBA000A0630 /* TagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6520F3FCBA000A0630 /* TagsInteractor.swift */; };
 		F6913F6820F3FCCF000A0630 /* TagsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6720F3FCCF000A0630 /* TagsPresenter.swift */; };
 		F6913F6A20F3FCDD000A0630 /* TagsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6920F3FCDD000A0630 /* TagsProtocols.swift */; };
 		F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6B20F3FCEC000A0630 /* TagsView.swift */; };
-		F6913F6E20F3FCFF000A0630 /* TagsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6D20F3FCFF000A0630 /* TagsRoute.swift */; };
-		F6913F7520F55DAA000A0630 /* PhotosRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F7420F55DAA000A0630 /* PhotosRoute.swift */; };
+		F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F6D20F3FCFF000A0630 /* TagsRouter.swift */; };
+		F6913F7520F55DAA000A0630 /* PhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F7420F55DAA000A0630 /* PhotosRouter.swift */; };
 		F6913F7720F55DB7000A0630 /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F7620F55DB7000A0630 /* PhotosView.swift */; };
 		F6913F7920F55DC2000A0630 /* PhotosProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F7820F55DC2000A0630 /* PhotosProtocols.swift */; };
 		F6913F7B20F55DCF000A0630 /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F7A20F55DCF000A0630 /* PhotosPresenter.swift */; };
@@ -53,14 +53,14 @@
 		F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosJsonHelper.swift; sourceTree = "<group>"; };
 		F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenter.swift; sourceTree = "<group>"; };
 		F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoProtocols.swift; sourceTree = "<group>"; };
-		F6913F5B20F2A667000A0630 /* PhotoInfoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRoute.swift; sourceTree = "<group>"; };
+		F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouter.swift; sourceTree = "<group>"; };
 		F6913F5E20F3D5CA000A0630 /* PhotoInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoInteractor.swift; sourceTree = "<group>"; };
 		F6913F6520F3FCBA000A0630 /* TagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInteractor.swift; sourceTree = "<group>"; };
 		F6913F6720F3FCCF000A0630 /* TagsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPresenter.swift; sourceTree = "<group>"; };
 		F6913F6920F3FCDD000A0630 /* TagsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsProtocols.swift; sourceTree = "<group>"; };
 		F6913F6B20F3FCEC000A0630 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
-		F6913F6D20F3FCFF000A0630 /* TagsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRoute.swift; sourceTree = "<group>"; };
-		F6913F7420F55DAA000A0630 /* PhotosRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRoute.swift; sourceTree = "<group>"; };
+		F6913F6D20F3FCFF000A0630 /* TagsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRouter.swift; sourceTree = "<group>"; };
+		F6913F7420F55DAA000A0630 /* PhotosRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouter.swift; sourceTree = "<group>"; };
 		F6913F7620F55DB7000A0630 /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
 		F6913F7820F55DC2000A0630 /* PhotosProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosProtocols.swift; sourceTree = "<group>"; };
 		F6913F7A20F55DCF000A0630 /* PhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenter.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				F6913F7020F55AD4000A0630 /* Presenter */,
 				F6913F7120F55ADB000A0630 /* Protocol */,
 				F6913F7220F55AE1000A0630 /* View */,
-				F6913F7320F55AE7000A0630 /* Route */,
+				F6913F7320F55AE7000A0630 /* Router */,
 			);
 			path = PhotosCollection;
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 				F6913F5320F220F8000A0630 /* Presenter */,
 				F6913F5620F221CA000A0630 /* Protocols */,
 				F6913F5A20F227F9000A0630 /* View */,
-				F6913F5920F227EE000A0630 /* route */,
+				F6913F5920F227EE000A0630 /* router */,
 			);
 			path = PhotoInfo;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 				F6913F6320F3F8AC000A0630 /* Presenter */,
 				F6913F6220F3F8A5000A0630 /* Protocols */,
 				F6913F6120F3F899000A0630 /* View */,
-				F6913F6020F3F892000A0630 /* Route */,
+				F6913F6020F3F892000A0630 /* Router */,
 			);
 			path = Tags;
 			sourceTree = "<group>";
@@ -188,12 +188,12 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		F6913F5920F227EE000A0630 /* route */ = {
+		F6913F5920F227EE000A0630 /* router */ = {
 			isa = PBXGroup;
 			children = (
-				F6913F5B20F2A667000A0630 /* PhotoInfoRoute.swift */,
+				F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */,
 			);
-			path = route;
+			path = router;
 			sourceTree = "<group>";
 		};
 		F6913F5A20F227F9000A0630 /* View */ = {
@@ -212,12 +212,12 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		F6913F6020F3F892000A0630 /* Route */ = {
+		F6913F6020F3F892000A0630 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				F6913F6D20F3FCFF000A0630 /* TagsRoute.swift */,
+				F6913F6D20F3FCFF000A0630 /* TagsRouter.swift */,
 			);
-			path = Route;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		F6913F6120F3F899000A0630 /* View */ = {
@@ -285,12 +285,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F6913F7320F55AE7000A0630 /* Route */ = {
+		F6913F7320F55AE7000A0630 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				F6913F7420F55DAA000A0630 /* PhotosRoute.swift */,
+				F6913F7420F55DAA000A0630 /* PhotosRouter.swift */,
 			);
-			path = Route;
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +369,7 @@
 				F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */,
 				F6913F7B20F55DCF000A0630 /* PhotosPresenter.swift in Sources */,
 				F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */,
-				F6913F7520F55DAA000A0630 /* PhotosRoute.swift in Sources */,
+				F6913F7520F55DAA000A0630 /* PhotosRouter.swift in Sources */,
 				F6913F5F20F3D5CA000A0630 /* PhotoInfoInteractor.swift in Sources */,
 				F64C09881F2161060020A548 /* PhotoStore.swift in Sources */,
 				F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */,
@@ -380,7 +380,7 @@
 				F63C45D420F0C77100248D36 /* ImageStore.swift in Sources */,
 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,
-				F6913F6E20F3FCFF000A0630 /* TagsRoute.swift in Sources */,
+				F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */,
 				F6913F6820F3FCCF000A0630 /* TagsPresenter.swift in Sources */,
 				F60A65981F2407F4007F581B /* PhotoInfoView.swift in Sources */,
 				F6B5931D1F24EBC200B4D139 /* Photo+CoreDataProperties.swift in Sources */,
@@ -388,7 +388,7 @@
 				F6913F6620F3FCBA000A0630 /* TagsInteractor.swift in Sources */,
 				F6913F7D20F55DDB000A0630 /* PhotosInteractor.swift in Sources */,
 				F64C09721F2155320020A548 /* AppDelegate.swift in Sources */,
-				F6913F5C20F2A667000A0630 /* PhotoInfoRoute.swift in Sources */,
+				F6913F5C20F2A667000A0630 /* PhotoInfoRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

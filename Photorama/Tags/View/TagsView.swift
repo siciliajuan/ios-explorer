@@ -32,7 +32,6 @@ class TagsView: UIViewController {
     }
     
     @IBAction func addNewTag(sender: AnyObject) {
-        /*
         let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
         alertController.addTextField(){
             (texField) -> Void in
@@ -42,15 +41,8 @@ class TagsView: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action) -> Void in
             if let tagName = alertController.textFields?.first!.text {
-                let context = presenter!.store.coreDataStack.mainQueueContext
-                let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context)
-                newTag.setValue(tagName, forKey: "name")
-                do {
-                    try presenter!.store.coreDataStack.saveChanges()
-                } catch let error {
-                    print("Core Data save failure: \(error)")
-                }
-                self.updateTags()
+                self.presenter?.saveTag(tagName)
+                self.presenter?.updateTags()
                 self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
             }
         })
@@ -58,7 +50,6 @@ class TagsView: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
- */
     }
     
     func updateTags() {

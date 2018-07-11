@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosRoute: PhotosWireFrameProtocol {
+class PhotosRouter: PhotosWireFrameProtocol {
     
     class func createPhotosModule(forPhotoStore store: PhotoStore) -> UIViewController {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "PhotosController")
@@ -16,7 +16,7 @@ class PhotosRoute: PhotosWireFrameProtocol {
             return UIViewController()
         }
         var presenter: PhotosPresenterProtocol & PhotosInteractorOutputProtocol = PhotosPresenter()
-        let route: PhotosWireFrameProtocol = PhotosRoute()
+        let route: PhotosWireFrameProtocol = PhotosRouter()
         var interactor: PhotosInteractorInputProtocol = PhotosInteractor()
         interactor.store = store
         presenter.interactor = interactor
@@ -28,7 +28,7 @@ class PhotosRoute: PhotosWireFrameProtocol {
     }
     
     func presentPhotoInfo(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore) {
-        let PhotoInfoViewController = PhotoInfoRoute.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store)
+        let PhotoInfoViewController = PhotoInfoRouter.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store)
         
         if let sourceView = view as? UIViewController {
             sourceView.navigationController?.pushViewController(PhotoInfoViewController, animated: true)

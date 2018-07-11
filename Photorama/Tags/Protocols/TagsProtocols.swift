@@ -29,6 +29,8 @@ protocol TagsPresenterProtocol {
     
     func viewDidLoad()
     func dismissTags()
+    func updateTags()
+    func saveTag(_ tagName: String)
     func commitPersistentData()
 }
 
@@ -46,6 +48,7 @@ protocol TagsInteractorInputProtocol {
     var store: PhotoStore! { get set }
     
     func retrieveTags()
+    func saveTag(_ tagName: String)
     func saveChanges()
 }
 

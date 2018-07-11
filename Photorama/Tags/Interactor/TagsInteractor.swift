@@ -19,6 +19,13 @@ class TagsInteractor: TagsInteractorInputProtocol {
         presenter?.didRetrievedTags(try! store.fetchMainQueueTags(predicate: nil, sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]))
     }
     
+    func saveTag(_ tagName: String) {
+        let context = store!.coreDataStack.mainQueueContext
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context)
+        newTag.setValue(tagName, forKey: "name")
+        saveChanges()
+    }
+    
     func saveChanges() {
         do {
             try store.coreDataStack.saveChanges()

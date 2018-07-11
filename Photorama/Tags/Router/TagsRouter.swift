@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagsRoute: TagsWireFrameProtocol {
+class TagsRouter: TagsWireFrameProtocol {
     
     class func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "TagsNavigationController")
@@ -16,7 +16,7 @@ class TagsRoute: TagsWireFrameProtocol {
             return UIViewController()
         }
         var presenter: TagsPresenterProtocol & TagsInteractorOutputProtocol = TagsPresenter()
-        let route: TagsWireFrameProtocol = TagsRoute()
+        let route: TagsWireFrameProtocol = TagsRouter()
         var interactor: TagsInteractorInputProtocol = TagsInteractor()
         interactor.store = photoStore
         presenter.interactor = interactor

@@ -23,6 +23,14 @@ class TagsPresenter: TagsPresenterProtocol {
         route?.dismissTags(from: view!)
     }
     
+    func updateTags() {
+        interactor?.retrieveTags()
+    }
+    
+    func saveTag(_ tagName: String) {
+        interactor?.saveTag(tagName)
+    }
+    
     func commitPersistentData() {
         interactor?.saveChanges()
     }

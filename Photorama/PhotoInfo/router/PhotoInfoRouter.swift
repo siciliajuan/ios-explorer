@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class PhotoInfoRoute: PhotoInfoWireFrameProtocol {
+class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     
     // separate en constructor and navigator
     class func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
@@ -19,7 +19,7 @@ class PhotoInfoRoute: PhotoInfoWireFrameProtocol {
             return UIViewController()
         }
         var presenter: PhotoInfoPresenterProtocol & PhotoInfoInteractorOutputProtocol = PhotoInfoPresenter()
-        let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoRoute()
+        let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoRouter()
         var interactor: PhotoInfoInteractorInputProtocol = PhotoInfoInteractor()
         interactor.store = photoStore
         presenter.view = view
@@ -32,7 +32,7 @@ class PhotoInfoRoute: PhotoInfoWireFrameProtocol {
     }
     
     func presentTags(from view: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore) {
-        let tagsViewController = TagsRoute.createTagsModule(forPhoto: photo, forPhotoStore: store)
+        let tagsViewController = TagsRouter.createTagsModule(forPhoto: photo, forPhotoStore: store)
         
         if let sourceView = view as? UIViewController {
             sourceView.present(tagsViewController, animated: true)

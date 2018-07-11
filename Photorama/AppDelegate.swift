@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let photosViewController = rootViewController.topViewController as! PhotosView
         photosViewController.store = PhotoStore()
  */
-        window!.rootViewController = PhotosRoute.createPhotosModule(forPhotoStore: PhotoStore())
+        window!.rootViewController = PhotosRouter.createPhotosModule(forPhotoStore: PhotoStore())
         return true
     }
 
