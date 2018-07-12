@@ -14,12 +14,15 @@ class PhotosView: UIViewController {
     
     var presenter: PhotosPresenterProtocol?
     
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var contentView: PhotosCollectionView!
+    
+    var collectionView: UICollectionView!
     
     var photos = [Photo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView = contentView!.collection
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(PhotosViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
