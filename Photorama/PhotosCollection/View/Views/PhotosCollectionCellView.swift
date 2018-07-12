@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewCell: UICollectionViewCell {
+class PhotosCollectionCellView: UICollectionViewCell {
     
     @IBOutlet var view: UIView!
     
@@ -26,7 +26,7 @@ class PhotosViewCell: UICollectionViewCell {
     }
     
     func prepareCell() {
-        Bundle.main.loadNibNamed("PhotosViewCell", owner: self, options: nil)
+        Bundle.main.loadNibNamed("PhotosCollectionCellView", owner: self, options: nil)
         self.backgroundView = self.view
         updateWithImage(image: nil)
     }
