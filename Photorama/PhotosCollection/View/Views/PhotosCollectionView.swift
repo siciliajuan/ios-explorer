@@ -19,7 +19,7 @@ class PhotosCollectionView: UIView {
     init(frame: CGRect, view: PhotosView) {
         super.init(frame: frame)
         self.view = view
-        prepareCollection()
+        prepare()
         collection.delegate = self
         collection.dataSource = self
         collection.register(PhotosCollectionCellView.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -27,10 +27,10 @@ class PhotosCollectionView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        prepareCollection()
+        prepare()
     }
     
-    func prepareCollection() {
+    func prepare() {
         Bundle.main.loadNibNamed("PhotosCollectionView", owner: self, options: nil)
         /*
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -39,6 +39,11 @@ class PhotosCollectionView: UIView {
         collection.collectionViewLayout = layout
          */
         self.addSubview(self.collection)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.collection.frame = self.bounds
     }
 }
 
