@@ -11,20 +11,22 @@ import CoreData
 
 class TagsView: UIViewController {
     
-    @IBOutlet var tableView: UITableView!
+    var contentView: TagsViewMainViewInputProtocol?
     
     var presenter: TagsPresenterProtocol?
     
     var photo: Photo!
-    var tags: [NSManagedObject] = []
-    var selectedIndexPaths = [NSIndexPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
+        prepareContentView()
         presenter?.viewDidLoad()
         updateTags()
+    }
+    
+    func prepareContentView() {
+        contentView = TagsViewMainView(frame: self.view.frame, view: self, photo: photo)
+        self.view.addSubview(contentView as! UIView)
     }
     
     @IBAction func done(sender: AnyObject) {
@@ -43,7 +45,7 @@ class TagsView: UIViewController {
             if let tagName = alertController.textFields?.first!.text {
                 self.presenter?.saveTag(tagName)
                 self.presenter?.updateTags()
-                self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
+                self.contentView?.reloadSections()
             }
         })
         alertController.addAction(okAction)
@@ -53,59 +55,29 @@ class TagsView: UIViewController {
     }
     
     func updateTags() {
-        for tag in photo.tags {
-            if let index = tags.index(of:tag) {
-                let indexPath = NSIndexPath(row: index, section: 0)
-                selectedIndexPaths.append(indexPath)
-            }
-        }
+        contentView?.updateTags()
     }
 }
 
 extension TagsView: TagsViewProtocol {
     
     func setTags(_ tags: [NSManagedObject]) {
-        self.tags = tags
+        contentView?.setTags(tags)
     }
 }
 
-extension TagsView: UITableViewDelegate, UITableViewDataSource {
-
-    // Delegate
+extension TagsView: TagsViewMainViewOutputProtocol {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tag = tags[indexPath.row]
-        if let index = selectedIndexPaths.index(of:indexPath as NSIndexPath) {
-            selectedIndexPaths.remove(at: index)
-            photo.removeTagObject(tag: tag)
-        } else {
-            selectedIndexPaths.append(indexPath as NSIndexPath)
-            photo.addTagObject(tag: tag)
-        }
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+    func removePhotoTag(_ tag: NSManagedObject) {
+        photo.removeTagObject(tag: tag)
+    }
+    
+    func addPhotoTag(_ tag: NSManagedObject) {
+        photo.addTagObject(tag: tag)
+    }
+    
+    func commitPersistentData() {
         presenter?.commitPersistentData()
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if selectedIndexPaths.index(of:indexPath as NSIndexPath) != nil {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-    }
-    
-    // DataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tags.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")
-        let tag = tags[indexPath.row]
-        let name = tag.value(forKey: "name") as! String
-        cell?.textLabel?.text = name
-        return cell!
     }
 }
 

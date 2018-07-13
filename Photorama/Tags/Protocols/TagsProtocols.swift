@@ -15,8 +15,6 @@ protocol TagsViewProtocol {
     var presenter: TagsPresenterProtocol? { get set }
     
     var photo: Photo! { get set }
-    var tags: [NSManagedObject] { get set }
-    var selectedIndexPaths: [NSIndexPath] { get set }
     
     func setTags(_ tags: [NSManagedObject])
 }
