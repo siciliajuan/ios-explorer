@@ -16,15 +16,9 @@
 		F64C097C1F2155320020A548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64C097A1F2155320020A548 /* LaunchScreen.storyboard */; };
 		F64C09861F215B1B0020A548 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09851F215B1B0020A548 /* FlickrAPI.swift */; };
 		F64C09881F2161060020A548 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09871F2161060020A548 /* PhotoStore.swift */; };
-		F654530E20F6D787003CF1F7 /* PhotosCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654530D20F6D787003CF1F7 /* PhotosCollectionView.xib */; };
-		F654531020F6D833003CF1F7 /* PhotosCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654530F20F6D833003CF1F7 /* PhotosCollectionView.swift */; };
-		F654531920F7EC60003CF1F7 /* PhotosViewsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654531820F7EC60003CF1F7 /* PhotosViewsProtocols.swift */; };
+		F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654530D20F6D787003CF1F7 /* PhotosMainView.xib */; };
 		F654532120F7FC40003CF1F7 /* PhotoInfoMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */; };
-		F654532320F7FC4D003CF1F7 /* PhotoInfoMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654532220F7FC4D003CF1F7 /* PhotoInfoMainView.swift */; };
-		F654532D20F819BD003CF1F7 /* PhotoInfoViewsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654532C20F819BD003CF1F7 /* PhotoInfoViewsProtocol.swift */; };
-		F654533520F81A88003CF1F7 /* TagsViewMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654533320F81A88003CF1F7 /* TagsViewMainView.swift */; };
-		F654533620F81A88003CF1F7 /* TagsViewMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654533420F81A88003CF1F7 /* TagsViewMainView.xib */; };
-		F654533D20F81AED003CF1F7 /* TagsViewsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654533C20F81AED003CF1F7 /* TagsViewsProtocol.swift */; };
+		F654533620F81A88003CF1F7 /* TagsMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654533420F81A88003CF1F7 /* TagsMainView.xib */; };
 		F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */; };
 		F6913F4A20F215D9000A0630 /* PhotosJsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */; };
 		F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */; };
@@ -59,15 +53,9 @@
 		F64C097D1F2155320020A548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F64C09851F215B1B0020A548 /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		F64C09871F2161060020A548 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
-		F654530D20F6D787003CF1F7 /* PhotosCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionView.xib; sourceTree = "<group>"; };
-		F654530F20F6D833003CF1F7 /* PhotosCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionView.swift; sourceTree = "<group>"; };
-		F654531820F7EC60003CF1F7 /* PhotosViewsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewsProtocols.swift; sourceTree = "<group>"; };
+		F654530D20F6D787003CF1F7 /* PhotosMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosMainView.xib; sourceTree = "<group>"; };
 		F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoMainView.xib; sourceTree = "<group>"; };
-		F654532220F7FC4D003CF1F7 /* PhotoInfoMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoMainView.swift; sourceTree = "<group>"; };
-		F654532C20F819BD003CF1F7 /* PhotoInfoViewsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewsProtocol.swift; sourceTree = "<group>"; };
-		F654533320F81A88003CF1F7 /* TagsViewMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsViewMainView.swift; path = Photorama/Tags/View/Views/TagsViewMainView.swift; sourceTree = SOURCE_ROOT; };
-		F654533420F81A88003CF1F7 /* TagsViewMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagsViewMainView.xib; path = Photorama/Tags/View/Views/TagsViewMainView.xib; sourceTree = SOURCE_ROOT; };
-		F654533C20F81AED003CF1F7 /* TagsViewsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsViewsProtocol.swift; path = Photorama/Tags/View/Protocol/TagsViewsProtocol.swift; sourceTree = SOURCE_ROOT; };
+		F654533420F81A88003CF1F7 /* TagsMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagsMainView.xib; path = Photorama/Tags/View/TagsMainView.xib; sourceTree = SOURCE_ROOT; };
 		F6586D8E1F24E21D003ED305 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
 		F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosJsonHelper.swift; sourceTree = "<group>"; };
 		F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenter.swift; sourceTree = "<group>"; };
@@ -160,61 +148,6 @@
 			path = Photorama;
 			sourceTree = "<group>";
 		};
-		F654530C20F6D226003CF1F7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F654530F20F6D833003CF1F7 /* PhotosCollectionView.swift */,
-				F654530D20F6D787003CF1F7 /* PhotosCollectionView.xib */,
-				F60A65951F23A5D3007F581B /* PhotosCollectionCellView.swift */,
-				F6913F8E20F6A9E1000A0630 /* PhotosCollectionCellView.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		F654531320F7EB0A003CF1F7 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				F654531820F7EC60003CF1F7 /* PhotosViewsProtocols.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		F654531C20F7FBD3003CF1F7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F654532220F7FC4D003CF1F7 /* PhotoInfoMainView.swift */,
-				F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		F654531D20F7FBDE003CF1F7 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				F654532C20F819BD003CF1F7 /* PhotoInfoViewsProtocol.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		F654532E20F81A2D003CF1F7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F654533320F81A88003CF1F7 /* TagsViewMainView.swift */,
-				F654533420F81A88003CF1F7 /* TagsViewMainView.xib */,
-			);
-			name = Views;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		F654533B20F81AA2003CF1F7 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				F654533C20F81AED003CF1F7 /* TagsViewsProtocol.swift */,
-			);
-			name = Protocol;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		F6913F3720F209C3000A0630 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,9 +207,8 @@
 		F6913F5A20F227F9000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F654531D20F7FBDE003CF1F7 /* Protocol */,
-				F654531C20F7FBD3003CF1F7 /* Views */,
 				F60A65971F2407F4007F581B /* PhotoInfoView.swift */,
+				F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,9 +232,8 @@
 		F6913F6120F3F899000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F654533B20F81AA2003CF1F7 /* Protocol */,
-				F654532E20F81A2D003CF1F7 /* Views */,
 				F6913F6B20F3FCEC000A0630 /* TagsView.swift */,
+				F654533420F81A88003CF1F7 /* TagsMainView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,9 +289,10 @@
 		F6913F7220F55AE1000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F654531320F7EB0A003CF1F7 /* Protocol */,
-				F654530C20F6D226003CF1F7 /* Views */,
 				F6913F7620F55DB7000A0630 /* PhotosView.swift */,
+				F654530D20F6D787003CF1F7 /* PhotosMainView.xib */,
+				F60A65951F23A5D3007F581B /* PhotosCollectionCellView.swift */,
+				F6913F8E20F6A9E1000A0630 /* PhotosCollectionCellView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,8 +368,8 @@
 				F64C09791F2155320020A548 /* Assets.xcassets in Resources */,
 				F64C09771F2155320020A548 /* Main.storyboard in Resources */,
 				F6913F8F20F6A9E1000A0630 /* PhotosCollectionCellView.xib in Resources */,
-				F654530E20F6D787003CF1F7 /* PhotosCollectionView.xib in Resources */,
-				F654533620F81A88003CF1F7 /* TagsViewMainView.xib in Resources */,
+				F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */,
+				F654533620F81A88003CF1F7 /* TagsMainView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,14 +381,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6913F7720F55DB7000A0630 /* PhotosView.swift in Sources */,
-				F654533520F81A88003CF1F7 /* TagsViewMainView.swift in Sources */,
-				F654533D20F81AED003CF1F7 /* TagsViewsProtocol.swift in Sources */,
-				F654531920F7EC60003CF1F7 /* PhotosViewsProtocols.swift in Sources */,
 				F64C09861F215B1B0020A548 /* FlickrAPI.swift in Sources */,
 				F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */,
 				F6913F7B20F55DCF000A0630 /* PhotosPresenter.swift in Sources */,
 				F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */,
-				F654532D20F819BD003CF1F7 /* PhotoInfoViewsProtocol.swift in Sources */,
 				F6913F7520F55DAA000A0630 /* PhotosRouter.swift in Sources */,
 				F6913F5F20F3D5CA000A0630 /* PhotoInfoInteractor.swift in Sources */,
 				F64C09881F2161060020A548 /* PhotoStore.swift in Sources */,
@@ -465,8 +393,6 @@
 				F6913F7920F55DC2000A0630 /* PhotosProtocols.swift in Sources */,
 				F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */,
 				F6913F4A20F215D9000A0630 /* PhotosJsonHelper.swift in Sources */,
-				F654532320F7FC4D003CF1F7 /* PhotoInfoMainView.swift in Sources */,
-				F654531020F6D833003CF1F7 /* PhotosCollectionView.swift in Sources */,
 				F63C45D420F0C77100248D36 /* ImageStore.swift in Sources */,
 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,

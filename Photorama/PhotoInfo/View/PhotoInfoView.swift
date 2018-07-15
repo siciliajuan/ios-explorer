@@ -10,7 +10,14 @@ import UIKit
 
 class PhotoInfoView: UIViewController {
     
-    var contentView: PhotoInfoMainViewInputProtocol?
+    
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var contentView: UIView!
+    
+    @IBAction func showTags() {
+        presenter?.goToTagsView(photo)
+    }
+    
     
     var photo: Photo?
     
@@ -23,8 +30,9 @@ class PhotoInfoView: UIViewController {
     }
     
     func prepareContentView() {
-        contentView = PhotoInfoMainView(frame: self.view.frame, view: self)
-        self.view.addSubview(contentView as! UIView)
+        Bundle.main.loadNibNamed("PhotoInfoMainView", owner: self, options: nil)
+        contentView.frame = self.view.bounds
+        self.view.addSubview(contentView)
     }
 }
 
@@ -32,12 +40,6 @@ extension PhotoInfoView: PhotoInfoViewProtocol {
     
     func showPhotoInfo(forPhoto title: String, forImage image: UIImage) {
         navigationItem.title = title
-        contentView?.setPhotoImage(image)
-    }
-}
-
-extension PhotoInfoView: PhotoInfoMainViewOutputProtocol {
-    func showTags() {
-        presenter?.goToTagsView(photo!)
+        imageView.image = image
     }
 }
