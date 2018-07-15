@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageStore: NSObject {
+class ImageStore {
     
     
     let cache = NSCache<AnyObject, AnyObject>()
@@ -42,7 +42,7 @@ class ImageStore: NSObject {
             return existingImage
         }
         let imageURL = imageURLForKey(key)
-        guard let imageFromDisk = UIImage(contentsOfFile: imageURL.path!) else {
+        guard let imageFromDisk = UIImage(contentsOfFile: imageURL.path) else {
             return nil
         }
         cache.setObject(imageFromDisk, forKey: key as AnyObject)
@@ -56,7 +56,7 @@ class ImageStore: NSObject {
         cache.removeObject(forKey: key as AnyObject)
         let imageURL = imageURLForKey(key)
         do {
-            try FileManager.default.removeItem(at: imageURL as URL)
+            try FileManager.default.removeItem(at: imageURL)
         } catch {
             print("Error removing the image from disk: \(error)")
         }
@@ -66,9 +66,9 @@ class ImageStore: NSObject {
      Prepares an filesystem URL using the image NSUUID where the image
      should be stored.
     */
-    func imageURLForKey(_ key: String) -> NSURL {
+    func imageURLForKey(_ key: String) -> URL {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
-        return documentDirectory.appendingPathComponent(key) as NSURL
+        return documentDirectory.appendingPathComponent(key)
     }
 }

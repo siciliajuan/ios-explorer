@@ -31,10 +31,10 @@ class PhotoStore {
     
     func fetchRecentPhotos(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.recentPhotosURL()
-        let request = NSURLRequest(url: url as URL)
-        let task = session.dataTask(with: request as URLRequest) {
+        let request = URLRequest(url: url as URL)
+        let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
-            var result = self.processRecentPhotosRequest(data: data! as NSData, error: error)
+            var result = self.processRecentPhotosRequest(data: data, error: error)
             if case let .Success(photos) = result {
                 let privateQueueContext = self.coreDataStack.privateQueueContext
                 privateQueueContext.performAndWait(){
@@ -56,7 +56,7 @@ class PhotoStore {
         task.resume()
     }
     
-    func processRecentPhotosRequest(data: NSData?, error: Error?) -> PhotosResult {
+    func processRecentPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
         guard let jsonData = data else {
             return .Failure(error!)
         }
@@ -79,7 +79,7 @@ class PhotoStore {
         let request = NSURLRequest(url: photoURL as URL)
         let task = session.dataTask(with: request as URLRequest) {
             (data, response, error) -> Void in
-            let result = self.processImageRequest(data: data! as NSData, error: error)
+            let result = self.processImageRequest(data: data!, error: error)
             if case let .Success(image) = result {
                 photo.image = image
                 self.imageStore.setImage(image: image, forKey: photoKey)
@@ -89,10 +89,10 @@ class PhotoStore {
         task.resume()
     }
     
-    func processImageRequest(data: NSData?, error: Error?) -> ImageResult {
+    func processImageRequest(data: Data?, error: Error?) -> ImageResult {
         guard
             let imageData = data,
-            let image = UIImage(data: imageData as Data) else {
+            let image = UIImage(data: imageData) else {
                 if data == nil {
                     return .Failure(error!)
                 } else {

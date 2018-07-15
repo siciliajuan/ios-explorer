@@ -17,9 +17,10 @@ public class Photo: NSManagedObject {
         super.awakeFromInsert()
         title = ""
         photoID = ""
-        remoteURL = NSURL()
-        photoKey = NSUUID().uuidString
-        dateTaken = NSDate()
+        // not need it
+        // remoteURL = URL()
+        photoKey = UUID().uuidString
+        dateTaken = Date()
     }
     
     func addTagObject(tag: NSManagedObject) {

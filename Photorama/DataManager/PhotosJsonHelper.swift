@@ -35,9 +35,9 @@ struct PhotosJsonHelper {
         return formatter
     }()
     
-    static func photosFromJSONData(data: NSData, inContext context: NSManagedObjectContext) -> PhotosResult {
+    static func photosFromJSONData(data: Data, inContext context: NSManagedObjectContext) -> PhotosResult {
         do {
-            let jsonObject = try JSONSerialization.jsonObject(with: data as Data, options: [])
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             guard
                 let jsonDictionary = jsonObject as? [String: Any],
                 let photos = jsonDictionary["photos"] as? [String: AnyObject],
@@ -65,7 +65,7 @@ struct PhotosJsonHelper {
             let title = json["title"] as? String,
             let dateString = json["datetaken"] as? String,
             let photoURLString = json["url_h"] as? String,
-            let url = NSURL(string: photoURLString),
+            let url = URL(string: photoURLString),
             let dateTaken = dateFormatter.date(from: dateString) else {
                 return nil
         }
@@ -85,7 +85,7 @@ struct PhotosJsonHelper {
             photo.title = title
             photo.photoID = photoID
             photo.remoteURL = url
-            photo.dateTaken = dateTaken as NSDate
+            photo.dateTaken = dateTaken
         }
         return photo
     }

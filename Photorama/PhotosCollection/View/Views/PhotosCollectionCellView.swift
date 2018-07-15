@@ -10,7 +10,7 @@ import UIKit
 
 class PhotosCollectionCellView: UICollectionViewCell {
     
-    @IBOutlet var view: UIView!
+    @IBOutlet var view: UICollectionViewCell!
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
@@ -49,5 +49,10 @@ class PhotosCollectionCellView: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         updateWithImage(image: nil)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.view.frame = self.bounds
     }
 }

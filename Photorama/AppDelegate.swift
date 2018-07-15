@@ -15,12 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Sets photosViewController store as a PhotoStore
-        /*
-        let rootViewController = window!.rootViewController as! UINavigationController
-        let photosViewController = rootViewController.topViewController as! PhotosView
-        photosViewController.store = PhotoStore()
- */
         window!.rootViewController = PhotosRouter.createPhotosModule(forPhotoStore: PhotoStore())
         return true
     }
