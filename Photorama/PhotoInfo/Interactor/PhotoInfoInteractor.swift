@@ -10,12 +10,12 @@ import UIKit
 
 class PhotoInfoInteractor: PhotoInfoInteractorInputProtocol {
     
-    var presenter: PhotoInfoInteractorOutputProtocol?
+    var presenter: PhotoInfoInteractorOutputProtocol!
     
-    var store: PhotoStore?
+    var store: PhotoStore!
     
     func retrievePhotoImage(forPhoto photo: Photo){
-        store!.fetchImageForPhoto(photo: photo) {
+        store.fetchImageForPhoto(photo: photo) {
             (result) -> Void in
             switch result {
             case let .Success(image):
@@ -24,7 +24,7 @@ class PhotoInfoInteractor: PhotoInfoInteractorInputProtocol {
                 print("Error fetching image for photo: \(error)")
             }
         }
-        presenter?.didRetrievePhotoImage(photo)
+        presenter.didRetrievePhotoImage(photo)
     }
     
 }

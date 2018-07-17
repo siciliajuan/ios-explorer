@@ -11,23 +11,23 @@ import UIKit
 class PhotoInfoPresenter: PhotoInfoPresenterProtocol {
     
     
-    var view: PhotoInfoViewProtocol?
-    var route: PhotoInfoWireFrameProtocol?
-    var interactor: PhotoInfoInteractorInputProtocol?
+    var view: PhotoInfoViewProtocol!
+    var route: PhotoInfoWireFrameProtocol!
+    var interactor: PhotoInfoInteractorInputProtocol!
     
     func viewDidLoad(_ photo: Photo?) {
-        interactor?.retrievePhotoImage(forPhoto: photo!)
+        interactor.retrievePhotoImage(forPhoto: photo!)
         
     }
     
     func goToTagsView(_ photo: Photo?) {
-        route?.presentTags(from: view!, photo: photo!, store: interactor!.store!)
+        route.presentTags(from: view!, photo: photo!, store: interactor!.store!)
     }
 }
 
 extension PhotoInfoPresenter: PhotoInfoInteractorOutputProtocol {
     
     func didRetrievePhotoImage(_ photo: Photo) {
-        view?.showPhotoInfo(forPhoto: photo.title, forImage: photo.image!)
+        view.showPhotoInfo(forPhoto: photo.title, forImage: photo.image!)
     }
 }

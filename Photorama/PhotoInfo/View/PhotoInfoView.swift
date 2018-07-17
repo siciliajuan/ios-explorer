@@ -10,23 +10,21 @@ import UIKit
 
 class PhotoInfoView: UIViewController {
     
+    var presenter: PhotoInfoPresenterProtocol!
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var contentView: UIView!
     
     @IBAction func showTags() {
-        presenter?.goToTagsView(photo)
+        presenter.goToTagsView(photo)
     }
     
-    
-    var photo: Photo?
-    
-    var presenter: PhotoInfoPresenterProtocol?
+    var photo: Photo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareContentView()
-        presenter?.viewDidLoad(photo!)
+        presenter.viewDidLoad(photo!)
     }
     
     func prepareContentView() {

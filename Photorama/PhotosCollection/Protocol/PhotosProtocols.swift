@@ -10,7 +10,7 @@ import Foundation
 
 // presenter -> view
 protocol PhotosViewProtocol {
-    var presenter: PhotosPresenterProtocol? { get set }
+    var presenter: PhotosPresenterProtocol! { get set }
     
     func setPhotos(_ photos: [Photo])
     func updateImageForPhoto (_ photo: Photo)
@@ -18,9 +18,9 @@ protocol PhotosViewProtocol {
 
 // view -> presenter
 protocol PhotosPresenterProtocol {
-    var view: PhotosViewProtocol? { get set }
-    var route: PhotosWireFrameProtocol? { get set }
-    var interactor: PhotosInteractorInputProtocol? { get set }
+    var view: PhotosViewProtocol! { get set }
+    var route: PhotosWireFrameProtocol! { get set }
+    var interactor: PhotosInteractorInputProtocol! { get set }
     
     func viewDidLoad()
     func goToPhotoInfoView(_ photo: Photo)

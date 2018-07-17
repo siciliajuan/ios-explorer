@@ -10,31 +10,31 @@ import Foundation
 
 class PhotosPresenter: PhotosPresenterProtocol {
     
-    var view: PhotosViewProtocol?
-    var route: PhotosWireFrameProtocol?
-    var interactor: PhotosInteractorInputProtocol?
+    var view: PhotosViewProtocol!
+    var route: PhotosWireFrameProtocol!
+    var interactor: PhotosInteractorInputProtocol!
     
     func viewDidLoad() {
-        interactor?.fetchRecentPhotos()
+        interactor.fetchRecentPhotos()
     }
     
     func goToPhotoInfoView(_ photo: Photo) {
-        route?.presentPhotoInfo(from: view!, photo: photo, store: interactor!.store!)
+        route.presentPhotoInfo(from: view!, photo: photo, store: interactor.store!)
     }
     
     func getPhotoForCell(_ photo: Photo) {
-        interactor?.fetchImageForPhoto(photo)
+        interactor.fetchImageForPhoto(photo)
     }
 }
 
 extension PhotosPresenter: PhotosInteractorOutputProtocol {
     
     func didRetrievePhotos(_ photos: [Photo]) {
-        view?.setPhotos(photos)
+        view.setPhotos(photos)
     }
     
     func didUpdateImageForPhoto (_ photo: Photo) {
-        view?.updateImageForPhoto(photo)
+        view.updateImageForPhoto(photo)
     }
     
 }

@@ -11,9 +11,9 @@ import UIKit
 
 // presenter -> view
 protocol PhotoInfoViewProtocol {
-    var photo: Photo? { get set }
+    var photo: Photo! { get set }
     
-    var presenter: PhotoInfoPresenterProtocol? { get set }
+    var presenter: PhotoInfoPresenterProtocol! { get set }
     func showTags()
     func showPhotoInfo(forPhoto title: String, forImage image: UIImage)
 }
@@ -21,9 +21,9 @@ protocol PhotoInfoViewProtocol {
 
 // view -> presenter
 protocol PhotoInfoPresenterProtocol {
-    var view: PhotoInfoViewProtocol? { get set }
-    var route: PhotoInfoWireFrameProtocol? { get set }
-    var interactor: PhotoInfoInteractorInputProtocol? { get set }
+    var view: PhotoInfoViewProtocol! { get set }
+    var route: PhotoInfoWireFrameProtocol! { get set }
+    var interactor: PhotoInfoInteractorInputProtocol! { get set }
     
     func viewDidLoad(_ photo: Photo?)
     func goToTagsView(_ photo: Photo?)
@@ -38,8 +38,8 @@ protocol PhotoInfoWireFrameProtocol {
 
 // presenter -> interactor
 protocol PhotoInfoInteractorInputProtocol {
-    var presenter: PhotoInfoInteractorOutputProtocol? { get set }
-    var store: PhotoStore? { get set }
+    var presenter: PhotoInfoInteractorOutputProtocol! { get set }
+    var store: PhotoStore! { get set }
     
     func retrievePhotoImage(forPhoto photo: Photo)
 }

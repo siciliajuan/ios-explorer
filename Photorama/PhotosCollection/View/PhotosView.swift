@@ -10,7 +10,7 @@ import UIKit
 
 class PhotosView: UIViewController {
     
-    var presenter: PhotosPresenterProtocol?
+    var presenter: PhotosPresenterProtocol!
     
     @IBOutlet var collection: UICollectionView!
     
@@ -20,7 +20,7 @@ class PhotosView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareContentView()
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
     func prepareContentView() {
@@ -33,11 +33,11 @@ class PhotosView: UIViewController {
     }
     
     func getPhotoForCell(_ photo: Photo) {
-        presenter?.getPhotoForCell(photo)
+        presenter.getPhotoForCell(photo)
     }
     
     func goToPhotoInfoView(_ photo: Photo) {
-        presenter?.goToPhotoInfoView(photo)
+        presenter.goToPhotoInfoView(photo)
     }
 }
 
