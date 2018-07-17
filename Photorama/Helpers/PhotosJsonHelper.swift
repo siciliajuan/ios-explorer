@@ -29,12 +29,6 @@ enum FlickrError: Error {
 
 struct PhotosJsonHelper {
     
-    private static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return formatter
-    }()
-    
     static func photosFromJSONData(data: Data, inContext context: NSManagedObjectContext) -> PhotosResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
@@ -66,7 +60,7 @@ struct PhotosJsonHelper {
             let dateString = json["datetaken"] as? String,
             let photoURLString = json["url_h"] as? String,
             let url = URL(string: photoURLString),
-            let dateTaken = dateFormatter.date(from: dateString) else {
+            let dateTaken = DateHelper.dateFormatter.date(from: dateString) else {
                 return nil
         }
         

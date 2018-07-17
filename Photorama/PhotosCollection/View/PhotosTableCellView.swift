@@ -8,25 +8,36 @@
 
 import UIKit
 
-class PhotosCollectionCellView: UICollectionViewCell {
+class PhotosTableCellView: UITableViewCell {
     
-    @IBOutlet var view: UICollectionViewCell!
+    @IBOutlet var view: UITableViewCell!
     
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var customImageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var labelTitle: UILabel!
+    @IBOutlet var labelDate: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    var photo: Photo! {
+        didSet {
+            labelDate.text = DateHelper.dateFormatter.string(from: photo.dateTaken)
+            labelTitle.text = photo.title
+        }
+    }
+    
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         prepare()
     }
- 
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         prepare()
     }
     
     func prepare() {
-        Bundle.main.loadNibNamed("PhotosCollectionCellView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("PhotosTableCellView", owner: self, options: nil)
+        self.selectionStyle = .none
         self.backgroundView = self.view
         updateWithImage(image: nil)
     }
@@ -34,10 +45,10 @@ class PhotosCollectionCellView: UICollectionViewCell {
     func updateWithImage(image: UIImage?) {
         if let imageToDisplay = image {
             spinner.stopAnimating()
-            imageView.image = imageToDisplay
+            customImageView.image = imageToDisplay
         } else {
             spinner.startAnimating()
-            imageView.image = nil
+            customImageView.image = nil
         }
     }
     

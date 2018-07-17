@@ -12,7 +12,7 @@ class PhotosView: UIViewController {
     
     var presenter: PhotosPresenterProtocol!
     
-    @IBOutlet var collection: UICollectionView!
+    @IBOutlet var table: UITableView!
     
     let cellIdentifier = "UICollectionViewCell"
     var photos = [Photo]()
@@ -25,19 +25,11 @@ class PhotosView: UIViewController {
     
     func prepareContentView() {
         Bundle.main.loadNibNamed("PhotosMainView", owner: self, options: nil)
-        self.collection.frame = self.view.bounds
-        collection.delegate = self
-        collection.dataSource = self
-        collection.register(PhotosCollectionCellView.self, forCellWithReuseIdentifier: cellIdentifier)
-        self.view.addSubview(collection)
-    }
-    
-    func getPhotoForCell(_ photo: Photo) {
-        presenter.getPhotoForCell(photo)
-    }
-    
-    func goToPhotoInfoView(_ photo: Photo) {
-        presenter.goToPhotoInfoView(photo)
+        self.table.frame = self.view.bounds
+        table.delegate = self
+        table.dataSource = self
+        table.register(PhotosTableCellView.self, forCellReuseIdentifier: cellIdentifier)
+        self.view.addSubview(table)
     }
 }
 
@@ -45,40 +37,42 @@ extension PhotosView: PhotosViewProtocol {
     
     func setPhotos(_ photos: [Photo]) {
         self.photos = photos
-        collection.reloadSections(NSIndexSet(index: 0) as IndexSet)
+        table.reloadData()
     }
     
     func updateImageForPhoto (_ photo: Photo) {
         let photoIndex = self.photos.index(of: photo)!
         let photoIndexPath = NSIndexPath(row: photoIndex, section: 0)
-        if let cell = collection.cellForItem(at: photoIndexPath as IndexPath) as? PhotosCollectionCellView {
+        if let cell = table.cellForRow(at: photoIndexPath as IndexPath) as? PhotosTableCellView {
             cell.updateWithImage(image: photo.image)
         }
     }
 }
 
-extension PhotosView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PhotosView: UITableViewDelegate, UITableViewDataSource {
+    
     
     // Delegate
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
-        getPhotoForCell(photo)
+        presenter.getPhotoForCell(photo)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ UITableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
-        goToPhotoInfoView(photo)
+        presenter.goToPhotoInfoView(photo)
     }
     
     // DataSource
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photos.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PhotosCollectionCellView
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PhotosTableCellView
+        cell.photo = photos[indexPath.row]
         return cell
     }
 }
