@@ -69,6 +69,8 @@ struct PhotosJsonHelper {
             let dateTaken = dateFormatter.date(from: dateString) else {
                 return nil
         }
+        
+        // remove to correct data
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
         let predicate = NSPredicate(format: "photoID == \(photoID)")
         fetchRequest.predicate = predicate
@@ -87,6 +89,7 @@ struct PhotosJsonHelper {
             photo.remoteURL = url
             photo.dateTaken = dateTaken
         }
+        //-----
         return photo
     }
 }

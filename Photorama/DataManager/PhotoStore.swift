@@ -22,7 +22,8 @@ class PhotoStore {
     
     let coreDataStack = CoreDataStack(modelName: "Photorama")
     
-    let imageStore = ImageStore()
+    let imageRepository = ImageRepository()
+    let tagsRepository = TagsRepository()
     
     let session: URLSession = {
         let config = URLSessionConfiguration.default
@@ -70,7 +71,8 @@ class PhotoStore {
      */
     func fetchImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
         let photoKey = photo.photoKey
-        if let image = imageStore.imageForKey(key: photoKey) {
+        // aqui la dependencia con
+        if let image = imageRepository.getImageByKey(key: photoKey) {
             photo.image = image
             completion(.Success(image))
             return
@@ -82,7 +84,7 @@ class PhotoStore {
             let result = self.processImageRequest(data: data!, error: error)
             if case let .Success(image) = result {
                 photo.image = image
-                self.imageStore.setImage(image: image, forKey: photoKey)
+                self.imageRepository.setImage(image: image, forKey: photoKey)
             }
             completion(result)
         }
@@ -128,22 +130,6 @@ class PhotoStore {
     
     
     func fetchMainQueueTags(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
-        fetchRequest.sortDescriptors = sortDescriptors
-        fetchRequest.predicate = predicate
-        let mainQueueContext = self.coreDataStack.mainQueueContext
-        var mainQueueTags: [NSManagedObject]?
-        var fetchRequestError: Error?
-        mainQueueContext.performAndWait() {
-            do {
-                mainQueueTags = try mainQueueContext.fetch(fetchRequest) as? [NSManagedObject]
-            } catch let error {
-                fetchRequestError = error
-            }
-        }
-        guard let tags = mainQueueTags else {
-            throw fetchRequestError!
-        }
-        return tags
+        return try tagsRepository.retrieveTagsBySortDescriptor(sortDescriptors)
     }
 }

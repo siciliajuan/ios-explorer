@@ -1,0 +1,368 @@
+diff --git a/Photorama.xcodeproj/project.pbxproj b/Photorama.xcodeproj/project.pbxproj
+index a3329f8..809cf78 100644
+--- a/Photorama.xcodeproj/project.pbxproj
++++ b/Photorama.xcodeproj/project.pbxproj
+@@ -9,7 +9,7 @@
+ /* Begin PBXBuildFile section */
+ 		F60A65961F23A5D3007F581B /* PhotosCollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A65951F23A5D3007F581B /* PhotosCollectionCellView.swift */; };
+ 		F60A65981F2407F4007F581B /* PhotoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A65971F2407F4007F581B /* PhotoInfoView.swift */; };
+-		F63C45D420F0C77100248D36 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C45D320F0C77000248D36 /* ImageStore.swift */; };
++		F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C45D320F0C77000248D36 /* ImageRepository.swift */; };
+ 		F64C09721F2155320020A548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09711F2155320020A548 /* AppDelegate.swift */; };
+ 		F64C09771F2155320020A548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64C09751F2155320020A548 /* Main.storyboard */; };
+ 		F64C09791F2155320020A548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F64C09781F2155320020A548 /* Assets.xcassets */; };
+@@ -19,6 +19,12 @@
+ 		F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654530D20F6D787003CF1F7 /* PhotosMainView.xib */; };
+ 		F654532120F7FC40003CF1F7 /* PhotoInfoMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */; };
+ 		F654533620F81A88003CF1F7 /* TagsMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654533420F81A88003CF1F7 /* TagsMainView.xib */; };
++		F654534120FD36DD003CF1F7 /* ImageCacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654534020FD36DD003CF1F7 /* ImageCacheData.swift */; };
++		F654534320FD37B8003CF1F7 /* ImageFileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654534220FD37B8003CF1F7 /* ImageFileData.swift */; };
++		F654534520FD37CC003CF1F7 /* ImageRepositoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654534420FD37CC003CF1F7 /* ImageRepositoryProtocols.swift */; };
++		F654535120FD42BB003CF1F7 /* TagsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535020FD42BB003CF1F7 /* TagsRepository.swift */; };
++		F654535320FD42E9003CF1F7 /* TagsRepositoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */; };
++		F654535520FD4337003CF1F7 /* TagsCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535420FD4337003CF1F7 /* TagsCoreData.swift */; };
+ 		F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */; };
+ 		F6913F4A20F215D9000A0630 /* PhotosJsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */; };
+ 		F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */; };
+@@ -44,7 +50,7 @@
+ /* Begin PBXFileReference section */
+ 		F60A65951F23A5D3007F581B /* PhotosCollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionCellView.swift; sourceTree = "<group>"; };
+ 		F60A65971F2407F4007F581B /* PhotoInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoView.swift; sourceTree = "<group>"; };
+-		F63C45D320F0C77000248D36 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
++		F63C45D320F0C77000248D36 /* ImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+ 		F64C096E1F2155320020A548 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		F64C09711F2155320020A548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+ 		F64C09761F2155320020A548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+@@ -56,6 +62,12 @@
+ 		F654530D20F6D787003CF1F7 /* PhotosMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosMainView.xib; sourceTree = "<group>"; };
+ 		F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoMainView.xib; sourceTree = "<group>"; };
+ 		F654533420F81A88003CF1F7 /* TagsMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagsMainView.xib; path = Photorama/Tags/View/TagsMainView.xib; sourceTree = SOURCE_ROOT; };
++		F654534020FD36DD003CF1F7 /* ImageCacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheData.swift; sourceTree = "<group>"; };
++		F654534220FD37B8003CF1F7 /* ImageFileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileData.swift; sourceTree = "<group>"; };
++		F654534420FD37CC003CF1F7 /* ImageRepositoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryProtocols.swift; sourceTree = "<group>"; };
++		F654535020FD42BB003CF1F7 /* TagsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepository.swift; sourceTree = "<group>"; };
++		F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepositoryProtocols.swift; sourceTree = "<group>"; };
++		F654535420FD4337003CF1F7 /* TagsCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreData.swift; sourceTree = "<group>"; };
+ 		F6586D8E1F24E21D003ED305 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
+ 		F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosJsonHelper.swift; sourceTree = "<group>"; };
+ 		F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenter.swift; sourceTree = "<group>"; };
+@@ -148,6 +160,59 @@
+ 			path = Photorama;
+ 			sourceTree = "<group>";
+ 		};
++		F654534620FD399E003CF1F7 /* ImageRepository */ = {
++			isa = PBXGroup;
++			children = (
++				F654534C20FD3AF0003CF1F7 /* Datas */,
++				F654534720FD39B6003CF1F7 /* Protocols */,
++				F63C45D320F0C77000248D36 /* ImageRepository.swift */,
++			);
++			path = ImageRepository;
++			sourceTree = "<group>";
++		};
++		F654534720FD39B6003CF1F7 /* Protocols */ = {
++			isa = PBXGroup;
++			children = (
++				F654534420FD37CC003CF1F7 /* ImageRepositoryProtocols.swift */,
++			);
++			path = Protocols;
++			sourceTree = "<group>";
++		};
++		F654534C20FD3AF0003CF1F7 /* Datas */ = {
++			isa = PBXGroup;
++			children = (
++				F654534020FD36DD003CF1F7 /* ImageCacheData.swift */,
++				F654534220FD37B8003CF1F7 /* ImageFileData.swift */,
++			);
++			path = Datas;
++			sourceTree = "<group>";
++		};
++		F654534D20FD4294003CF1F7 /* TagsRepository */ = {
++			isa = PBXGroup;
++			children = (
++				F654534E20FD42A5003CF1F7 /* Datas */,
++				F654534F20FD42AB003CF1F7 /* Protocols */,
++				F654535020FD42BB003CF1F7 /* TagsRepository.swift */,
++			);
++			path = TagsRepository;
++			sourceTree = "<group>";
++		};
++		F654534E20FD42A5003CF1F7 /* Datas */ = {
++			isa = PBXGroup;
++			children = (
++				F654535420FD4337003CF1F7 /* TagsCoreData.swift */,
++			);
++			path = Datas;
++			sourceTree = "<group>";
++		};
++		F654534F20FD42AB003CF1F7 /* Protocols */ = {
++			isa = PBXGroup;
++			children = (
++				F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */,
++			);
++			path = Protocols;
++			sourceTree = "<group>";
++		};
+ 		F6913F3720F209C3000A0630 /* Entities */ = {
+ 			isa = PBXGroup;
+ 			children = (
+@@ -172,10 +237,11 @@
+ 		F6913F3A20F20A34000A0630 /* DataManager */ = {
+ 			isa = PBXGroup;
+ 			children = (
+-				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
++				F654534D20FD4294003CF1F7 /* TagsRepository */,
++				F654534620FD399E003CF1F7 /* ImageRepository */,
+ 				F64C09871F2161060020A548 /* PhotoStore.swift */,
+-				F63C45D320F0C77000248D36 /* ImageStore.swift */,
+ 				F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */,
++				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
+ 			);
+ 			path = DataManager;
+ 			sourceTree = "<group>";
+@@ -382,18 +448,22 @@
+ 			files = (
+ 				F6913F7720F55DB7000A0630 /* PhotosView.swift in Sources */,
+ 				F64C09861F215B1B0020A548 /* FlickrAPI.swift in Sources */,
++				F654535520FD4337003CF1F7 /* TagsCoreData.swift in Sources */,
+ 				F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */,
+ 				F6913F7B20F55DCF000A0630 /* PhotosPresenter.swift in Sources */,
+ 				F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */,
+ 				F6913F7520F55DAA000A0630 /* PhotosRouter.swift in Sources */,
+ 				F6913F5F20F3D5CA000A0630 /* PhotoInfoInteractor.swift in Sources */,
+ 				F64C09881F2161060020A548 /* PhotoStore.swift in Sources */,
++				F654534320FD37B8003CF1F7 /* ImageFileData.swift in Sources */,
++				F654534120FD36DD003CF1F7 /* ImageCacheData.swift in Sources */,
+ 				F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */,
+ 				F60A65961F23A5D3007F581B /* PhotosCollectionCellView.swift in Sources */,
+ 				F6913F7920F55DC2000A0630 /* PhotosProtocols.swift in Sources */,
+ 				F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */,
++				F654535120FD42BB003CF1F7 /* TagsRepository.swift in Sources */,
+ 				F6913F4A20F215D9000A0630 /* PhotosJsonHelper.swift in Sources */,
+-				F63C45D420F0C77100248D36 /* ImageStore.swift in Sources */,
++				F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */,
+ 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
+ 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,
+ 				F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */,
+@@ -403,7 +473,9 @@
+ 				F6913F6A20F3FCDD000A0630 /* TagsProtocols.swift in Sources */,
+ 				F6913F6620F3FCBA000A0630 /* TagsInteractor.swift in Sources */,
+ 				F6913F7D20F55DDB000A0630 /* PhotosInteractor.swift in Sources */,
++				F654534520FD37CC003CF1F7 /* ImageRepositoryProtocols.swift in Sources */,
+ 				F64C09721F2155320020A548 /* AppDelegate.swift in Sources */,
++				F654535320FD42E9003CF1F7 /* TagsRepositoryProtocols.swift in Sources */,
+ 				F6913F5C20F2A667000A0630 /* PhotoInfoRouter.swift in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+diff --git a/Photorama/DataManager/ImageRepository/Datas/ImageCacheData.swift b/Photorama/DataManager/ImageRepository/Datas/ImageCacheData.swift
+index 3f22914..0c93178 100644
+--- a/Photorama/DataManager/ImageRepository/Datas/ImageCacheData.swift
++++ b/Photorama/DataManager/ImageRepository/Datas/ImageCacheData.swift
+@@ -8,7 +8,7 @@
+ 
+ import UIKit
+ 
+-class ImageCacheData: imageDataProtocol {
++class ImageCacheData: ImageDataProtocol {
+     
+     let cache = NSCache<AnyObject, AnyObject>()
+ 
+diff --git a/Photorama/DataManager/ImageRepository/Datas/ImageFileData.swift b/Photorama/DataManager/ImageRepository/Datas/ImageFileData.swift
+index 618231f..e6a3f3a 100644
+--- a/Photorama/DataManager/ImageRepository/Datas/ImageFileData.swift
++++ b/Photorama/DataManager/ImageRepository/Datas/ImageFileData.swift
+@@ -8,7 +8,7 @@
+ 
+ import UIKit
+ 
+-class ImageFileData: imageDataProtocol {
++class ImageFileData: ImageDataProtocol {
+     
+     func imageURLForKey(_ key: String) -> URL {
+         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+diff --git a/Photorama/DataManager/ImageRepository/ImageRepository.swift b/Photorama/DataManager/ImageRepository/ImageRepository.swift
+index 4762ee7..bb8693c 100644
+--- a/Photorama/DataManager/ImageRepository/ImageRepository.swift
++++ b/Photorama/DataManager/ImageRepository/ImageRepository.swift
+@@ -8,7 +8,7 @@
+ 
+ import UIKit
+ 
+-class ImageRepository {
++class ImageRepository: ImageRepositoryProtocol {
+     
+     var imageCache: ImageDataProtocol
+     var imageFS: ImageDataProtocol
+diff --git a/Photorama/DataManager/ImageRepository/Protocols/ImageRepositoryProtocols.swift b/Photorama/DataManager/ImageRepository/Protocols/ImageRepositoryProtocols.swift
+index 0bbd3df..705e0c8 100644
+--- a/Photorama/DataManager/ImageRepository/Protocols/ImageRepositoryProtocols.swift
++++ b/Photorama/DataManager/ImageRepository/Protocols/ImageRepositoryProtocols.swift
+@@ -8,7 +8,14 @@
+ 
+ import UIKit
+ 
+-protocol imageDataProtocol {
++protocol ImageRepositoryProtocol {
++    
++    func setImage(image: UIImage, forKey key: String)
++    func getImageByKey(key: String) -> UIImage?
++    func removeImageByKay(key: String)
++}
++
++protocol ImageDataProtocol {
+     
+     func setImage(image: UIImage, forKey key: String)
+     func imageForKey(key: String) -> UIImage?
+diff --git a/Photorama/DataManager/PhotoStore.swift b/Photorama/DataManager/PhotoStore.swift
+index 19c1441..fc681b0 100644
+--- a/Photorama/DataManager/PhotoStore.swift
++++ b/Photorama/DataManager/PhotoStore.swift
+@@ -22,7 +22,8 @@ class PhotoStore {
+     
+     let coreDataStack = CoreDataStack(modelName: "Photorama")
+     
+-    let imageStore = ImageStore()
++    let imageRepository = ImageRepository()
++    let tagsRepository = TagsRepository()
+     
+     let session: URLSession = {
+         let config = URLSessionConfiguration.default
+@@ -70,7 +71,8 @@ class PhotoStore {
+      */
+     func fetchImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
+         let photoKey = photo.photoKey
+-        if let image = imageStore.imageForKey(key: photoKey) {
++        // aqui la dependencia con
++        if let image = imageRepository.getImageByKey(key: photoKey) {
+             photo.image = image
+             completion(.Success(image))
+             return
+@@ -82,7 +84,7 @@ class PhotoStore {
+             let result = self.processImageRequest(data: data!, error: error)
+             if case let .Success(image) = result {
+                 photo.image = image
+-                self.imageStore.setImage(image: image, forKey: photoKey)
++                self.imageRepository.setImage(image: image, forKey: photoKey)
+             }
+             completion(result)
+         }
+@@ -128,22 +130,6 @@ class PhotoStore {
+     
+     
+     func fetchMainQueueTags(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
+-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
+-        fetchRequest.sortDescriptors = sortDescriptors
+-        fetchRequest.predicate = predicate
+-        let mainQueueContext = self.coreDataStack.mainQueueContext
+-        var mainQueueTags: [NSManagedObject]?
+-        var fetchRequestError: Error?
+-        mainQueueContext.performAndWait() {
+-            do {
+-                mainQueueTags = try mainQueueContext.fetch(fetchRequest) as? [NSManagedObject]
+-            } catch let error {
+-                fetchRequestError = error
+-            }
+-        }
+-        guard let tags = mainQueueTags else {
+-            throw fetchRequestError!
+-        }
+-        return tags
++        return try tagsRepository.retrieveTagsBySortDescriptor(sortDescriptors)
+     }
+ }
+diff --git a/Photorama/DataManager/PhotosJsonHelper.swift b/Photorama/DataManager/PhotosJsonHelper.swift
+index 1628592..a610168 100644
+--- a/Photorama/DataManager/PhotosJsonHelper.swift
++++ b/Photorama/DataManager/PhotosJsonHelper.swift
+@@ -69,6 +69,8 @@ struct PhotosJsonHelper {
+             let dateTaken = dateFormatter.date(from: dateString) else {
+                 return nil
+         }
++        
++        // remove to correct data
+         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
+         let predicate = NSPredicate(format: "photoID == \(photoID)")
+         fetchRequest.predicate = predicate
+@@ -87,6 +89,7 @@ struct PhotosJsonHelper {
+             photo.remoteURL = url
+             photo.dateTaken = dateTaken
+         }
++        //-----
+         return photo
+     }
+ }
+diff --git a/Photorama/DataManager/TagsRepository/Datas/TagsCoreData.swift b/Photorama/DataManager/TagsRepository/Datas/TagsCoreData.swift
+index 98e1ee5..9008965 100644
+--- a/Photorama/DataManager/TagsRepository/Datas/TagsCoreData.swift
++++ b/Photorama/DataManager/TagsRepository/Datas/TagsCoreData.swift
+@@ -7,3 +7,29 @@
+ //
+ 
+ import Foundation
++import CoreData
++
++class TagsCoreData: TagsDataProtocol {
++    
++    let coreDataStack = CoreDataStack(modelName: "Photorama")
++    
++    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
++        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
++        fetchRequest.sortDescriptors = sortDescriptors
++        fetchRequest.predicate = nil
++        let mainQueueContext = self.coreDataStack.mainQueueContext
++        var mainQueueTags: [NSManagedObject]?
++        var fetchRequestError: Error?
++        mainQueueContext.performAndWait() {
++            do {
++                mainQueueTags = try mainQueueContext.fetch(fetchRequest) as? [NSManagedObject]
++            } catch let error {
++                fetchRequestError = error
++            }
++        }
++        guard let tags = mainQueueTags else {
++            throw fetchRequestError!
++        }
++        return tags
++    }
++}
+diff --git a/Photorama/DataManager/TagsRepository/Protocols/TagsRepositoryProtocols.swift b/Photorama/DataManager/TagsRepository/Protocols/TagsRepositoryProtocols.swift
+index 1f0e49c..332e8ae 100644
+--- a/Photorama/DataManager/TagsRepository/Protocols/TagsRepositoryProtocols.swift
++++ b/Photorama/DataManager/TagsRepository/Protocols/TagsRepositoryProtocols.swift
+@@ -7,7 +7,12 @@
+ //
+ 
+ import Foundation
++import CoreData
+ 
+ protocol TagsRepositoryProtocol {
+-    
++    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]?) throws -> [NSManagedObject]
++}
++
++protocol TagsDataProtocol {
++    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]?) throws -> [NSManagedObject]
+ }
+diff --git a/Photorama/DataManager/TagsRepository/TagsRepository.swift b/Photorama/DataManager/TagsRepository/TagsRepository.swift
+index 890e5a1..82a6820 100644
+--- a/Photorama/DataManager/TagsRepository/TagsRepository.swift
++++ b/Photorama/DataManager/TagsRepository/TagsRepository.swift
+@@ -7,3 +7,18 @@
+ //
+ 
+ import Foundation
++import CoreData
++
++class TagsRepository: TagsRepositoryProtocol {
++    
++    var tagsCoreData: TagsDataProtocol
++    
++    init() {
++        tagsCoreData = TagsCoreData()
++    }
++    
++    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
++        return try tagsCoreData.retrieveTagsBySortDescriptor(sortDescriptors)
++    }
++    
++}
