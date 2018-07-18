@@ -16,21 +16,15 @@ class TagsInteractor: TagsInteractorInputProtocol {
     var store: PhotoStore!
     
     func retrieveTags() {
-        presenter?.didRetrievedTags(try! store.fetchMainQueueTags(predicate: nil, sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]))
+        presenter?.didRetrievedTags(try! store.fetchMainQueueTags())
     }
     
     func saveTag(_ tagName: String) {
-        let context = store!.coreDataStack.mainQueueContext
-        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context)
-        newTag.setValue(tagName, forKey: "name")
-        saveChanges()
+        store.saveTag(tagName)
+        store.saveChanges()
     }
     
     func saveChanges() {
-        do {
-            try store.coreDataStack.saveChanges()
-        } catch let error {
-            print("Core Data save failed: \(error)")
-        }
+        store.saveChanges()
     }
 }

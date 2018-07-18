@@ -26,6 +26,9 @@
 		F654535320FD42E9003CF1F7 /* TagsRepositoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */; };
 		F654535520FD4337003CF1F7 /* TagsCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535420FD4337003CF1F7 /* TagsCoreData.swift */; };
 		F654535820FE73CC003CF1F7 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535720FE73CC003CF1F7 /* DateHelper.swift */; };
+		F654536920FF1C4F003CF1F7 /* WebServicesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654536820FF1C4F003CF1F7 /* WebServicesHelper.swift */; };
+		F654536B20FFDE58003CF1F7 /* PhotoTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654536A20FFDE58003CF1F7 /* PhotoTO.swift */; };
+		F654536E20FFDFE8003CF1F7 /* photoTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654536D20FFDFE8003CF1F7 /* photoTransfer.swift */; };
 		F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */; };
 		F6913F4A20F215D9000A0630 /* PhotosJsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */; };
 		F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */; };
@@ -70,6 +73,9 @@
 		F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepositoryProtocols.swift; sourceTree = "<group>"; };
 		F654535420FD4337003CF1F7 /* TagsCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreData.swift; sourceTree = "<group>"; };
 		F654535720FE73CC003CF1F7 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		F654536820FF1C4F003CF1F7 /* WebServicesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicesHelper.swift; sourceTree = "<group>"; };
+		F654536A20FFDE58003CF1F7 /* PhotoTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTO.swift; sourceTree = "<group>"; };
+		F654536D20FFDFE8003CF1F7 /* photoTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoTransfer.swift; sourceTree = "<group>"; };
 		F6586D8E1F24E21D003ED305 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
 		F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosJsonHelper.swift; sourceTree = "<group>"; };
 		F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenter.swift; sourceTree = "<group>"; };
@@ -220,11 +226,22 @@
 		F654535620FE739F003CF1F7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F654536C20FFDFD7003CF1F7 /* transfers */,
 				F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */,
 				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
 				F654535720FE73CC003CF1F7 /* DateHelper.swift */,
+				F654536820FF1C4F003CF1F7 /* WebServicesHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F654536C20FFDFD7003CF1F7 /* transfers */ = {
+			isa = PBXGroup;
+			children = (
+				F654536A20FFDE58003CF1F7 /* PhotoTO.swift */,
+				F654536D20FFDFE8003CF1F7 /* photoTransfer.swift */,
+			);
+			path = transfers;
 			sourceTree = "<group>";
 		};
 		F6913F3720F209C3000A0630 /* Entities */ = {
@@ -469,11 +486,14 @@
 				F6913F5F20F3D5CA000A0630 /* PhotoInfoInteractor.swift in Sources */,
 				F64C09881F2161060020A548 /* PhotoStore.swift in Sources */,
 				F654534320FD37B8003CF1F7 /* ImageFileData.swift in Sources */,
+				F654536B20FFDE58003CF1F7 /* PhotoTO.swift in Sources */,
 				F654534120FD36DD003CF1F7 /* ImageCacheData.swift in Sources */,
 				F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */,
+				F654536920FF1C4F003CF1F7 /* WebServicesHelper.swift in Sources */,
 				F60A65961F23A5D3007F581B /* PhotosTableCellView.swift in Sources */,
 				F6913F7920F55DC2000A0630 /* PhotosProtocols.swift in Sources */,
 				F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */,
+				F654536E20FFDFE8003CF1F7 /* photoTransfer.swift in Sources */,
 				F654535120FD42BB003CF1F7 /* TagsRepository.swift in Sources */,
 				F6913F4A20F215D9000A0630 /* PhotosJsonHelper.swift in Sources */,
 				F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */,

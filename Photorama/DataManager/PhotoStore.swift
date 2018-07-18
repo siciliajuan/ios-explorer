@@ -23,17 +23,16 @@ class PhotoStore {
     let coreDataStack = CoreDataStack(modelName: "Photorama")
     
     let imageRepository = ImageRepository()
-    let tagsRepository = TagsRepository()
+    let tagsRepository: TagsRepository
     
-    let session: URLSession = {
-        let config = URLSessionConfiguration.default
-        return URLSession(configuration: config)
-    }()
+    init() {
+        self.tagsRepository = TagsRepository(coreDataStack: coreDataStack)
+    }
     
     func fetchRecentPhotos(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.recentPhotosURL()
         let request = URLRequest(url: url)
-        let task = session.dataTask(with: request) {
+        let task = WebServicesHelper.session.dataTask(with: request) {
             (data, response, error) -> Void in
             var result = self.processRecentPhotosRequest(data: data, error: error)
             if case let .Success(photos) = result {
@@ -79,7 +78,7 @@ class PhotoStore {
         }
         let photoURL = photo.remoteURL
         let request = NSURLRequest(url: photoURL as URL)
-        let task = session.dataTask(with: request as URLRequest) {
+        let task = WebServicesHelper.session.dataTask(with: request as URLRequest) {
             (data, response, error) -> Void in
             let result = self.processImageRequest(data: data!, error: error)
             if case let .Success(image) = result {
@@ -129,7 +128,19 @@ class PhotoStore {
     }
     
     
-    func fetchMainQueueTags(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
-        return try tagsRepository.retrieveTagsBySortDescriptor(sortDescriptors)
+    func fetchMainQueueTags() throws -> [NSManagedObject] {
+        return try tagsRepository.retrieveTagsBySortDescriptor()
+    }
+    
+    func saveTag(_ tagName: String) {
+        tagsRepository.saveTag(tagName)
+    }
+    
+    func saveChanges() {
+        do {
+            try coreDataStack.saveChanges()
+        } catch let error {
+            print("Core Data save failed: \(error)")
+        }
     }
 }

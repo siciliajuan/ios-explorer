@@ -10,9 +10,11 @@ import Foundation
 import CoreData
 
 protocol TagsRepositoryProtocol {
-    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]?) throws -> [NSManagedObject]
+    func retrieveTagsBySortDescriptor() throws -> [NSManagedObject]
+    func saveTag(_ tagName: String)
 }
 
 protocol TagsDataProtocol {
-    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]?) throws -> [NSManagedObject]
+    func retrieveTagsBySortDescriptor() throws -> [NSManagedObject]
+    func saveTag(_ tagName: String)
 }

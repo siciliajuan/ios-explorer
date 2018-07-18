@@ -11,11 +11,15 @@ import CoreData
 
 class TagsCoreData: TagsDataProtocol {
     
-    let coreDataStack = CoreDataStack(modelName: "Photorama")
+    let coreDataStack: CoreDataStack
     
-    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
+    init(coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
+    }
+    
+    func retrieveTagsBySortDescriptor() throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
-        fetchRequest.sortDescriptors = sortDescriptors
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchRequest.predicate = nil
         let mainQueueContext = self.coreDataStack.mainQueueContext
         var mainQueueTags: [NSManagedObject]?
@@ -31,5 +35,11 @@ class TagsCoreData: TagsDataProtocol {
             throw fetchRequestError!
         }
         return tags
+    }
+    
+    func saveTag(_ tagName: String) {
+        let context = coreDataStack.mainQueueContext
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context)
+        newTag.setValue(tagName, forKey: "name")
     }
 }

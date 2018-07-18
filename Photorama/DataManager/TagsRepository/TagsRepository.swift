@@ -13,12 +13,15 @@ class TagsRepository: TagsRepositoryProtocol {
     
     var tagsCoreData: TagsDataProtocol
     
-    init() {
-        tagsCoreData = TagsCoreData()
+    init(coreDataStack: CoreDataStack) {
+        tagsCoreData = TagsCoreData(coreDataStack: coreDataStack)
     }
     
-    func retrieveTagsBySortDescriptor(_ sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
-        return try tagsCoreData.retrieveTagsBySortDescriptor(sortDescriptors)
+    func retrieveTagsBySortDescriptor() throws -> [NSManagedObject] {
+        return try tagsCoreData.retrieveTagsBySortDescriptor()
     }
     
+    func saveTag(_ tagName: String) {
+        tagsCoreData.saveTag(tagName)
+    }
 }
