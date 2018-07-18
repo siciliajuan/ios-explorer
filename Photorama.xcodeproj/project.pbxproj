@@ -226,7 +226,6 @@
 		F654535620FE739F003CF1F7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F654536C20FFDFD7003CF1F7 /* transfers */,
 				F6913F4920F215D9000A0630 /* PhotosJsonHelper.swift */,
 				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
 				F654535720FE73CC003CF1F7 /* DateHelper.swift */,
@@ -247,6 +246,7 @@
 		F6913F3720F209C3000A0630 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F654536C20FFDFD7003CF1F7 /* transfers */,
 				F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */,
 				F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */,
 			);

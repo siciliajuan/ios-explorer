@@ -82,7 +82,6 @@ class PhotoStore {
             (data, response, error) -> Void in
             let result = self.processImageRequest(data: data!, error: error)
             if case let .Success(image) = result {
-                photo.image = image
                 self.imageRepository.setImage(image: image, forKey: photoKey)
             }
             completion(result)
@@ -106,7 +105,7 @@ class PhotoStore {
     /*
       Return all photos that match the predicate sorted by sortDescription
      */
-    func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [Photo] {
+    func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = [NSSortDescriptor(key: "dateTaken", ascending: true)]) throws -> [Photo] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
         fetchRequest.sortDescriptors = sortDescriptors
         fetchRequest.predicate = predicate

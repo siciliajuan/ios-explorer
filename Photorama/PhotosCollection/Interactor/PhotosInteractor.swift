@@ -18,8 +18,7 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
     func fetchRecentPhotos() {
         store?.fetchRecentPhotos() {
             (result) -> Void in
-                let sortByDateTaken = NSSortDescriptor(key: "dateTaken", ascending: true)
-                let allPhotos = try! self.store?.fetchMainQueuePhotos(predicate: nil, sortDescriptors: [sortByDateTaken])
+                let allPhotos = try! self.store?.fetchMainQueuePhotos()
                 OperationQueue.main.addOperation{
                     self.presenter?.didRetrievePhotos(allPhotos!)
             }
@@ -29,9 +28,15 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
     func fetchImageForPhoto(_ photo: Photo) {
         store?.fetchImageForPhoto(photo: photo) {
             (result) -> Void in
+            if case let .Success(image) = result {
+                photo.image = image
                 OperationQueue.main.addOperation{
                     self.presenter?.didUpdateImageForPhoto(photo)
                 }
+            }
+            if case let .Failure(error) = result {
+                print("Error getting photo image, error: \(error)")
+            }
         }
     }
     
