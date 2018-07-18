@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCacheData: ImageDataProtocol {
+class ImageCacheData {
     
     let cache = NSCache<AnyObject, AnyObject>()
 
@@ -22,9 +22,5 @@ class ImageCacheData: ImageDataProtocol {
             return nil
         }
         return existingImage
-    }
-    
-    func deleteImageForKay(key: String) {
-        cache.removeObject(forKey: key as AnyObject)
     }
 }

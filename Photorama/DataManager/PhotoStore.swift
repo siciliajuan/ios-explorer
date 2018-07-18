@@ -9,130 +9,17 @@
 import UIKit
 import CoreData
 
-enum ImageResult {
-    case Success(UIImage)
-    case Failure(Error)
-}
-
-enum PhotoError: Error {
-    case ImageCreationError
-}
-
 class PhotoStore {
     
     let coreDataStack = CoreDataStack(modelName: "Photorama")
     
     let imageRepository = ImageRepository()
     let tagsRepository: TagsRepository
+    let photosRepository: PhotosRepository
     
     init() {
         self.tagsRepository = TagsRepository(coreDataStack: coreDataStack)
-    }
-    
-    func fetchRecentPhotos(completion: @escaping (PhotosResult) -> Void) {
-        let url = FlickrAPI.recentPhotosURL()
-        let request = URLRequest(url: url)
-        let task = WebServicesHelper.session.dataTask(with: request) {
-            (data, response, error) -> Void in
-            var result = self.processRecentPhotosRequest(data: data, error: error)
-            if case let .Success(photos) = result {
-                let privateQueueContext = self.coreDataStack.privateQueueContext
-                privateQueueContext.performAndWait(){
-                    try! privateQueueContext.obtainPermanentIDs(for: photos)
-                }
-                let objectIDs = photos.map{ $0.objectID }
-                let predicate = NSPredicate(format: "self IN %@", objectIDs)
-                let sortByDateTaken = NSSortDescriptor(key: "dateTaken", ascending: true)
-                do {
-                    try self.coreDataStack.saveChanges()
-                    let mainQueuePhotos = try self.fetchMainQueuePhotos(predicate: predicate, sortDescriptors: [sortByDateTaken])
-                    result = .Success(mainQueuePhotos)
-                } catch let error {
-                    result = .Failure(error)
-                }
-            }
-            completion(result)
-        }
-        task.resume()
-    }
-    
-    func processRecentPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
-        guard let jsonData = data else {
-            return .Failure(error!)
-        }
-        return PhotosJsonHelper.photosFromJSONData(data: jsonData, inContext: self.coreDataStack.privateQueueContext)
-    }
-    
-    
-    /*
-      Fetches the image for a photo Object, first try to get it from the cache but if wasn't there then
-      download it using the URL and set in the store and cache. Finally exec the completion closure
-     */
-    func fetchImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
-        let photoKey = photo.photoKey
-        // aqui la dependencia con
-        if let image = imageRepository.getImageByKey(key: photoKey) {
-            photo.image = image
-            completion(.Success(image))
-            return
-        }
-        let photoURL = photo.remoteURL
-        let request = NSURLRequest(url: photoURL as URL)
-        let task = WebServicesHelper.session.dataTask(with: request as URLRequest) {
-            (data, response, error) -> Void in
-            let result = self.processImageRequest(data: data!, error: error)
-            if case let .Success(image) = result {
-                self.imageRepository.setImage(image: image, forKey: photoKey)
-            }
-            completion(result)
-        }
-        task.resume()
-    }
-    
-    func processImageRequest(data: Data?, error: Error?) -> ImageResult {
-        guard
-            let imageData = data,
-            let image = UIImage(data: imageData) else {
-                if data == nil {
-                    return .Failure(error!)
-                } else {
-                    return .Failure(PhotoError.ImageCreationError)
-                }
-        }
-        return .Success(image)
-    }
-    
-    /*
-      Return all photos that match the predicate sorted by sortDescription
-     */
-    func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = [NSSortDescriptor(key: "dateTaken", ascending: true)]) throws -> [Photo] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
-        fetchRequest.sortDescriptors = sortDescriptors
-        fetchRequest.predicate = predicate
-        let mainQueueContext = self.coreDataStack.mainQueueContext
-        var mainQueuePhotos: [Photo]?
-        var fetchRequestError: Error?
-        mainQueueContext.performAndWait() {
-            do {
-                mainQueuePhotos = try mainQueueContext.fetch(fetchRequest) as? [Photo]
-            } catch let error {
-                fetchRequestError = error
-            }
-        }
-        guard let photos = mainQueuePhotos else {
-            throw fetchRequestError!
-        }
-        return photos
-        
-    }
-    
-    
-    func fetchMainQueueTags() throws -> [NSManagedObject] {
-        return try tagsRepository.retrieveTagsBySortDescriptor()
-    }
-    
-    func saveTag(_ tagName: String) {
-        tagsRepository.saveTag(tagName)
+        self.photosRepository = PhotosRepository(coreDataStack: coreDataStack)
     }
     
     func saveChanges() {
@@ -141,5 +28,34 @@ class PhotoStore {
         } catch let error {
             print("Core Data save failed: \(error)")
         }
+    }
+}
+
+extension PhotoStore: PhotosRepositoryProtocol {
+    
+    func getLastUploadedFlickerPhotos(completion: @escaping (PhotosResult) -> Void) {
+        photosRepository.getLastUploadedFlickerPhotos(completion: completion)
+    }
+    
+    func getAllPersistedPhotos() throws -> [Photo] {
+        return try photosRepository.getAllPersistedPhotos()
+    }
+}
+
+extension PhotoStore: ImageRepositoryProtocol {
+    
+    func getImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
+        imageRepository.getImageForPhoto(photo: photo, completion: completion)
+    }
+}
+
+extension PhotoStore: TagsRepositoryProtocol {
+    
+    func getTagsSortedByName() throws -> [NSManagedObject] {
+        return try tagsRepository.getTagsSortedByName()
+    }
+    
+    func saveTag(_ tagName: String) {
+        tagsRepository.saveTag(tagName)
     }
 }

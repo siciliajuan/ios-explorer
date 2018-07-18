@@ -17,8 +17,7 @@ public class Photo: NSManagedObject {
         super.awakeFromInsert()
         title = ""
         photoID = ""
-        // not need it
-        // remoteURL = URL()
+        remoteURL = NSURL() as URL
         photoKey = UUID().uuidString
         dateTaken = Date()
     }

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class TagsCoreData: TagsDataProtocol {
+class TagsCoreData {
     
     let coreDataStack: CoreDataStack
     
@@ -17,7 +17,7 @@ class TagsCoreData: TagsDataProtocol {
         self.coreDataStack = coreDataStack
     }
     
-    func retrieveTagsBySortDescriptor() throws -> [NSManagedObject] {
+    func getTagsSortedByName() throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchRequest.predicate = nil

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageFileData: ImageDataProtocol {
+class ImageFileData {
     
     func imageURLForKey(_ key: String) -> URL {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -34,14 +34,5 @@ class ImageFileData: ImageDataProtocol {
             return nil
         }
         return imageFromDisk
-    }
-    
-    func deleteImageForKay(key: String) {
-        let imageURL = imageURLForKey(key)
-        do {
-            try FileManager.default.removeItem(at: imageURL)
-        } catch {
-            print("Error removing the image from disk: \(error)")
-        }
     }
 }

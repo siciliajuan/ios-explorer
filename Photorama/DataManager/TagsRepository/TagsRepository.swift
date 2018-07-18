@@ -11,14 +11,14 @@ import CoreData
 
 class TagsRepository: TagsRepositoryProtocol {
     
-    var tagsCoreData: TagsDataProtocol
+    var tagsCoreData: TagsCoreData
     
     init(coreDataStack: CoreDataStack) {
         tagsCoreData = TagsCoreData(coreDataStack: coreDataStack)
     }
     
-    func retrieveTagsBySortDescriptor() throws -> [NSManagedObject] {
-        return try tagsCoreData.retrieveTagsBySortDescriptor()
+    func getTagsSortedByName() throws -> [NSManagedObject] {
+        return try tagsCoreData.getTagsSortedByName()
     }
     
     func saveTag(_ tagName: String) {

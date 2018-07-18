@@ -27,7 +27,7 @@ enum FlickrError: Error {
     case InvalidJSONData
 }
 
-struct PhotosJsonHelper {
+struct PhotosJsonParser {
     
     static func photosFromJSONData(data: Data, inContext context: NSManagedObjectContext) -> PhotosResult {
         do {

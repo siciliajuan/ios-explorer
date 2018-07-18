@@ -29,9 +29,9 @@ protocol PhotosPresenterProtocol {
 
 // presenter -> interactor
 protocol PhotosInteractorInputProtocol {
-    var presenter: PhotosInteractorOutputProtocol? { get set }
+    var presenter: PhotosInteractorOutputProtocol! { get set }
     
-    var store: PhotoStore? { get set }
+    var store: PhotoStore! { get set }
     
     func fetchRecentPhotos()
     func fetchImageForPhoto(_ photo: Photo)

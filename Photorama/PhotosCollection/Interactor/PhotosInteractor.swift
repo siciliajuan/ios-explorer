@@ -10,32 +10,32 @@ import Foundation
 
 class PhotosInteractor: PhotosInteractorInputProtocol {
     
-    var presenter: PhotosInteractorOutputProtocol?
+    var presenter: PhotosInteractorOutputProtocol!
 
-    var store: PhotoStore?
+    var store: PhotoStore!
     
     
     func fetchRecentPhotos() {
-        store?.fetchRecentPhotos() {
+        store.getLastUploadedFlickerPhotos() {
             (result) -> Void in
-                let allPhotos = try! self.store?.fetchMainQueuePhotos()
+                let allPhotos = try! self.store.getAllPersistedPhotos()
                 OperationQueue.main.addOperation{
-                    self.presenter?.didRetrievePhotos(allPhotos!)
+                    self.presenter.didRetrievePhotos(allPhotos)
             }
         }
     }
     
     func fetchImageForPhoto(_ photo: Photo) {
-        store?.fetchImageForPhoto(photo: photo) {
+        store.getImageForPhoto(photo: photo) {
             (result) -> Void in
-            if case let .Success(image) = result {
+            switch result {
+            case let .Success(image):
                 photo.image = image
                 OperationQueue.main.addOperation{
-                    self.presenter?.didUpdateImageForPhoto(photo)
+                    self.presenter.didUpdateImageForPhoto(photo)
                 }
-            }
-            if case let .Failure(error) = result {
-                print("Error getting photo image, error: \(error)")
+            case let .Failure(error):
+                print("Error fetching image for photo: \(error)")
             }
         }
     }

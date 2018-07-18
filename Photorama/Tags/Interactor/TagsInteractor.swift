@@ -16,7 +16,7 @@ class TagsInteractor: TagsInteractorInputProtocol {
     var store: PhotoStore!
     
     func retrieveTags() {
-        presenter?.didRetrievedTags(try! store.fetchMainQueueTags())
+        presenter?.didRetrievedTags(try! store.getTagsSortedByName())
     }
     
     func saveTag(_ tagName: String) {
