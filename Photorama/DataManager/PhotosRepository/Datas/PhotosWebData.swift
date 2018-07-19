@@ -46,34 +46,33 @@ class PhotosWebData {
     
     func photosFromJSONData(data: Data) -> PhotosResult {
         do {
-            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-            guard
-                let jsonDictionary = jsonObject as? [String: Any],
-                let photos = jsonDictionary["photos"] as? [String: AnyObject],
-                let photosArray = photos["photo"] as? [[String: Any]] else {
-                    return .Failure(FlickrError.InvalidJSONData)
+            let decoder = JSONDecoder()
+            let photosArray = try decoder.decode(PhotosCodable.self, from: data)
+            guard let photos = photosArray.resultPhotos else {
+                return .Failure(FlickrError.InvalidJSONData)
             }
             var finalPhotos = [PhotoTO]()
-            for photoJSON in photosArray {
-                if let photo = photoFromJSONObject(json: photoJSON as [String : AnyObject]) {
+            for photo in photos {
+                if let photo = photoFromJSONObject(photo: photo) {
                     finalPhotos.append(photo)
                 }
             }
-            if finalPhotos.count == 0 && photosArray.count > 0 {
+            if finalPhotos.count == 0 && photos.count > 0 {
                 return .Failure(FlickrError.InvalidJSONData)
             }
             return .Success(finalPhotos)
         } catch let error {
             return .Failure(error)
         }
+
     }
     
-    func photoFromJSONObject(json: [String: AnyObject]) -> PhotoTO? {
+    func photoFromJSONObject(photo: PhotoCodable) -> PhotoTO? {
         guard
-            let photoID = json["id"] as? String,
-            let title = json["title"] as? String,
-            let dateString = json["datetaken"] as? String,
-            let photoURLString = json["url_h"] as? String,
+            let photoID = photo.photoID,
+            let title = photo.title,
+            let dateString = photo.dateTaken,
+            let photoURLString = photo.remoteURL,
             let url = URL(string: photoURLString),
             let dateTaken = DateHelper.dateFormatter.date(from: dateString) else {
                 return nil

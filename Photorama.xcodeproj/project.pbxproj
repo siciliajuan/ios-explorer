@@ -52,6 +52,7 @@
 		F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */; };
 		F6B5931D1F24EBC200B4D139 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */; };
 		F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */; };
+		F6C30FD221013CC80066ABAB /* PhotosCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C30FD121013CC80066ABAB /* PhotosCodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		F6C30FD121013CC80066ABAB /* PhotosCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 			children = (
 				F654537420FFF1C8003CF1F7 /* PhotosCoreData.swift */,
 				F654537A21000A16003CF1F7 /* PhotosWebData.swift */,
+				F6C30FD121013CC80066ABAB /* PhotosCodable.swift */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				F654537320FFF1A2003CF1F7 /* PhotosRepository.swift in Sources */,
 				F64C09861F215B1B0020A548 /* FlickrAPI.swift in Sources */,
 				F654535520FD4337003CF1F7 /* TagsCoreData.swift in Sources */,
+				F6C30FD221013CC80066ABAB /* PhotosCodable.swift in Sources */,
 				F654537520FFF1C8003CF1F7 /* PhotosCoreData.swift in Sources */,
 				F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */,
 				F6913F7B20F55DCF000A0630 /* PhotosPresenter.swift in Sources */,
