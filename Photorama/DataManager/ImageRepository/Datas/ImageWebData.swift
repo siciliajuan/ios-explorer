@@ -25,13 +25,11 @@ class ImageWebData {
      download it using the URL and set in the store and cache. Finally exec the completion closure
      */
     func getImageByUrl(_ url: URL, completion: @escaping (ImageResult) -> Void) {
-        let request = NSURLRequest(url: url)
-        let task = WebServicesHelper.session.dataTask(with: request as URLRequest) {
+        URLSession.shared.dataTask(with: url) {
             (data, response, error) -> Void in
             let result = self.processImageRequest(data: data!, error: error)
             completion(result)
-        }
-        task.resume()
+        }.resume()
     }
     
     func processImageRequest(data: Data?, error: Error?) -> ImageResult {

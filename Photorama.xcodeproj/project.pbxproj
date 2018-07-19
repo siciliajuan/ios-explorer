@@ -26,7 +26,6 @@
 		F654535320FD42E9003CF1F7 /* TagsRepositoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */; };
 		F654535520FD4337003CF1F7 /* TagsCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535420FD4337003CF1F7 /* TagsCoreData.swift */; };
 		F654535820FE73CC003CF1F7 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535720FE73CC003CF1F7 /* DateHelper.swift */; };
-		F654536920FF1C4F003CF1F7 /* WebServicesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654536820FF1C4F003CF1F7 /* WebServicesHelper.swift */; };
 		F654536B20FFDE58003CF1F7 /* PhotoTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654536A20FFDE58003CF1F7 /* PhotoTO.swift */; };
 		F654536E20FFDFE8003CF1F7 /* photoTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654536D20FFDFE8003CF1F7 /* photoTransfer.swift */; };
 		F654537320FFF1A2003CF1F7 /* PhotosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654537220FFF1A2003CF1F7 /* PhotosRepository.swift */; };
@@ -77,7 +76,6 @@
 		F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepositoryProtocols.swift; sourceTree = "<group>"; };
 		F654535420FD4337003CF1F7 /* TagsCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreData.swift; sourceTree = "<group>"; };
 		F654535720FE73CC003CF1F7 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		F654536820FF1C4F003CF1F7 /* WebServicesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicesHelper.swift; sourceTree = "<group>"; };
 		F654536A20FFDE58003CF1F7 /* PhotoTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTO.swift; sourceTree = "<group>"; };
 		F654536D20FFDFE8003CF1F7 /* photoTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoTransfer.swift; sourceTree = "<group>"; };
 		F654537220FFF1A2003CF1F7 /* PhotosRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepository.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 			children = (
 				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
 				F654535720FE73CC003CF1F7 /* DateHelper.swift */,
-				F654536820FF1C4F003CF1F7 /* WebServicesHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -528,7 +525,6 @@
 				F654536B20FFDE58003CF1F7 /* PhotoTO.swift in Sources */,
 				F654534120FD36DD003CF1F7 /* ImageCacheData.swift in Sources */,
 				F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */,
-				F654536920FF1C4F003CF1F7 /* WebServicesHelper.swift in Sources */,
 				F60A65961F23A5D3007F581B /* PhotosTableCellView.swift in Sources */,
 				F6913F7920F55DC2000A0630 /* PhotosProtocols.swift in Sources */,
 				F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */,

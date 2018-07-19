@@ -30,13 +30,11 @@ class PhotosWebData {
     
     func getRecentPhotosFromFlickrAPI(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.recentPhotosURL()
-        let request = URLRequest(url: url)
-        let task = WebServicesHelper.session.dataTask(with: request) {
+        URLSession.shared.dataTask(with: url) {
             (data, response, error) -> Void in
             let result = self.processRecentPhotosRequest(data: data, error: error)
             completion(result)
-        }
-        task.resume()
+        }.resume()
     }
     
     func processRecentPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
