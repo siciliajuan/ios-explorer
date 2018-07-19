@@ -25,4 +25,19 @@ class PhotoTransfer {
         }
         return photosTO
     }
+    
+    
+    
+    static func photoCodableToPhotoTO(photo: PhotoCodable) -> PhotoTO? {
+        guard
+            let photoID = photo.photoID,
+            let title = photo.title,
+            let dateString = photo.dateTaken,
+            let photoURLString = photo.remoteURL,
+            let url = URL(string: photoURLString),
+            let dateTaken = DateHelper.dateFormatter.date(from: dateString) else {
+                return nil
+        }
+        return PhotoTO(title: title, photoID: photoID, remoteURL: url, photoKey: UUID().uuidString, dateTaken: dateTaken, tags: [])
+    }
 }

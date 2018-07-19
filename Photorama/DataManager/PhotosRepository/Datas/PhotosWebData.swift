@@ -53,7 +53,7 @@ class PhotosWebData {
             }
             var finalPhotos = [PhotoTO]()
             for photo in photos {
-                if let photo = photoFromJSONObject(photo: photo) {
+                if let photo = PhotoTransfer.photoCodableToPhotoTO(photo: photo) {
                     finalPhotos.append(photo)
                 }
             }
@@ -66,18 +66,4 @@ class PhotosWebData {
         }
 
     }
-    
-    func photoFromJSONObject(photo: PhotoCodable) -> PhotoTO? {
-        guard
-            let photoID = photo.photoID,
-            let title = photo.title,
-            let dateString = photo.dateTaken,
-            let photoURLString = photo.remoteURL,
-            let url = URL(string: photoURLString),
-            let dateTaken = DateHelper.dateFormatter.date(from: dateString) else {
-                return nil
-        }
-        return PhotoTO(title: title, photoID: photoID, remoteURL: url, photoKey: UUID().uuidString, dateTaken: dateTaken, tags: [])
-    }
-    
 }
