@@ -18,7 +18,7 @@ public class Photo: NSManagedObject {
         title = ""
         photoID = ""
         remoteURL = NSURL() as URL
-        photoKey = UUID().uuidString
+        photoKey = ""
         dateTaken = Date()
     }
     

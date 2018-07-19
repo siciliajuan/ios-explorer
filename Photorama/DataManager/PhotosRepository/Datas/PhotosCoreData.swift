@@ -13,42 +13,25 @@ class PhotosCoreData {
     
     let coreDataStack: CoreDataStack
     
+    
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
     }
     
-    func fetchRecentPhotos(completion: @escaping (PhotosResult) -> Void) {
-        let url = FlickrAPI.recentPhotosURL()
-        let request = URLRequest(url: url)
-        let task = WebServicesHelper.session.dataTask(with: request) {
-            (data, response, error) -> Void in
-            var result = self.processRecentPhotosRequest(data: data, error: error)
-            if case let .Success(photos) = result {
-                let privateQueueContext = self.coreDataStack.privateQueueContext
-                privateQueueContext.performAndWait(){
-                    try! privateQueueContext.obtainPermanentIDs(for: photos)
-                }
-                let objectIDs = photos.map{ $0.objectID }
-                let predicate = NSPredicate(format: "self IN %@", objectIDs)
-                let sortByDateTaken = NSSortDescriptor(key: "dateTaken", ascending: true)
-                do {
-                    try self.coreDataStack.saveChanges()
-                    let mainQueuePhotos = try self.fetchMainQueuePhotos(predicate: predicate, sortDescriptors: [sortByDateTaken])
-                    result = .Success(mainQueuePhotos)
-                } catch let error {
-                    result = .Failure(error)
-                }
-            }
-            completion(result)
-        }
-        task.resume()
-    }
     
-    func processRecentPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
-        guard let jsonData = data else {
-            return .Failure(error!)
+    func persistRecentPhotos(photos: [PhotoTO]) {
+        let context = coreDataStack.mainQueueContext
+        for photo in photos {
+            var photoEntity: Photo!
+            context.performAndWait() {
+                photoEntity = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as! Photo
+                photoEntity.title = photo.title
+                photoEntity.photoID = photo.photoID
+                photoEntity.remoteURL = photo.remoteURL
+                photoEntity.dateTaken = photo.dateTaken
+                photoEntity.photoKey = photo.photoKey
+            }
         }
-        return PhotosJsonParser.photosFromJSONData(data: jsonData, inContext: self.coreDataStack.privateQueueContext)
     }
     
     func getAllPersistedPhotos() throws -> [Photo] {

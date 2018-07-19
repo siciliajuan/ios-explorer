@@ -54,7 +54,6 @@ class CoreDataStack {
         var error: Error?
         
         privateQueueContext.performAndWait {
-            () -> Void in
             if self.privateQueueContext.hasChanges {
                 do {
                     try self.privateQueueContext.save()

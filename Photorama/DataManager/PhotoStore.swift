@@ -33,8 +33,8 @@ class PhotoStore {
 
 extension PhotoStore: PhotosRepositoryProtocol {
     
-    func getLastUploadedFlickerPhotos(completion: @escaping (PhotosResult) -> Void) {
-        photosRepository.getLastUploadedFlickerPhotos(completion: completion)
+    func fetchLastUploadedFlickerPhotos(completion: @escaping () -> Void) {
+        photosRepository.fetchLastUploadedFlickerPhotos(completion: completion)
     }
     
     func getAllPersistedPhotos() throws -> [Photo] {

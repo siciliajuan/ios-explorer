@@ -1,13 +1,12 @@
 //
-//  PhotosJsonHelper.swift
+//  PhotosWebData.swift
 //  Photorama
 //
-//  Created by juan sicilia on 8/7/18.
+//  Created by juan sicilia on 19/7/18.
 //  Copyright © 2018 juan sicilia. All rights reserved.
 //
 
 import Foundation
-import CoreData
 
 /*
  This enum gives the list of Photos as Success after convert
@@ -15,7 +14,7 @@ import CoreData
  Failure if somethhing went wrong
  */
 enum PhotosResult {
-    case Success([Photo])
+    case Success([PhotoTO])
     case Failure(Error)
 }
 
@@ -27,9 +26,27 @@ enum FlickrError: Error {
     case InvalidJSONData
 }
 
-struct PhotosJsonParser {
+class PhotosWebData {
     
-    static func photosFromJSONData(data: Data, inContext context: NSManagedObjectContext) -> PhotosResult {
+    func getRecentPhotosFromFlickrAPI(completion: @escaping (PhotosResult) -> Void) {
+        let url = FlickrAPI.recentPhotosURL()
+        let request = URLRequest(url: url)
+        let task = WebServicesHelper.session.dataTask(with: request) {
+            (data, response, error) -> Void in
+            let result = self.processRecentPhotosRequest(data: data, error: error)
+            completion(result)
+        }
+        task.resume()
+    }
+    
+    func processRecentPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
+        guard let jsonData = data else {
+            return .Failure(error!)
+        }
+        return photosFromJSONData(data: jsonData)
+    }
+    
+    func photosFromJSONData(data: Data) -> PhotosResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             guard
@@ -38,9 +55,9 @@ struct PhotosJsonParser {
                 let photosArray = photos["photo"] as? [[String: Any]] else {
                     return .Failure(FlickrError.InvalidJSONData)
             }
-            var finalPhotos = [Photo]()
+            var finalPhotos = [PhotoTO]()
             for photoJSON in photosArray {
-                if let photo = photoFromJSONObject(json: photoJSON as [String : AnyObject], inContext: context) {
+                if let photo = photoFromJSONObject(json: photoJSON as [String : AnyObject]) {
                     finalPhotos.append(photo)
                 }
             }
@@ -53,7 +70,7 @@ struct PhotosJsonParser {
         }
     }
     
-    static func photoFromJSONObject(json: [String: AnyObject], inContext context: NSManagedObjectContext) -> Photo? {
+    func photoFromJSONObject(json: [String: AnyObject]) -> PhotoTO? {
         guard
             let photoID = json["id"] as? String,
             let title = json["title"] as? String,
@@ -63,27 +80,7 @@ struct PhotosJsonParser {
             let dateTaken = DateHelper.dateFormatter.date(from: dateString) else {
                 return nil
         }
-        
-        // remove to correct data
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
-        let predicate = NSPredicate(format: "photoID == \(photoID)")
-        fetchRequest.predicate = predicate
-        var fetchedPhotos: [Photo]!
-        var photo: Photo!
-        context.performAndWait() {
-            fetchedPhotos = try! context.fetch(fetchRequest) as! [Photo]
-        }
-        if fetchedPhotos.count > 0 {
-            return fetchedPhotos.first
-        }
-        context.performAndWait() {
-            photo = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as! Photo
-            photo.title = title
-            photo.photoID = photoID
-            photo.remoteURL = url
-            photo.dateTaken = dateTaken
-        }
-        //-----
-        return photo
+        return PhotoTO(title: title, photoID: photoID, remoteURL: url, photoKey: UUID().uuidString, dateTaken: dateTaken, tags: [])
     }
+    
 }

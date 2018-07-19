@@ -9,6 +9,6 @@
 import Foundation
 
 protocol PhotosRepositoryProtocol {
-    func getLastUploadedFlickerPhotos(completion: @escaping (PhotosResult) -> Void)
+    func fetchLastUploadedFlickerPhotos(completion: @escaping () -> Void)
     func getAllPersistedPhotos() throws -> [Photo]
 }

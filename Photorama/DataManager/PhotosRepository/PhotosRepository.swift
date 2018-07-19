@@ -9,15 +9,26 @@
 import CoreData
 
 class PhotosRepository {
+
     
     var photosCoreData: PhotosCoreData
+    var photosWebData: PhotosWebData
+    
     
     init(coreDataStack: CoreDataStack) {
         photosCoreData = PhotosCoreData(coreDataStack: coreDataStack)
+        photosWebData = PhotosWebData()
     }
     
-    func getLastUploadedFlickerPhotos(completion: @escaping (PhotosResult) -> Void) {
-        photosCoreData.fetchRecentPhotos(completion: completion)
+    
+    func fetchLastUploadedFlickerPhotos(completion: @escaping () -> Void) {
+        photosWebData.getRecentPhotosFromFlickrAPI() {
+            (result) -> Void in
+            if case let .Success(photos) = result {
+                self.photosCoreData.persistRecentPhotos(photos: photos)
+            }
+            completion()
+        }
     }
     
     func getAllPersistedPhotos() throws -> [Photo] {

@@ -33,8 +33,8 @@
 		F654537520FFF1C8003CF1F7 /* PhotosCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654537420FFF1C8003CF1F7 /* PhotosCoreData.swift */; };
 		F654537720FFF203003CF1F7 /* PhotosRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654537620FFF203003CF1F7 /* PhotosRepositoryProtocol.swift */; };
 		F654537920FFF9A9003CF1F7 /* ImageWebData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654537820FFF9A9003CF1F7 /* ImageWebData.swift */; };
+		F654537B21000A16003CF1F7 /* PhotosWebData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654537A21000A16003CF1F7 /* PhotosWebData.swift */; };
 		F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */; };
-		F6913F4A20F215D9000A0630 /* PhotosJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F4920F215D9000A0630 /* PhotosJsonParser.swift */; };
 		F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */; };
 		F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */; };
 		F6913F5C20F2A667000A0630 /* PhotoInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */; };
@@ -84,8 +84,8 @@
 		F654537420FFF1C8003CF1F7 /* PhotosCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCoreData.swift; sourceTree = "<group>"; };
 		F654537620FFF203003CF1F7 /* PhotosRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepositoryProtocol.swift; sourceTree = "<group>"; };
 		F654537820FFF9A9003CF1F7 /* ImageWebData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWebData.swift; sourceTree = "<group>"; };
+		F654537A21000A16003CF1F7 /* PhotosWebData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosWebData.swift; sourceTree = "<group>"; };
 		F6586D8E1F24E21D003ED305 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
-		F6913F4920F215D9000A0630 /* PhotosJsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosJsonParser.swift; sourceTree = "<group>"; };
 		F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenter.swift; sourceTree = "<group>"; };
 		F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoProtocols.swift; sourceTree = "<group>"; };
 		F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouter.swift; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				F654537420FFF1C8003CF1F7 /* PhotosCoreData.swift */,
-				F6913F4920F215D9000A0630 /* PhotosJsonParser.swift */,
+				F654537A21000A16003CF1F7 /* PhotosWebData.swift */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -534,10 +534,10 @@
 				F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */,
 				F654536E20FFDFE8003CF1F7 /* photoTransfer.swift in Sources */,
 				F654535120FD42BB003CF1F7 /* TagsRepository.swift in Sources */,
-				F6913F4A20F215D9000A0630 /* PhotosJsonParser.swift in Sources */,
 				F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */,
 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,
+				F654537B21000A16003CF1F7 /* PhotosWebData.swift in Sources */,
 				F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */,
 				F654537920FFF9A9003CF1F7 /* ImageWebData.swift in Sources */,
 				F6913F6820F3FCCF000A0630 /* TagsPresenter.swift in Sources */,
