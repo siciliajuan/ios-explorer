@@ -25,7 +25,7 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
         }
     }
     
-    func fetchImageForPhoto(_ photo: Photo) {
+    func fetchImageForPhoto(_ photo: PhotoTO) {
         store.getImageForPhoto(photo: photo) {
             (result) -> Void in
             switch result {

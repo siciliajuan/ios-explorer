@@ -19,7 +19,7 @@ class PhotoInfoView: UIViewController {
         presenter.goToTagsView(photo)
     }
     
-    var photo: Photo!
+    var photo: PhotoTO!
     
     override func viewDidLoad() {
         super.viewDidLoad()

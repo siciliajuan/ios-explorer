@@ -33,6 +33,7 @@ struct PhotosCodable: Codable {
     }
     
     func encode(to encoder: Encoder) throws {
+        // great stuff here
     }
 }
 

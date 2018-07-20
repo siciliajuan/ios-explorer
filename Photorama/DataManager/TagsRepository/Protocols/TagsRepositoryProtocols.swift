@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import CoreData
 
 protocol TagsRepositoryProtocol {
-    func getTagsSortedByName() throws -> [NSManagedObject]
+    func getTagsSortedByName() throws -> [String]
     func saveTag(_ tagName: String)
 }

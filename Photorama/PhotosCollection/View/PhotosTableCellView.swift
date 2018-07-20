@@ -17,7 +17,7 @@ class PhotosTableCellView: UITableViewCell {
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelDate: UILabel!
     
-    var photo: Photo! {
+    var photo: PhotoTO! {
         didSet {
             labelDate.text = DateHelper.dateFormatter.string(from: photo.dateTaken)
             labelTitle.text = photo.title

@@ -10,7 +10,7 @@ import UIKit
 
 class TagsRouter: TagsWireFrameProtocol {
     
-    class func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
+    class func createTagsModule(forPhoto photo: PhotoTO, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "TagsNavigationController")
         guard let view = navController.childViewControllers.first as? TagsView else {
             return UIViewController()

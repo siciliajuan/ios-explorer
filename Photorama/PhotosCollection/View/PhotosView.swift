@@ -15,7 +15,7 @@ class PhotosView: UIViewController {
     @IBOutlet var table: UITableView!
     
     let cellIdentifier = "UICollectionViewCell"
-    var photos = [Photo]()
+    var photos = [PhotoTO]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,12 @@ class PhotosView: UIViewController {
 
 extension PhotosView: PhotosViewProtocol {
     
-    func setPhotos(_ photos: [Photo]) {
+    func setPhotos(_ photos: [PhotoTO]) {
         self.photos = photos
         table.reloadData()
     }
     
-    func updateImageForPhoto (_ photo: Photo) {
+    func updateImageForPhoto (_ photo: PhotoTO) {
         let photoIndex = self.photos.index(of: photo)!
         let photoIndexPath = NSIndexPath(row: photoIndex, section: 0)
         if let cell = table.cellForRow(at: photoIndexPath as IndexPath) as? PhotosTableCellView {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class TagsView: UIViewController {
     
@@ -15,9 +14,9 @@ class TagsView: UIViewController {
     
     var presenter: TagsPresenterProtocol?
     
-    var photo: Photo!
+    var photo: PhotoTO!
     let cellIdentifier = "UITableViewCell"
-    var tags: [NSManagedObject] = []
+    var tags: [String] = []
     var selectedIndexPaths = [NSIndexPath]()
     
     override func viewDidLoad() {
@@ -74,22 +73,22 @@ class TagsView: UIViewController {
         self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
     }
     
-    func removePhotoTag(_ tag: NSManagedObject) {
+    func removePhotoTag(_ tag: String) {
         photo.removeTagObject(tag: tag)
     }
     
-    func addPhotoTag(_ tag: NSManagedObject) {
+    func addPhotoTag(_ tag: String) {
         photo.addTagObject(tag: tag)
     }
     
     func commitPersistentData() {
-        presenter?.commitPersistentData()
+        presenter?.commitPersistentData(photo: photo)
     }
 }
 
 extension TagsView: TagsViewProtocol {
     
-    func setTags(_ tags: [NSManagedObject]) {
+    func setTags(_ tags: [String]) {
         self.tags = tags
     }
 }
@@ -128,7 +127,7 @@ extension TagsView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         let tag = tags[indexPath.row]
-        let name = tag.value(forKey: "name") as! String
+        let name = tag
         cell?.textLabel?.text = name
         return cell!
     }

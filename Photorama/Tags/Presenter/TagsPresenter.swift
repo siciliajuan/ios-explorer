@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class TagsPresenter: TagsPresenterProtocol {
     
@@ -31,14 +30,14 @@ class TagsPresenter: TagsPresenterProtocol {
         interactor?.saveTag(tagName)
     }
     
-    func commitPersistentData() {
-        interactor?.saveChanges()
+    func commitPersistentData(photo: PhotoTO) {
+        interactor?.updatePhoto(photo: photo)
     }
 }
 
 extension TagsPresenter: TagsInteractorOutputProtocol {
     
-    func didRetrievedTags(_ tags: [NSManagedObject]) {
+    func didRetrievedTags(_ tags: [String]) {
         view?.setTags(tags)
     }
     

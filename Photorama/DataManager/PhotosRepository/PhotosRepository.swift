@@ -31,8 +31,12 @@ class PhotosRepository {
         }
     }
     
-    func getAllPersistedPhotos() throws -> [Photo] {
+    func getAllPersistedPhotos() throws -> [PhotoTO] {
         return try photosCoreData.getAllPersistedPhotos()
+    }
+    
+    func getPhotoById(id: String) -> Photo? {
+        return photosCoreData.getPhotoById(id: id)
     }
     
 }

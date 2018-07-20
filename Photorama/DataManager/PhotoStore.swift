@@ -37,21 +37,34 @@ extension PhotoStore: PhotosRepositoryProtocol {
         photosRepository.fetchLastUploadedFlickerPhotos(completion: completion)
     }
     
-    func getAllPersistedPhotos() throws -> [Photo] {
+    func getAllPersistedPhotos() throws -> [PhotoTO] {
         return try photosRepository.getAllPersistedPhotos()
+    }
+    
+    func updatePhoto(photo photoTO: PhotoTO) {
+        let photo = photosRepository.getPhotoById(id: photoTO.photoID)
+        if let resultPhoto = photo {
+            let tags = tagsRepository.getTagsByNameList(names: photoTO.tags)
+            if let resultTags = tags {
+                for tag in resultTags {
+                    resultPhoto.addTagObject(tag: tag)
+                    saveChanges()
+                }
+            }
+        }
     }
 }
 
 extension PhotoStore: ImageRepositoryProtocol {
     
-    func getImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
+    func getImageForPhoto(photo: PhotoTO, completion: @escaping (ImageResult) -> Void) {
         imageRepository.getImageForPhoto(photo: photo, completion: completion)
     }
 }
 
 extension PhotoStore: TagsRepositoryProtocol {
     
-    func getTagsSortedByName() throws -> [NSManagedObject] {
+    func getTagsSortedByName() throws -> [String] {
         return try tagsRepository.getTagsSortedByName()
     }
     

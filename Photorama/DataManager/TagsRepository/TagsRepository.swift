@@ -17,11 +17,15 @@ class TagsRepository: TagsRepositoryProtocol {
         tagsCoreData = TagsCoreData(coreDataStack: coreDataStack)
     }
     
-    func getTagsSortedByName() throws -> [NSManagedObject] {
+    func getTagsSortedByName() throws -> [String] {
         return try tagsCoreData.getTagsSortedByName()
     }
     
     func saveTag(_ tagName: String) {
         tagsCoreData.saveTag(tagName)
+    }
+    
+    func getTagsByNameList(names: [String]) -> [NSManagedObject]? {
+        return tagsCoreData.getTagsByNameList(names: names)
     }
 }

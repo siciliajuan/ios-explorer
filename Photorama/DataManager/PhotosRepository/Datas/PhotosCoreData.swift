@@ -19,6 +19,27 @@ class PhotosCoreData {
     }
     
     
+    func getPhotoById(id: String) -> Photo? {
+        let predicate = NSPredicate(format: "photoID == %@", id)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
+        fetchRequest.sortDescriptors = nil
+        fetchRequest.predicate = predicate
+        let mainQueueContext = self.coreDataStack.mainQueueContext
+        var mainQueuePhotos: [Photo]?
+        mainQueueContext.performAndWait() {
+            do {
+                mainQueuePhotos = try mainQueueContext.fetch(fetchRequest) as? [Photo]
+            } catch let error {
+                print("Error getting photo by id: \(id), gets error: \(error)")
+            }
+        }
+        guard let photos = mainQueuePhotos else {
+            print("Error trying to retrieve photo by id: \(id) on coreData; not found")
+            return nil
+        }
+        return photos.first
+    }
+    
     func persistRecentPhotos(photos: [PhotoTO]) {
         let context = coreDataStack.mainQueueContext
         for photo in photos {
@@ -34,8 +55,9 @@ class PhotosCoreData {
         }
     }
     
-    func getAllPersistedPhotos() throws -> [Photo] {
-        return try fetchMainQueuePhotos()
+    func getAllPersistedPhotos() throws -> [PhotoTO] {
+        let photos = try fetchMainQueuePhotos()
+        return PhotoTransfer.photosToPhotosTO(photos: photos)
     }
     
     /*
