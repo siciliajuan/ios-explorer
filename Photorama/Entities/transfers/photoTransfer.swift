@@ -10,25 +10,25 @@ import Foundation
 
 class PhotoTransfer {
     
-    static func photoToPhotoTO(photo: Photo) -> PhotoTO {
+    static func photoMOToPhoto(photoMO: PhotoMO) -> Photo {
         var tags = [String]()
-        for tag in photo.tags {
-            tags.append(tag.value(forKey: "name") as! String)
+        for tagMO in photoMO.tagsMO {
+            tags.append(tagMO.value(forKey: "name") as! String)
         }
-        return PhotoTO(title: photo.title, photoID: photo.photoID, remoteURL: photo.remoteURL, photoKey: photo.photoKey, dateTaken: photo.dateTaken, tags: tags)
+        return Photo(title: photoMO.title, photoID: photoMO.photoID, remoteURL: photoMO.remoteURL, photoKey: photoMO.photoKey, dateTaken: photoMO.dateTaken, tags: tags)
     }
     
-    static func photosToPhotosTO (photos: [Photo]) -> [PhotoTO] {
-        var photosTO = [PhotoTO]()
-        for photo in photos {
-            photosTO.append(photoToPhotoTO(photo: photo))
+    static func photosMOToPhotos (photosMO: [PhotoMO]) -> [Photo] {
+        var photos = [Photo]()
+        for photoMO in photosMO {
+            photos.append(photoMOToPhoto(photoMO: photoMO))
         }
-        return photosTO
+        return photos
     }
     
     
     
-    static func photoCodableToPhotoTO(photo: PhotoCodable) -> PhotoTO? {
+    static func photoCodableToPhoto(photo: PhotoCodable) -> Photo? {
         guard
             let photoID = photo.photoID,
             let title = photo.title,
@@ -38,6 +38,6 @@ class PhotoTransfer {
             let dateTaken = DateHelper.dateFormatter.date(from: dateString) else {
                 return nil
         }
-        return PhotoTO(title: title, photoID: photoID, remoteURL: url, photoKey: UUID().uuidString, dateTaken: dateTaken, tags: [])
+        return Photo(title: title, photoID: photoID, remoteURL: url, photoKey: UUID().uuidString, dateTaken: dateTaken, tags: [])
     }
 }

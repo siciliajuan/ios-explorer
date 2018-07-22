@@ -1,5 +1,5 @@
 //
-//  PhotoCollectionViewCell.swift
+//  PhotoTableViewCell.swift
 //  Photorama
 //
 //  Created by juan sicilia on 22/7/17.
@@ -17,7 +17,7 @@ class PhotosTableCellView: UITableViewCell {
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelDate: UILabel!
     
-    var photo: PhotoTO! {
+    var photo: Photo! {
         didSet {
             labelDate.text = DateHelper.dateFormatter.string(from: photo.dateTaken)
             labelTitle.text = photo.title

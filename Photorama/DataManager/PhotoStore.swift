@@ -37,21 +37,21 @@ extension PhotoStore: PhotosRepositoryProtocol {
         photosRepository.fetchLastUploadedFlickerPhotos(completion: completion)
     }
     
-    func getAllPersistedPhotos() throws -> [PhotoTO] {
+    func getAllPersistedPhotos() throws -> [Photo] {
         return try photosRepository.getAllPersistedPhotos()
     }
     
-    func updatePhoto(photo photoTO: PhotoTO) {
+    func updatePhoto(photo: Photo) {
         guard
-            let photo = photosRepository.getPhotoById(id: photoTO.photoID),
-            let tags = tagsRepository.getTagsByNameList(names: photoTO.tags)
+            let photoMO = photosRepository.getPhotoById(id: photo.photoID),
+            let tagsMO = tagsRepository.getTagsByNameList(names: photo.tags)
         else {
-            print("Error trying to retrieved photo by id: \(photoTO.photoID)")
+            print("Error trying to retrieved photo by id: \(photo.photoID)")
             return
         }
-        _ = tags.map(){
-            (tag) -> Void in
-            photo.addTagObject(tag: tag)
+        _ = tagsMO.map(){
+            (tagMO) -> Void in
+            photoMO.addTagObject(tagMO: tagMO)
         }
         saveChanges()
     }
@@ -59,7 +59,7 @@ extension PhotoStore: PhotosRepositoryProtocol {
 
 extension PhotoStore: ImageRepositoryProtocol {
     
-    func getImageForPhoto(photo: PhotoTO, completion: @escaping (ImageResult) -> Void) {
+    func getImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
         imageRepository.getImageForPhoto(photo: photo, completion: completion)
     }
 }

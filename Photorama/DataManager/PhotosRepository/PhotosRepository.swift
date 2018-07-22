@@ -31,11 +31,11 @@ class PhotosRepository {
         }
     }
     
-    func getAllPersistedPhotos() throws -> [PhotoTO] {
+    func getAllPersistedPhotos() throws -> [Photo] {
         return try photosCoreData.getAllPersistedPhotos()
     }
     
-    func getPhotoById(id: String) -> Photo? {
+    func getPhotoById(id: String) -> PhotoMO? {
         return photosCoreData.getPhotoById(id: id)
     }
     

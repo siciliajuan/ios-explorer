@@ -15,19 +15,19 @@ class PhotoInfoPresenter: PhotoInfoPresenterProtocol {
     var route: PhotoInfoWireFrameProtocol!
     var interactor: PhotoInfoInteractorInputProtocol!
     
-    func viewDidLoad(_ photo: PhotoTO?) {
+    func viewDidLoad(_ photo: Photo?) {
         interactor.retrievePhotoImage(forPhoto: photo!)
         
     }
     
-    func goToTagsView(_ photo: PhotoTO?) {
+    func goToTagsView(_ photo: Photo?) {
         route.presentTags(from: view!, photo: photo!, store: interactor!.store!)
     }
 }
 
 extension PhotoInfoPresenter: PhotoInfoInteractorOutputProtocol {
     
-    func didRetrievePhotoImage(_ photo: PhotoTO) {
+    func didRetrievePhotoImage(_ photo: Photo) {
         view.showPhotoInfo(forPhoto: photo.title, forImage: photo.image!)
     }
 }

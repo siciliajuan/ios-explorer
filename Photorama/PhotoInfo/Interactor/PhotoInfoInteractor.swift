@@ -14,7 +14,7 @@ class PhotoInfoInteractor: PhotoInfoInteractorInputProtocol {
     
     var store: PhotoStore!
     
-    func retrievePhotoImage(forPhoto photo: PhotoTO){
+    func retrievePhotoImage(forPhoto photo: Photo){
         store.getImageForPhoto(photo: photo) {
             (result) -> Void in
             switch result {

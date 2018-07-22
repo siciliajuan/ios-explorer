@@ -1,5 +1,5 @@
 //
-//  PhotoTO.swift
+//  Photo.swift
 //  Photorama
 //
 //  Created by juan sicilia on 18/7/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoTO: Equatable {
+class Photo: Equatable {
     
     var title: String
     var photoID: String
@@ -37,7 +37,7 @@ class PhotoTO: Equatable {
         tags.append(tag)
     }
     
-    static func == (lhs: PhotoTO, rhs: PhotoTO) -> Bool {
+    static func == (lhs: Photo, rhs: Photo) -> Bool {
         return lhs.title == rhs.title && lhs.photoID == rhs.photoID &&
                lhs.remoteURL == rhs.remoteURL && lhs.photoKey == rhs.photoKey &&
                lhs.dateTaken == rhs.dateTaken

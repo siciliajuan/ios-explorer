@@ -14,7 +14,7 @@ import Foundation
  Failure if somethhing went wrong
  */
 enum PhotosResult {
-    case Success([PhotoTO])
+    case Success([Photo])
     case Failure(Error)
 }
 
@@ -51,9 +51,9 @@ class PhotosWebData {
             guard let photos = photosArray.resultPhotos else {
                 return .Failure(FlickrError.InvalidJSONData)
             }
-            var finalPhotos = [PhotoTO]()
+            var finalPhotos = [Photo]()
             for photo in photos {
-                if let photo = PhotoTransfer.photoCodableToPhotoTO(photo: photo) {
+                if let photo = PhotoTransfer.photoCodableToPhoto(photo: photo) {
                     finalPhotos.append(photo)
                 }
             }

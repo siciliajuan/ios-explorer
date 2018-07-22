@@ -14,7 +14,7 @@ class TagsView: UIViewController {
     
     var presenter: TagsPresenterProtocol?
     
-    var photo: PhotoTO!
+    var photo: Photo!
     let cellIdentifier = "UITableViewCell"
     var tags: [String] = []
     var selectedIndexPaths = [NSIndexPath]()

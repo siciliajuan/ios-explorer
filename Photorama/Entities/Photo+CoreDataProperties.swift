@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension Photo {
+extension PhotoMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Photo> {
-        return NSFetchRequest<Photo>(entityName: "Photo")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<PhotoMO> {
+        return NSFetchRequest<PhotoMO>(entityName: "PhotoMO")
     }
 
     @NSManaged public var dateTaken: Date
@@ -22,6 +22,6 @@ extension Photo {
     @NSManaged public var photoKey: String
     @NSManaged public var remoteURL: URL
     @NSManaged public var title: String
-    @NSManaged public var tags: Set<NSManagedObject>
+    @NSManaged public var tagsMO: Set<NSManagedObject>
 
 }

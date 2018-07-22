@@ -24,7 +24,7 @@ class TagsInteractor: TagsInteractorInputProtocol {
         store.saveChanges()
     }
     
-    func updatePhoto(photo: PhotoTO) {
+    func updatePhoto(photo: Photo) {
         store.updatePhoto(photo: photo)
     }
 }

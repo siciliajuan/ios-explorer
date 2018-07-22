@@ -53,7 +53,7 @@ class ImageRepository: ImageRepositoryProtocol {
      Fetches the image for a photo Object, first try to get it from the cache but if wasn't there then
      download it using the URL and set in the store and cache. Finally exec the completion closure
      */
-    func getImageForPhoto(photo: PhotoTO, completion: @escaping (ImageResult) -> Void) {
+    func getImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
         let photoKey = photo.photoKey
         if let image = getImageByKey(key: photoKey) {
             photo.image = image

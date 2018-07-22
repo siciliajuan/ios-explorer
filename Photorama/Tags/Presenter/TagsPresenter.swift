@@ -30,7 +30,7 @@ class TagsPresenter: TagsPresenterProtocol {
         interactor?.saveTag(tagName)
     }
     
-    func commitPersistentData(photo: PhotoTO) {
+    func commitPersistentData(photo: Photo) {
         interactor?.updatePhoto(photo: photo)
     }
 }

@@ -27,7 +27,7 @@ class PhotosRouter: PhotosWireFrameProtocol {
         return navController
     }
     
-    func presentPhotoInfo(from view: PhotosViewProtocol, photo: PhotoTO, store: PhotoStore) {
+    func presentPhotoInfo(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore) {
         let PhotoInfoViewController = PhotoInfoRouter.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store)
         
         if let sourceView = view as? UIViewController {

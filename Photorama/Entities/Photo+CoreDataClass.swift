@@ -10,8 +10,8 @@
 import UIKit
 import CoreData
 
-@objc(Photo)
-public class Photo: NSManagedObject {
+@objc(PhotoMO)
+public class PhotoMO: NSManagedObject {
     var image: UIImage?
     override public func awakeFromInsert() {
         super.awakeFromInsert()
@@ -22,13 +22,13 @@ public class Photo: NSManagedObject {
         dateTaken = Date()
     }
     
-    func addTagObject(tag: NSManagedObject) {
-        let currentTags = mutableSetValue(forKey: "tags")
-        currentTags.add(tag)
+    func addTagObject(tagMO: NSManagedObject) {
+        let currentTags = mutableSetValue(forKey: "tagsMO")
+        currentTags.add(tagMO)
     }
     
-    func removeTagObject(tag: NSManagedObject) {
-        let currentTags = mutableSetValue(forKey: "tags")
-        currentTags.remove(tag)
+    func removeTagObject(tagMO: NSManagedObject) {
+        let currentTags = mutableSetValue(forKey: "tagsMO")
+        currentTags.remove(tagMO)
     }
 }

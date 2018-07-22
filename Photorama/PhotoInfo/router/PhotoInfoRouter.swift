@@ -13,7 +13,7 @@ import UIKit
 class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     
     // separate en constructor and navigator
-    class func createPhotoInfoModule(forPhoto photo: PhotoTO, forPhotoStore photoStore: PhotoStore) -> UIViewController {
+    class func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "PhotoInfoController")
         guard let view = viewController as? PhotoInfoView else {
             return UIViewController()
@@ -31,7 +31,7 @@ class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
         return view
     }
     
-    func presentTags(from view: PhotoInfoViewProtocol, photo: PhotoTO, store: PhotoStore) {
+    func presentTags(from view: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore) {
         let tagsViewController = TagsRouter.createTagsModule(forPhoto: photo, forPhotoStore: store)
         
         if let sourceView = view as? UIViewController {

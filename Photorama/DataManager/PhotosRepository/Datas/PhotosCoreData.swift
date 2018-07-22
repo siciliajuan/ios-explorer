@@ -19,16 +19,16 @@ class PhotosCoreData {
     }
     
     
-    func getPhotoById(id: String) -> Photo? {
+    func getPhotoById(id: String) -> PhotoMO? {
         let predicate = NSPredicate(format: "photoID == %@", id)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = nil
         fetchRequest.predicate = predicate
         let mainQueueContext = self.coreDataStack.mainQueueContext
-        var mainQueuePhotos: [Photo]?
+        var mainQueuePhotos: [PhotoMO]?
         mainQueueContext.performAndWait() {
             do {
-                mainQueuePhotos = try mainQueueContext.fetch(fetchRequest) as? [Photo]
+                mainQueuePhotos = try mainQueueContext.fetch(fetchRequest) as? [PhotoMO]
             } catch let error {
                 print("Error getting photo by id: \(id), gets error: \(error)")
             }
@@ -40,12 +40,12 @@ class PhotosCoreData {
         return photos.first
     }
     
-    func persistRecentPhotos(photos: [PhotoTO]) {
+    func persistRecentPhotos(photos: [Photo]) {
         let context = coreDataStack.mainQueueContext
         for photo in photos {
-            var photoEntity: Photo!
+            var photoEntity: PhotoMO!
             context.performAndWait() {
-                photoEntity = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as! Photo
+                photoEntity = NSEntityDescription.insertNewObject(forEntityName: "PhotoMO", into: context) as! PhotoMO
                 photoEntity.title = photo.title
                 photoEntity.photoID = photo.photoID
                 photoEntity.remoteURL = photo.remoteURL
@@ -55,24 +55,24 @@ class PhotosCoreData {
         }
     }
     
-    func getAllPersistedPhotos() throws -> [PhotoTO] {
-        let photos = try fetchMainQueuePhotos()
-        return PhotoTransfer.photosToPhotosTO(photos: photos)
+    func getAllPersistedPhotos() throws -> [Photo] {
+        let photosMO = try fetchMainQueuePhotos()
+        return PhotoTransfer.photosMOToPhotos(photosMO: photosMO)
     }
     
     /*
      Return all photos that match the predicate sorted by sortDescription
      */
-    func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = [NSSortDescriptor(key: "dateTaken", ascending: true)]) throws -> [Photo] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
+    func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = [NSSortDescriptor(key: "dateTaken", ascending: true)]) throws -> [PhotoMO] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = sortDescriptors
         fetchRequest.predicate = predicate
         let mainQueueContext = self.coreDataStack.mainQueueContext
-        var mainQueuePhotos: [Photo]?
+        var mainQueuePhotos: [PhotoMO]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait() {
             do {
-                mainQueuePhotos = try mainQueueContext.fetch(fetchRequest) as? [Photo]
+                mainQueuePhotos = try mainQueueContext.fetch(fetchRequest) as? [PhotoMO]
             } catch let error {
                 fetchRequestError = error
             }

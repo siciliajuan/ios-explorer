@@ -19,7 +19,7 @@ class TagsCoreData {
     
     func getTagsByNameList(names: [String]) -> [NSManagedObject]? {
         let predicate = NSPredicate(format: "name IN %@", names)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
         fetchRequest.sortDescriptors = nil
         fetchRequest.predicate = predicate
         let mainQueueContext = self.coreDataStack.mainQueueContext
@@ -39,7 +39,7 @@ class TagsCoreData {
     }
     
     func getTagsSortedByName() throws -> [String] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchRequest.predicate = nil
         let mainQueueContext = self.coreDataStack.mainQueueContext
@@ -64,7 +64,7 @@ class TagsCoreData {
     
     func saveTag(_ tagName: String) {
         let context = coreDataStack.mainQueueContext
-        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context)
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "TagMO", into: context)
         newTag.setValue(tagName, forKey: "name")
     }
 }

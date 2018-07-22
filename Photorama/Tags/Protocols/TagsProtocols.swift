@@ -13,7 +13,7 @@ import UIKit
 protocol TagsViewProtocol {
     var presenter: TagsPresenterProtocol? { get set }
     
-    var photo: PhotoTO! { get set }
+    var photo: Photo! { get set }
     
     func setTags(_ tags: [String])
 }
@@ -28,13 +28,13 @@ protocol TagsPresenterProtocol {
     func dismissTags()
     func updateTags()
     func saveTag(_ tagName: String)
-    func commitPersistentData(photo: PhotoTO)
+    func commitPersistentData(photo: Photo)
 }
 
 // presenter -> router
 // other route -> route
 protocol TagsWireFrameProtocol {
-    static func createTagsModule(forPhoto photo: PhotoTO, forPhotoStore photoStore: PhotoStore) -> UIViewController
+    static func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
     func dismissTags(from: TagsViewProtocol)
 }
 
@@ -46,7 +46,7 @@ protocol TagsInteractorInputProtocol {
     
     func retrieveTags()
     func saveTag(_ tagName: String)
-    func updatePhoto(photo: PhotoTO)
+    func updatePhoto(photo: Photo)
 }
 
 
