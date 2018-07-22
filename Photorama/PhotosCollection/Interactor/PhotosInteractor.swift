@@ -18,8 +18,8 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
     func fetchRecentPhotos() {
         store.fetchLastUploadedFlickerPhotos() {
             () -> Void in
+            let allPhotos = try! self.store.getAllPersistedPhotos()
             OperationQueue.main.addOperation{
-                let allPhotos = try! self.store.getAllPersistedPhotos()
                 self.presenter.didRetrievePhotos(allPhotos)
             }
         }

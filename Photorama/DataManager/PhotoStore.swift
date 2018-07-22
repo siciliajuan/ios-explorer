@@ -42,16 +42,18 @@ extension PhotoStore: PhotosRepositoryProtocol {
     }
     
     func updatePhoto(photo photoTO: PhotoTO) {
-        let photo = photosRepository.getPhotoById(id: photoTO.photoID)
-        if let resultPhoto = photo {
+        guard
+            let photo = photosRepository.getPhotoById(id: photoTO.photoID),
             let tags = tagsRepository.getTagsByNameList(names: photoTO.tags)
-            if let resultTags = tags {
-                for tag in resultTags {
-                    resultPhoto.addTagObject(tag: tag)
-                    saveChanges()
-                }
-            }
+        else {
+            print("Error trying to retrieved photo by id: \(photoTO.photoID)")
+            return
         }
+        _ = tags.map(){
+            (tag) -> Void in
+            photo.addTagObject(tag: tag)
+        }
+        saveChanges()
     }
 }
 

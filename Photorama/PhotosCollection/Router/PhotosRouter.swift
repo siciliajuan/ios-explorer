@@ -13,7 +13,7 @@ class PhotosRouter: PhotosWireFrameProtocol {
     class func createPhotosModule(forPhotoStore store: PhotoStore) -> UIViewController {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "PhotosController")
         guard let view = navController.childViewControllers.first as? PhotosView else {
-            return UIViewController()
+            fatalError("Imposible to create navController to load PhotosController")
         }
         var presenter: PhotosPresenterProtocol & PhotosInteractorOutputProtocol = PhotosPresenter()
         let route: PhotosWireFrameProtocol = PhotosRouter()
