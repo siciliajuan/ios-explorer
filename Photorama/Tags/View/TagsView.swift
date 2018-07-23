@@ -61,8 +61,8 @@ class TagsView: UIViewController {
     }
     
     func updateTags() {
-        for tag in photo.tags {
-            if let index = tags.index(of:tag) {
+        _ = photo.tags.map(){
+            if let index = tags.index(of:$0) {
                 let indexPath = NSIndexPath(row: index, section: 0)
                 selectedIndexPaths.append(indexPath)
             }

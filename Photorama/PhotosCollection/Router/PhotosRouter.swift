@@ -29,10 +29,10 @@ class PhotosRouter: PhotosWireFrameProtocol {
     
     func presentPhotoInfo(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore) {
         let PhotoInfoViewController = PhotoInfoRouter.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store)
-        
-        if let sourceView = view as? UIViewController {
-            sourceView.navigationController?.pushViewController(PhotoInfoViewController, animated: true)
+        guard let sourceView = view as? UIViewController else {
+                fatalError("Imposible to create viewControoler to load PhotoInfoViewController")
         }
+        sourceView.navigationController?.pushViewController(PhotoInfoViewController, animated: true)
     }
     
     static var mainStoryboard: UIStoryboard {

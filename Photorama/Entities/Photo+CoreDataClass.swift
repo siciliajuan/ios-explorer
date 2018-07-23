@@ -12,7 +12,6 @@ import CoreData
 
 @objc(PhotoMO)
 public class PhotoMO: NSManagedObject {
-    var image: UIImage?
     override public func awakeFromInsert() {
         super.awakeFromInsert()
         title = ""

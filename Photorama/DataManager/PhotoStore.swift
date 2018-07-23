@@ -49,10 +49,7 @@ extension PhotoStore: PhotosRepositoryProtocol {
             print("Error trying to retrieved photo by id: \(photo.photoID)")
             return
         }
-        _ = tagsMO.map(){
-            (tagMO) -> Void in
-            photoMO.addTagObject(tagMO: tagMO)
-        }
+        _ = tagsMO.map{photoMO.addTagObject(tagMO: $0)}
         saveChanges()
     }
 }

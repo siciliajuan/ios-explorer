@@ -11,22 +11,13 @@ import Foundation
 class PhotoTransfer {
     
     static func photoMOToPhoto(photoMO: PhotoMO) -> Photo {
-        var tags = [String]()
-        for tagMO in photoMO.tagsMO {
-            tags.append(tagMO.value(forKey: "name") as! String)
-        }
+        let tags = photoMO.tagsMO.map{$0.value(forKey: "name") as! String}
         return Photo(title: photoMO.title, photoID: photoMO.photoID, remoteURL: photoMO.remoteURL, photoKey: photoMO.photoKey, dateTaken: photoMO.dateTaken, tags: tags)
     }
     
     static func photosMOToPhotos (photosMO: [PhotoMO]) -> [Photo] {
-        var photos = [Photo]()
-        for photoMO in photosMO {
-            photos.append(photoMOToPhoto(photoMO: photoMO))
-        }
-        return photos
+        return photosMO.map{photoMOToPhoto(photoMO: $0)}
     }
-    
-    
     
     static func photoCodableToPhoto(photo: PhotoCodable) -> Photo? {
         guard

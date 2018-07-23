@@ -24,33 +24,36 @@ class PhotosCoreData {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = nil
         fetchRequest.predicate = predicate
-        let mainQueueContext = self.coreDataStack.mainQueueContext
+        let mainQueueContext = self.coreDataStack.managedObjectContext
         var mainQueuePhotos: [PhotoMO]?
         mainQueueContext.performAndWait() {
             do {
                 mainQueuePhotos = try mainQueueContext.fetch(fetchRequest) as? [PhotoMO]
-            } catch let error {
-                print("Error getting photo by id: \(id), gets error: \(error)")
+            } catch {
+                return
             }
         }
-        guard let photos = mainQueuePhotos else {
-            print("Error trying to retrieve photo by id: \(id) on coreData; not found")
+        guard let photosMO = mainQueuePhotos, let photoMO = photosMO.first else {
             return nil
         }
-        return photos.first
+        return photoMO
     }
     
     func persistRecentPhotos(photos: [Photo]) {
-        let context = coreDataStack.mainQueueContext
-        for photo in photos {
-            var photoEntity: PhotoMO!
-            context.performAndWait() {
-                photoEntity = NSEntityDescription.insertNewObject(forEntityName: "PhotoMO", into: context) as! PhotoMO
-                photoEntity.title = photo.title
-                photoEntity.photoID = photo.photoID
-                photoEntity.remoteURL = photo.remoteURL
-                photoEntity.dateTaken = photo.dateTaken
-                photoEntity.photoKey = photo.photoKey
+        let context = coreDataStack.managedObjectContext
+        _ = photos.map{
+            (photo) -> Void in
+            guard let _ = getPhotoById(id: photo.photoID) else {
+                var photoEntity: PhotoMO!
+                context.performAndWait() {
+                    photoEntity = NSEntityDescription.insertNewObject(forEntityName: "PhotoMO", into: context) as! PhotoMO
+                    photoEntity.title = photo.title
+                    photoEntity.photoID = photo.photoID
+                    photoEntity.remoteURL = photo.remoteURL
+                    photoEntity.dateTaken = photo.dateTaken
+                    photoEntity.photoKey = photo.photoKey
+                }
+                return
             }
         }
     }
@@ -67,7 +70,7 @@ class PhotosCoreData {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = sortDescriptors
         fetchRequest.predicate = predicate
-        let mainQueueContext = self.coreDataStack.mainQueueContext
+        let mainQueueContext = self.coreDataStack.managedObjectContext
         var mainQueuePhotos: [PhotoMO]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait() {

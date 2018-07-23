@@ -41,11 +41,12 @@ extension PhotosView: PhotosViewProtocol {
     }
     
     func updateImageForPhoto (_ photo: Photo) {
-        let photoIndex = self.photos.index(of: photo)!
-        let photoIndexPath = NSIndexPath(row: photoIndex, section: 0)
-        if let cell = table.cellForRow(at: photoIndexPath as IndexPath) as? PhotosTableCellView {
-            cell.updateWithImage(image: photo.image)
+        guard
+            let photoIndex = self.photos.index(of: photo),
+            let cell = table.cellForRow(at: NSIndexPath(row: photoIndex, section: 0) as IndexPath) as? PhotosTableCellView else{
+                return
         }
+        cell.updateWithImage(image: photo.image)
     }
 }
 

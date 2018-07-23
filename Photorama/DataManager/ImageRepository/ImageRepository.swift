@@ -38,12 +38,11 @@ class ImageRepository: ImageRepositoryProtocol {
     */
     private func getImageByKey(key: String) -> UIImage? {
         guard let cachedImage = imageCache.imageForKey(key: key) else {
-            if let storedImage = imageFS.imageForKey(key: key) {
-                imageCache.setImage(image: storedImage, forKey: key)
-                return storedImage
-            } else {
-                return nil
+            guard let storedImage = imageFS.imageForKey(key: key) else {
+                    return nil
             }
+            imageCache.setImage(image: storedImage, forKey: key)
+            return storedImage
         }
         return cachedImage
     }
@@ -55,17 +54,17 @@ class ImageRepository: ImageRepositoryProtocol {
      */
     func getImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
         let photoKey = photo.photoKey
-        if let image = getImageByKey(key: photoKey) {
-            photo.image = image
-            completion(.Success(image))
+        guard let image = getImageByKey(key: photoKey) else {
+            imageWebData.getImageByUrl(photo.remoteURL) {
+                (result) -> Void in
+                if case let .Success(image) = result {
+                    self.setImage(image: image, forKey: photoKey)
+                }
+                completion(result)
+            }
             return
         }
-        imageWebData.getImageByUrl(photo.remoteURL) {
-            (result) -> Void in
-            if case let .Success(image) = result {
-                self.setImage(image: image, forKey: photoKey)
-            }
-            completion(result)
-        }
+        photo.image = image
+        completion(.Success(image))
     }
 }

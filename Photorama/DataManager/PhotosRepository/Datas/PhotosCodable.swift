@@ -8,15 +8,6 @@
 
 import Foundation
 
-struct RecentPhotosCodable: Codable {
-    
-    let photos: PhotosCodable?
-    
-    private enum CodingKeys: String, CodingKey {
-        case photos
-    }
-}
-
 struct PhotosCodable: Codable {
     
     let resultPhotos: [PhotoCodable]?

@@ -16,7 +16,7 @@ class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     class func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "PhotoInfoController")
         guard let view = viewController as? PhotoInfoView else {
-            return UIViewController()
+            fatalError("Imposible to create viewController to load PhotoInfoController")
         }
         var presenter: PhotoInfoPresenterProtocol & PhotoInfoInteractorOutputProtocol = PhotoInfoPresenter()
         let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoRouter()
@@ -33,10 +33,10 @@ class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     
     func presentTags(from view: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore) {
         let tagsViewController = TagsRouter.createTagsModule(forPhoto: photo, forPhotoStore: store)
-        
-        if let sourceView = view as? UIViewController {
-            sourceView.present(tagsViewController, animated: true)
+        guard let sourceView = view as? UIViewController else {
+                fatalError("Imposible to create viewController to load tagsViewController")
         }
+        sourceView.present(tagsViewController, animated: true)
     }
     
     static var mainStoryboard: UIStoryboard {

@@ -51,16 +51,11 @@ class PhotosWebData {
             guard let photos = photosArray.resultPhotos else {
                 return .Failure(FlickrError.InvalidJSONData)
             }
-            var finalPhotos = [Photo]()
-            for photo in photos {
-                if let photo = PhotoTransfer.photoCodableToPhoto(photo: photo) {
-                    finalPhotos.append(photo)
-                }
-            }
+            let finalPhotos = photos.map{PhotoTransfer.photoCodableToPhoto(photo: $0)}.filter{$0 != nil}
             if finalPhotos.count == 0 && photos.count > 0 {
                 return .Failure(FlickrError.InvalidJSONData)
             }
-            return .Success(finalPhotos)
+            return .Success(finalPhotos as! [Photo])
         } catch let error {
             return .Failure(error)
         }

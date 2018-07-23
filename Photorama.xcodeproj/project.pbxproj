@@ -161,6 +161,7 @@
 		F64C09701F2155320020A548 /* Photorama */ = {
 			isa = PBXGroup;
 			children = (
+				F6C30FD72105C4640066ABAB /* CoreData */,
 				F6913F3720F209C3000A0630 /* Entities */,
 				F6913F3A20F20A34000A0630 /* DataManager */,
 				F654535620FE739F003CF1F7 /* Helpers */,
@@ -172,8 +173,6 @@
 				F64C09781F2155320020A548 /* Assets.xcassets */,
 				F64C097A1F2155320020A548 /* LaunchScreen.storyboard */,
 				F64C097D1F2155320020A548 /* Info.plist */,
-				F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */,
-				F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -434,6 +433,15 @@
 				F6913F7420F55DAA000A0630 /* PhotosRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F6C30FD72105C4640066ABAB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */,
+				F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

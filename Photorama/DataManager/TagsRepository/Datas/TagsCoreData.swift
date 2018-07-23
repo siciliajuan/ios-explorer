@@ -22,7 +22,7 @@ class TagsCoreData {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
         fetchRequest.sortDescriptors = nil
         fetchRequest.predicate = predicate
-        let mainQueueContext = self.coreDataStack.mainQueueContext
+        let mainQueueContext = self.coreDataStack.managedObjectContext
         var mainQueueTags: [NSManagedObject]?
         mainQueueContext.performAndWait() {
             do {
@@ -42,7 +42,7 @@ class TagsCoreData {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchRequest.predicate = nil
-        let mainQueueContext = self.coreDataStack.mainQueueContext
+        let mainQueueContext = self.coreDataStack.managedObjectContext
         var mainQueueTags: [NSManagedObject]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait() {
@@ -55,15 +55,11 @@ class TagsCoreData {
         guard let tags = mainQueueTags else {
             throw fetchRequestError!
         }
-        var resultTags = [String]()
-        for tag in tags {
-            resultTags.append(tag.value(forKey: "name") as! String)
-        }
-        return resultTags
+        return tags.map{$0.value(forKey: "name") as! String}
     }
     
     func saveTag(_ tagName: String) {
-        let context = coreDataStack.mainQueueContext
+        let context = coreDataStack.managedObjectContext
         let newTag = NSEntityDescription.insertNewObject(forEntityName: "TagMO", into: context)
         newTag.setValue(tagName, forKey: "name")
     }
