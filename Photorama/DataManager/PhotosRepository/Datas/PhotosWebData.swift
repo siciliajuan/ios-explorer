@@ -41,10 +41,10 @@ class PhotosWebData {
         guard let jsonData = data else {
             return .Failure(error!)
         }
-        return photosFromJSONData(data: jsonData)
+        return photos(fromJSONData: jsonData)
     }
     
-    func photosFromJSONData(data: Data) -> PhotosResult {
+    func photos(fromJSONData data: Data) -> PhotosResult {
         do {
             let decoder = JSONDecoder()
             let photosArray = try decoder.decode(PhotosCodable.self, from: data)

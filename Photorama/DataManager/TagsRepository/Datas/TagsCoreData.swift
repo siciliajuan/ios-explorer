@@ -17,7 +17,7 @@ class TagsCoreData {
         self.coreDataStack = coreDataStack
     }
     
-    func getTagsByNameList(names: [String]) -> [NSManagedObject]? {
+    func getTags(byNameList names: [String]) -> [NSManagedObject]? {
         let predicate = NSPredicate(format: "name IN %@", names)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
         fetchRequest.sortDescriptors = nil

@@ -16,8 +16,7 @@ class ImageCacheData {
         cache.setObject(image, forKey: key as AnyObject)
     }
     
-    
-    func imageForKey(key: String) -> UIImage? {
+    func getImage(byKey key: String) -> UIImage? {
         guard let existingImage = cache.object(forKey: key as AnyObject) as? UIImage else {
             return nil
         }

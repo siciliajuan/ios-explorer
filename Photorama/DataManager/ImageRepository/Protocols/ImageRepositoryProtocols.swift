@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ImageRepositoryProtocol {
-    func getImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void)
+    func getImage(forPhoto photo: Photo, completion: @escaping (ImageResult) -> Void)
 }

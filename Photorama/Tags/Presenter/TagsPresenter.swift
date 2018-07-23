@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagsPresenter: TagsPresenterProtocol {
+class TagsPresenter {
     
     var view: TagsViewProtocol?
     var route: TagsWireFrameProtocol?
@@ -17,21 +17,17 @@ class TagsPresenter: TagsPresenterProtocol {
     func viewDidLoad() {
         interactor?.retrieveTags()
     }
+}
+
+extension TagsPresenter: TagsPresenterProtocol {
     
-    func dismissTags() {
-        route?.dismissTags(from: view!)
+    func didDoneTags(forPhoto photo: Photo) {
+        interactor?.update(photo: photo)
+        route?.dismissTagsVC(from: view!)
     }
     
-    func updateTags() {
-        interactor?.retrieveTags()
-    }
-    
-    func saveTag(_ tagName: String) {
-        interactor?.saveTag(tagName)
-    }
-    
-    func commitPersistentData(photo: Photo) {
-        interactor?.updatePhoto(photo: photo)
+    func didSave(tag: String) {
+        interactor?.save(tag: tag)
     }
 }
 

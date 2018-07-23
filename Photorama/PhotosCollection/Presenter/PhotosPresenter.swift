@@ -18,12 +18,12 @@ class PhotosPresenter: PhotosPresenterProtocol {
         interactor.fetchRecentPhotos()
     }
     
-    func goToPhotoInfoView(_ photo: Photo) {
-        route.presentPhotoInfo(from: view!, photo: photo, store: interactor.store!)
+    func didShowPhotoInfoView(forPhoto photo: Photo) {
+        route.presentPhotoInfoVC(from: view!, photo: photo, store: interactor.store!)
     }
     
-    func getPhotoForCell(_ photo: Photo) {
-        interactor.fetchImageForPhoto(photo)
+    func getImageCell(forPhoto photo: Photo) {
+        interactor.fetchImage(forPhoto: photo)
     }
 }
 
@@ -33,8 +33,8 @@ extension PhotosPresenter: PhotosInteractorOutputProtocol {
         view.setPhotos(photos)
     }
     
-    func didUpdateImageForPhoto (_ photo: Photo) {
-        view.updateImageForPhoto(photo)
+    func didRetrievedImage(forPhoto photo: Photo) {
+        view.updateImage(forPhoto: photo)
     }
     
 }

@@ -40,7 +40,7 @@ extension PhotosView: PhotosViewProtocol {
         table.reloadData()
     }
     
-    func updateImageForPhoto (_ photo: Photo) {
+    func updateImage(forPhoto photo: Photo) {
         guard
             let photoIndex = self.photos.index(of: photo),
             let cell = table.cellForRow(at: NSIndexPath(row: photoIndex, section: 0) as IndexPath) as? PhotosTableCellView else{
@@ -57,12 +57,12 @@ extension PhotosView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
-        presenter.getPhotoForCell(photo)
+        presenter.getImageCell(forPhoto: photo)
     }
     
     func tableView(_ UITableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
-        presenter.goToPhotoInfoView(photo)
+        presenter.didShowPhotoInfoView(forPhoto: photo)
     }
     
     // DataSource

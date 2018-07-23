@@ -23,7 +23,7 @@ class TagsView: UIViewController {
         super.viewDidLoad()
         prepareContentView()
         presenter?.viewDidLoad()
-        updateTags()
+        prepareTags()
     }
     
     func prepareContentView() {
@@ -36,7 +36,7 @@ class TagsView: UIViewController {
     }
     
     @IBAction func done(sender: AnyObject) {
-        presenter?.dismissTags()
+        presenter?.didDoneTags(forPhoto: photo)
     }
     
     @IBAction func addNewTag(sender: AnyObject) {
@@ -49,9 +49,8 @@ class TagsView: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action) -> Void in
             if let tagName = alertController.textFields?.first!.text {
-                self.presenter?.saveTag(tagName)
-                self.presenter?.updateTags()
-                self.reloadSections()
+                self.presenter?.didSave(tag: tagName)
+                self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
             }
         })
         alertController.addAction(okAction)
@@ -60,29 +59,13 @@ class TagsView: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func updateTags() {
+    func prepareTags() {
         _ = photo.tags.map(){
             if let index = tags.index(of:$0) {
                 let indexPath = NSIndexPath(row: index, section: 0)
                 selectedIndexPaths.append(indexPath)
             }
         }
-    }
-    
-    func reloadSections() {
-        self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
-    }
-    
-    func removePhotoTag(_ tag: String) {
-        photo.removeTagObject(tag: tag)
-    }
-    
-    func addPhotoTag(_ tag: String) {
-        photo.addTagObject(tag: tag)
-    }
-    
-    func commitPersistentData() {
-        presenter?.commitPersistentData(photo: photo)
     }
 }
 
@@ -101,13 +84,12 @@ extension TagsView: UITableViewDelegate, UITableViewDataSource {
         let tag = tags[indexPath.row]
         if let index = selectedIndexPaths.index(of:indexPath as NSIndexPath) {
             selectedIndexPaths.remove(at: index)
-            removePhotoTag(tag)
+            photo.removeTagObject(tag: tag)
         } else {
             selectedIndexPaths.append(indexPath as NSIndexPath)
-            addPhotoTag(tag)
+            photo.addTagObject(tag: tag)
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        commitPersistentData()
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -13,7 +13,7 @@ import UIKit
 class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     
     // separate en constructor and navigator
-    class func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
+    class func createPhotoInfoModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "PhotoInfoController")
         guard let view = viewController as? PhotoInfoView else {
             fatalError("Imposible to create viewController to load PhotoInfoController")
@@ -31,8 +31,8 @@ class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
         return view
     }
     
-    func presentTags(from view: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore) {
-        let tagsViewController = TagsRouter.createTagsModule(forPhoto: photo, forPhotoStore: store)
+    func presentTagsVC(from view: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore) {
+        let tagsViewController = TagsRouter.createTagsModuleVC(forPhoto: photo, forPhotoStore: store)
         guard let sourceView = view as? UIViewController else {
                 fatalError("Imposible to create viewController to load tagsViewController")
         }

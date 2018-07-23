@@ -41,10 +41,10 @@ extension PhotoStore: PhotosRepositoryProtocol {
         return try photosRepository.getAllPersistedPhotos()
     }
     
-    func updatePhoto(photo: Photo) {
+    func update(photo: Photo) {
         guard
-            let photoMO = photosRepository.getPhotoById(id: photo.photoID),
-            let tagsMO = tagsRepository.getTagsByNameList(names: photo.tags)
+            let photoMO = photosRepository.getPhoto(byId: photo.photoID),
+            let tagsMO = tagsRepository.getTags(byNameList: photo.tags)
         else {
             print("Error trying to retrieved photo by id: \(photo.photoID)")
             return
@@ -56,8 +56,8 @@ extension PhotoStore: PhotosRepositoryProtocol {
 
 extension PhotoStore: ImageRepositoryProtocol {
     
-    func getImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
-        imageRepository.getImageForPhoto(photo: photo, completion: completion)
+    func getImage(forPhoto photo: Photo, completion: @escaping (ImageResult) -> Void) {
+        imageRepository.getImage(forPhoto: photo, completion: completion)
     }
 }
 
@@ -67,7 +67,8 @@ extension PhotoStore: TagsRepositoryProtocol {
         return try tagsRepository.getTagsSortedByName()
     }
     
-    func saveTag(_ tagName: String) {
-        tagsRepository.saveTag(tagName)
+    func save(tag: String) {
+        tagsRepository.save(tag: tag)
+        saveChanges()
     }
 }

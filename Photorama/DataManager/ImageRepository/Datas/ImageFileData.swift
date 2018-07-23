@@ -28,7 +28,7 @@ class ImageFileData {
     }
     
     
-    func imageForKey(key: String) -> UIImage? {
+    func getImage(byKey key: String) -> UIImage? {
         let imageURL = imageURLForKey(key)
         guard let imageFromDisk = UIImage(contentsOfFile: imageURL.path) else {
             return nil

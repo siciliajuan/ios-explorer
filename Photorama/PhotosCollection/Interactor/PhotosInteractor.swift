@@ -10,6 +10,7 @@ import Foundation
 
 class PhotosInteractor: PhotosInteractorInputProtocol {
     
+    
     var presenter: PhotosInteractorOutputProtocol!
 
     var store: PhotoStore!
@@ -25,14 +26,14 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
         }
     }
     
-    func fetchImageForPhoto(_ photo: Photo) {
-        store.getImageForPhoto(photo: photo) {
+    func fetchImage(forPhoto photo: Photo) {
+        store.getImage(forPhoto: photo) {
             (result) -> Void in
             switch result {
             case let .Success(image):
                 photo.image = image
                 OperationQueue.main.addOperation{
-                    self.presenter.didUpdateImageForPhoto(photo)
+                    self.presenter.didRetrievedImage(forPhoto: photo)
                 }
             case let .Failure(error):
                 print("Error fetching image for photo: \(error)")

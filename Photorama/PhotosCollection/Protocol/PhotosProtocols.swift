@@ -13,7 +13,7 @@ protocol PhotosViewProtocol {
     var presenter: PhotosPresenterProtocol! { get set }
     
     func setPhotos(_ photos: [Photo])
-    func updateImageForPhoto (_ photo: Photo)
+    func updateImage(forPhoto photo: Photo)
 }
 
 // view -> presenter
@@ -23,8 +23,8 @@ protocol PhotosPresenterProtocol {
     var interactor: PhotosInteractorInputProtocol! { get set }
     
     func viewDidLoad()
-    func goToPhotoInfoView(_ photo: Photo)
-    func getPhotoForCell(_ photo: Photo)
+    func didShowPhotoInfoView(forPhoto photo: Photo)
+    func getImageCell(forPhoto photo: Photo)
 }
 
 // presenter -> interactor
@@ -34,17 +34,17 @@ protocol PhotosInteractorInputProtocol {
     var store: PhotoStore! { get set }
     
     func fetchRecentPhotos()
-    func fetchImageForPhoto(_ photo: Photo)
+    func fetchImage(forPhoto photo: Photo)
 }
 
 // interactor -> presenter
 protocol PhotosInteractorOutputProtocol {
     func didRetrievePhotos(_ photos: [Photo])
-    func didUpdateImageForPhoto (_ photo: Photo)
+    func didRetrievedImage(forPhoto photo: Photo)
 }
 
 // presenter -> route
 // other route -> route
 protocol PhotosWireFrameProtocol {
-    func presentPhotoInfo(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore)
+    func presentPhotoInfoVC(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore)
 }

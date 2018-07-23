@@ -19,7 +19,7 @@ class PhotosCoreData {
     }
     
     
-    func getPhotoById(id: String) -> PhotoMO? {
+    func getPhoto(byId id: String) -> PhotoMO? {
         let predicate = NSPredicate(format: "photoID == %@", id)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = nil
@@ -43,7 +43,7 @@ class PhotosCoreData {
         let context = coreDataStack.managedObjectContext
         _ = photos.map{
             (photo) -> Void in
-            guard let _ = getPhotoById(id: photo.photoID) else {
+            guard let _ = getPhoto(byId: photo.photoID) else {
                 var photoEntity: PhotoMO!
                 context.performAndWait() {
                     photoEntity = NSEntityDescription.insertNewObject(forEntityName: "PhotoMO", into: context) as! PhotoMO

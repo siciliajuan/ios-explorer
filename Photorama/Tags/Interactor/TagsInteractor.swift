@@ -19,12 +19,12 @@ class TagsInteractor: TagsInteractorInputProtocol {
         presenter?.didRetrievedTags(try! store.getTagsSortedByName())
     }
     
-    func saveTag(_ tagName: String) {
-        store.saveTag(tagName)
-        store.saveChanges()
+    func save(tag: String) {
+        store.save(tag: tag)
+        retrieveTags()
     }
     
-    func updatePhoto(photo: Photo) {
-        store.updatePhoto(photo: photo)
+    func update(photo: Photo) {
+        store.update(photo: photo)
     }
 }

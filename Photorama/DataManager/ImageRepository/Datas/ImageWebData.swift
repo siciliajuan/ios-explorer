@@ -24,7 +24,7 @@ class ImageWebData {
      Fetches the image for a photo Object, first try to get it from the cache but if wasn't there then
      download it using the URL and set in the store and cache. Finally exec the completion closure
      */
-    func getImageByUrl(_ url: URL, completion: @escaping (ImageResult) -> Void) {
+    func getImage(byUrl url: URL, completion: @escaping (ImageResult) -> Void) {
         URLSession.shared.dataTask(with: url) {
             (data, response, error) -> Void in
             let result = self.processImageRequest(data: data!, error: error)

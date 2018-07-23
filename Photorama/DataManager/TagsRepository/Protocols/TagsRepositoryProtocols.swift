@@ -10,5 +10,5 @@ import Foundation
 
 protocol TagsRepositoryProtocol {
     func getTagsSortedByName() throws -> [String]
-    func saveTag(_ tagName: String)
+    func save(tag: String)
 }

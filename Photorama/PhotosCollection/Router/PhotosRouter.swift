@@ -10,7 +10,7 @@ import UIKit
 
 class PhotosRouter: PhotosWireFrameProtocol {
     
-    class func createPhotosModule(forPhotoStore store: PhotoStore) -> UIViewController {
+    class func createPhotosModuleVC(forPhotoStore store: PhotoStore) -> UIViewController {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "PhotosController")
         guard let view = navController.childViewControllers.first as? PhotosView else {
             fatalError("Imposible to create navController to load PhotosController")
@@ -27,8 +27,8 @@ class PhotosRouter: PhotosWireFrameProtocol {
         return navController
     }
     
-    func presentPhotoInfo(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore) {
-        let PhotoInfoViewController = PhotoInfoRouter.createPhotoInfoModule(forPhoto: photo, forPhotoStore: store)
+    func presentPhotoInfoVC(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore) {
+        let PhotoInfoViewController = PhotoInfoRouter.createPhotoInfoModuleVC(forPhoto: photo, forPhotoStore: store)
         guard let sourceView = view as? UIViewController else {
                 fatalError("Imposible to create viewControoler to load PhotoInfoViewController")
         }

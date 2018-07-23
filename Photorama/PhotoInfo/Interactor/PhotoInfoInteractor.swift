@@ -14,14 +14,14 @@ class PhotoInfoInteractor: PhotoInfoInteractorInputProtocol {
     
     var store: PhotoStore!
     
-    func retrievePhotoImage(forPhoto photo: Photo){
-        store.getImageForPhoto(photo: photo) {
+    func retrieveImage(forPhoto photo: Photo){
+        store.getImage(forPhoto: photo) {
             (result) -> Void in
             switch result {
             case let .Success(image):
                 photo.image = image
                 OperationQueue.main.addOperation{
-                    self.presenter.didRetrievePhotoImage(photo)
+                    self.presenter.didRetrieveImage(forPhoto: photo)
                 }
             case let .Failure(error):
                 print("Error fetching image for photo: \(error)")

@@ -21,11 +21,11 @@ class TagsRepository: TagsRepositoryProtocol {
         return try tagsCoreData.getTagsSortedByName()
     }
     
-    func saveTag(_ tagName: String) {
-        tagsCoreData.saveTag(tagName)
+    func save(tag: String) {
+        tagsCoreData.saveTag(tag)
     }
     
-    func getTagsByNameList(names: [String]) -> [NSManagedObject]? {
-        return tagsCoreData.getTagsByNameList(names: names)
+    func getTags(byNameList names: [String]) -> [NSManagedObject]? {
+        return tagsCoreData.getTags(byNameList: names)
     }
 }

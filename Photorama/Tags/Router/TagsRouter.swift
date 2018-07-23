@@ -10,7 +10,7 @@ import UIKit
 
 class TagsRouter: TagsWireFrameProtocol {
     
-    class func createTagsModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
+    class func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "TagsNavigationController")
         guard let view = navController.childViewControllers.first as? TagsView else {
             fatalError("Imposible to create navController to load TagsNavigationController")
@@ -28,7 +28,7 @@ class TagsRouter: TagsWireFrameProtocol {
         return navController
     }
     
-    func dismissTags(from view: TagsViewProtocol) {
+    func dismissTagsVC(from view: TagsViewProtocol) {
         guard let sourceView = view as? UIViewController else {
             fatalError("Imposible to navigate back to photosInfoController")
         }

@@ -25,15 +25,15 @@ protocol PhotoInfoPresenterProtocol {
     var route: PhotoInfoWireFrameProtocol! { get set }
     var interactor: PhotoInfoInteractorInputProtocol! { get set }
     
-    func viewDidLoad(_ photo: Photo?)
-    func goToTagsView(_ photo: Photo?)
+    func viewDidLoad(_ photo: Photo)
+    func didShowTags(forPhoto photo: Photo)
 }
 
 // presenter -> route
 // other route -> route
 protocol PhotoInfoWireFrameProtocol {
-    static func createPhotoInfoModule(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
-    func presentTags(from: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore)
+    static func createPhotoInfoModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
+    func presentTagsVC(from: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore)
 }
 
 // presenter -> interactor
@@ -41,10 +41,10 @@ protocol PhotoInfoInteractorInputProtocol {
     var presenter: PhotoInfoInteractorOutputProtocol! { get set }
     var store: PhotoStore! { get set }
     
-    func retrievePhotoImage(forPhoto photo: Photo)
+    func retrieveImage(forPhoto photo: Photo)
 }
 
 // interactor -> presenter
 protocol PhotoInfoInteractorOutputProtocol {
-    func didRetrievePhotoImage(_ photo: Photo)
+    func didRetrieveImage(forPhoto photo: Photo)
 }
