@@ -14,10 +14,7 @@ class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     
     // separate en constructor and navigator
     class func createPhotoInfoModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "PhotoInfoController")
-        guard let view = viewController as? PhotoInfoView else {
-            fatalError("Imposible to create viewController to load PhotoInfoController")
-        }
+        let view = PhotoInfoView()
         var presenter: PhotoInfoPresenterProtocol & PhotoInfoInteractorOutputProtocol = PhotoInfoPresenter()
         let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoRouter()
         var interactor: PhotoInfoInteractorInputProtocol = PhotoInfoInteractor()

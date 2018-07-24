@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xz2-YC-2t5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,24 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photorama-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="PhotosView" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Photorama" id="Stq-hA-YZP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="464.80000000000001" y="137.18140929535232"/>
-        </scene>
-        <!--Photo Info View-->
-        <scene sceneID="ZF0-AT-wqN">
-            <objects>
-                <viewController storyboardIdentifier="PhotoInfoController" id="H4e-c7-cBm" customClass="PhotoInfoView" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KQ9-yd-zSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1297" y="137"/>
-        </scene>
         <!--Tags View-->
         <scene sceneID="OX2-R0-Kqa">
             <objects>
@@ -46,24 +28,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNH-ql-Xgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2974" y="137"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WXz-NA-1ig">
-            <objects>
-                <navigationController storyboardIdentifier="PhotosController" automaticallyAdjustsScrollViewInsets="NO" id="xz2-YC-2t5" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t2G-DJ-dbj">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="y7F-7N-phT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ICQ-C6-yp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-358" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e1l-Lm-DGM">
