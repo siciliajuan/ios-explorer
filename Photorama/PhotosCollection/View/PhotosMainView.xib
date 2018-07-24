@@ -10,14 +10,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosView" customModule="Photorama" customModuleProvider="target">
             <connections>
-                <outlet property="table" destination="f1q-u2-Cco" id="5qp-an-XTd"/>
+                <outlet property="table" destination="VFj-Wl-5g6" id="aZh-S5-x2l"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f1q-u2-Cco">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </tableView>
+        <tableViewController id="eqV-Eo-aIv">
+            <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VFj-Wl-5g6">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <connections>
+                    <outlet property="dataSource" destination="eqV-Eo-aIv" id="tEs-q3-ixj"/>
+                    <outlet property="delegate" destination="eqV-Eo-aIv" id="gKE-e3-2FV"/>
+                </connections>
+            </tableView>
+        </tableViewController>
     </objects>
 </document>
