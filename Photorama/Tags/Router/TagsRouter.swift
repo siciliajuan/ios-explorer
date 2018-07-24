@@ -11,7 +11,8 @@ import UIKit
 class TagsRouter: TagsWireFrameProtocol {
     
     class func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
-        let navController = mainStoryboard.instantiateViewController(withIdentifier: "TagsNavigationController")
+        let navController = UINavigationController()
+        navController.pushViewController(TagsView(), animated: true)
         guard let view = navController.childViewControllers.first as? TagsView else {
             fatalError("Imposible to create navController to load TagsNavigationController")
         }

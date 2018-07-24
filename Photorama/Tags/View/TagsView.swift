@@ -24,6 +24,8 @@ class TagsView: UIViewController {
         prepareContentView()
         presenter?.viewDidLoad()
         prepareTags()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
     }
     
     func prepareContentView() {
@@ -35,11 +37,11 @@ class TagsView: UIViewController {
         self.view.addSubview(tableView)
     }
     
-    @IBAction func done(sender: AnyObject) {
+    @objc func done() {
         presenter?.didDoneTags(forPhoto: photo)
     }
     
-    @IBAction func addNewTag(sender: AnyObject) {
+    @objc func addNewTag() {
         let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
         alertController.addTextField(){
             (texField) -> Void in

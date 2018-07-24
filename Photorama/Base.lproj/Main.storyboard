@@ -5,47 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes>
-        <!--Tags View-->
-        <scene sceneID="OX2-R0-Kqa">
-            <objects>
-                <viewController id="0qk-n2-ZfP" customClass="TagsView" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="cOt-42-bvH">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="nBM-bD-Pwy">
-                            <connections>
-                                <action selector="doneWithSender:" destination="0qk-n2-ZfP" id="KRf-o3-b58"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bS1-Un-273">
-                            <connections>
-                                <action selector="addNewTagWithSender:" destination="0qk-n2-ZfP" id="Wau-2e-Iew"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kNH-ql-Xgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2974" y="137"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="e1l-Lm-DGM">
-            <objects>
-                <navigationController storyboardIdentifier="TagsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="GeT-F4-rRE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FyO-HC-Rbl">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0qk-n2-ZfP" kind="relationship" relationship="rootViewController" id="J8w-mg-eMZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vR8-1c-679" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2108" y="137"/>
-        </scene>
-    </scenes>
+    <scenes/>
 </document>
