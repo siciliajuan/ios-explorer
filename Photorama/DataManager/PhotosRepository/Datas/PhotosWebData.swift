@@ -14,8 +14,8 @@ import Foundation
  Failure if somethhing went wrong
  */
 enum PhotosResult {
-    case Success([Photo])
-    case Failure(Error)
+    case success([Photo])
+    case failure(Error)
 }
 
 /*
@@ -23,7 +23,7 @@ enum PhotosResult {
  there are some JSON error
  */
 enum FlickrError: Error {
-    case InvalidJSONData
+    case invalidJSONData
 }
 
 class PhotosWebData {
@@ -33,13 +33,14 @@ class PhotosWebData {
         URLSession.shared.dataTask(with: url) {
             (data, response, error) -> Void in
             let result = self.processRecentPhotosRequest(data: data, error: error)
+            // meter en el hilo principal
             completion(result)
         }.resume()
     }
     
     func processRecentPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
         guard let jsonData = data else {
-            return .Failure(error!)
+            return .failure(error!)
         }
         return photos(fromJSONData: jsonData)
     }
@@ -49,15 +50,15 @@ class PhotosWebData {
             let decoder = JSONDecoder()
             let photosArray = try decoder.decode(PhotosCodable.self, from: data)
             guard let photos = photosArray.resultPhotos else {
-                return .Failure(FlickrError.InvalidJSONData)
+                return .failure(FlickrError.invalidJSONData)
             }
-            let finalPhotos = photos.map{PhotoTransfer.photoCodableToPhoto(photo: $0)}.filter{$0 != nil}
+            let finalPhotos = photos.compactMap{PhotoTransfer.photoCodableToPhoto(photo: $0)}
             if finalPhotos.count == 0 && photos.count > 0 {
-                return .Failure(FlickrError.InvalidJSONData)
+                return .failure(FlickrError.invalidJSONData)
             }
-            return .Success(finalPhotos as! [Photo])
+            return .success(finalPhotos)
         } catch let error {
-            return .Failure(error)
+            return .failure(error)
         }
 
     }

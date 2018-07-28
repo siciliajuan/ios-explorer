@@ -13,7 +13,7 @@ import Foundation
  URL to call the flickr API
  */
 enum Method: String {
-    case RecentPhotos = "flickr.photos.getRecent"
+    case recentPhotos = "flickr.photos.getRecent"
 }
 
 struct FlickrAPI {
@@ -31,22 +31,17 @@ struct FlickrAPI {
             "nojsoncallback": "1",
             "api_key": APIKey
         ]
-        for (key,value) in baseParams {
-            let item = URLQueryItem(name: key, value: value)
-            queryItems.append(item)
-        }
+        // reducir
+        _ = baseParams.map{ key, value in queryItems.append(URLQueryItem(name: key, value: value))}
         if let additionalParams = parameters {
-            for (key, value) in additionalParams {
-                let item = URLQueryItem(name: key, value: value)
-                queryItems.append(item)
-            }
+            _ = additionalParams.map{ key, value in queryItems.append(URLQueryItem(name: key, value: value))}
         }
         components.queryItems = queryItems as [URLQueryItem]
         return components.url!
     }
     
     static func recentPhotosURL() -> URL {
-        return flickrURL(method: .RecentPhotos, parameters: ["extras":"url_h,date_taken"])
+        return flickrURL(method: .recentPhotos, parameters: ["extras":"url_h,date_taken"])
     }
   
 }

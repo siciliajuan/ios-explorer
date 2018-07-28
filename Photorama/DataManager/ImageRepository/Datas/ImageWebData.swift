@@ -9,12 +9,12 @@
 import UIKit
 
 enum ImageResult {
-    case Success(UIImage)
-    case Failure(Error)
+    case success(UIImage)
+    case failure(Error)
 }
 
 enum PhotoError: Error {
-    case ImageCreationError
+    case imageCreationError
 }
 
 class ImageWebData {
@@ -27,6 +27,7 @@ class ImageWebData {
     func getImage(byUrl url: URL, completion: @escaping (ImageResult) -> Void) {
         URLSession.shared.dataTask(with: url) {
             (data, response, error) -> Void in
+            // check if self weak inside a block or closure
             let result = self.processImageRequest(data: data!, error: error)
             completion(result)
         }.resume()
@@ -37,12 +38,12 @@ class ImageWebData {
             let imageData = data,
             let image = UIImage(data: imageData) else {
                 if data == nil {
-                    return .Failure(error!)
+                    return .failure(error!)
                 } else {
-                    return .Failure(PhotoError.ImageCreationError)
+                    return .failure(PhotoError.imageCreationError)
                 }
         }
-        return .Success(image)
+        return .success(image)
     }
     
 }

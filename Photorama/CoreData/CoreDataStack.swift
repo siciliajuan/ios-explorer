@@ -30,8 +30,7 @@ class CoreDataStack {
     }()
     
     lazy var managedObjectContext: NSManagedObjectContext =
-        self.persistentContainer.viewContext
-    
+        self.persistentContainer.newBackgroundContext()
     
     func saveChanges() throws {
         do {

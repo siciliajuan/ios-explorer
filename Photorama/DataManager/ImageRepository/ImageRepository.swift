@@ -57,7 +57,7 @@ class ImageRepository: ImageRepositoryProtocol {
         guard let image = getImage(byKey: photoKey) else {
             imageWebData.getImage(byUrl: photo.remoteURL) {
                 (result) -> Void in
-                if case let .Success(image) = result {
+                if case let .success(image) = result {
                     self.setImage(image: image, forKey: photoKey)
                 }
                 completion(result)
@@ -65,6 +65,6 @@ class ImageRepository: ImageRepositoryProtocol {
             return
         }
         photo.image = image
-        completion(.Success(image))
+        completion(.success(image))
     }
 }

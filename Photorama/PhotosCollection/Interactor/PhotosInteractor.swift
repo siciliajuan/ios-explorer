@@ -20,6 +20,7 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
         store.fetchLastUploadedFlickerPhotos() {
             () -> Void in
             let allPhotos = try! self.store.getAllPersistedPhotos()
+            // dispatchqueue
             OperationQueue.main.addOperation{
                 self.presenter.didRetrievePhotos(allPhotos)
             }
@@ -30,12 +31,12 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
         store.getImage(forPhoto: photo) {
             (result) -> Void in
             switch result {
-            case let .Success(image):
+            case let .success(image):
                 photo.image = image
                 OperationQueue.main.addOperation{
                     self.presenter.didRetrievedImage(forPhoto: photo)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 print("Error fetching image for photo: \(error)")
             }
         }

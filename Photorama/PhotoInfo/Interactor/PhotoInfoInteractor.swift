@@ -18,12 +18,12 @@ class PhotoInfoInteractor: PhotoInfoInteractorInputProtocol {
         store.getImage(forPhoto: photo) {
             (result) -> Void in
             switch result {
-            case let .Success(image):
+            case let .success(image):
                 photo.image = image
                 OperationQueue.main.addOperation{
                     self.presenter.didRetrieveImage(forPhoto: photo)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 print("Error fetching image for photo: \(error)")
             }
         }

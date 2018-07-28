@@ -24,7 +24,7 @@ class PhotosRepository {
     func fetchLastUploadedFlickerPhotos(completion: @escaping () -> Void) {
         photosWebData.getRecentPhotosFromFlickrAPI() {
             (result) -> Void in
-            if case let .Success(photos) = result {
+            if case let .success(photos) = result {
                 self.photosCoreData.persistRecentPhotos(photos: photos)
             }
             completion()
