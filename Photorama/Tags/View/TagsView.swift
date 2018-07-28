@@ -42,13 +42,20 @@ class TagsView: UIViewController {
     }
     
     @objc func addNewTag() {
-        let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
+        
+        // Localize texts
+        let alertControllerTitle = NSLocalizedString("Add Tag", comment: "Alert Controller title")
+        let alertControllerPlaceHoler = NSLocalizedString("Tag name", comment: "Alert Controller Placeholder")
+        let alertControllerOkActionTitle = NSLocalizedString("OK", comment: "Alert Controller OK action title")
+        let alertControllerCancelActionTitle = NSLocalizedString("cancel", comment: "Alert Controller cancel action title")
+        
+        let alertController = UIAlertController(title: alertControllerTitle, message: nil, preferredStyle: .alert)
         alertController.addTextField(){
             (texField) -> Void in
-            texField.placeholder = "Tag name"
+            texField.placeholder = alertControllerPlaceHoler
             texField.autocapitalizationType = .words
         }
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+        let okAction = UIAlertAction(title: alertControllerOkActionTitle, style: .default, handler: {
             (action) -> Void in
             if let tagName = alertController.textFields?.first!.text {
                 self.presenter?.didSave(tag: tagName)
@@ -56,7 +63,7 @@ class TagsView: UIViewController {
             }
         })
         alertController.addAction(okAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: alertControllerCancelActionTitle, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
