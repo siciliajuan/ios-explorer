@@ -54,6 +54,7 @@
 		F6C30FD221013CC80066ABAB /* PhotosCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C30FD121013CC80066ABAB /* PhotosCodable.swift */; };
 		F6D927A0210CD76500703210 /* PhotoInfoMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */; };
 		F6D927A8210CD7C400703210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D927A3210CD7C400703210 /* Localizable.strings */; };
+		F6D927AC210CD81100703210 /* PhotoInfoMainView.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D927A9210CD81100703210 /* PhotoInfoMainView.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,8 @@
 		F6D9279F210CD76500703210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhotoInfoMainView.xib; sourceTree = "<group>"; };
 		F6D927A4210CD7C400703210 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6D927A5210CD7C400703210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F6D927AA210CD81100703210 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PhotoInfoMainView.strings; sourceTree = "<group>"; };
+		F6D927AB210CD81100703210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhotoInfoMainView.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +343,7 @@
 		F6913F5A20F227F9000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6D927A9210CD81100703210 /* PhotoInfoMainView.strings */,
 				F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */,
 				F60A65971F2407F4007F581B /* PhotoInfoView.swift */,
 			);
@@ -511,6 +515,7 @@
 				F64C09791F2155320020A548 /* Assets.xcassets in Resources */,
 				F64C09771F2155320020A548 /* Main.storyboard in Resources */,
 				F6D927A0210CD76500703210 /* PhotoInfoMainView.xib in Resources */,
+				F6D927AC210CD81100703210 /* PhotoInfoMainView.strings in Resources */,
 				F6D927A8210CD7C400703210 /* Localizable.strings in Resources */,
 				F6913F8F20F6A9E1000A0630 /* PhotosTableCellView.xib in Resources */,
 				F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */,
@@ -601,6 +606,15 @@
 				F6D927A5210CD7C400703210 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F6D927A9210CD81100703210 /* PhotoInfoMainView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D927AA210CD81100703210 /* es */,
+				F6D927AB210CD81100703210 /* en */,
+			);
+			name = PhotoInfoMainView.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

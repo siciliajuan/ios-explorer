@@ -25,10 +25,12 @@ class ImageWebData {
      download it using the URL and set in the store and cache. Finally exec the completion closure
      */
     func getImage(byUrl url: URL, completion: @escaping (ImageResult) -> Void) {
-        URLSession.shared.dataTask(with: url) {
+        URLSession.shared.dataTask(with: url) { [weak self]
             (data, response, error) -> Void in
-            // check if self weak inside a block or closure
-            let result = self.processImageRequest(data: data!, error: error)
+            guard let result = self?.processImageRequest(data: data, error: error) else {
+                completion(.failure(PhotoError.imageCreationError))
+                return
+            }
             completion(result)
         }.resume()
     }
