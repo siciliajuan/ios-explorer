@@ -17,7 +17,6 @@
 		F64C09861F215B1B0020A548 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09851F215B1B0020A548 /* FlickrAPI.swift */; };
 		F64C09881F2161060020A548 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09871F2161060020A548 /* PhotoStore.swift */; };
 		F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654530D20F6D787003CF1F7 /* PhotosMainView.xib */; };
-		F654532120F7FC40003CF1F7 /* PhotoInfoMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */; };
 		F654533620F81A88003CF1F7 /* TagsMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654533420F81A88003CF1F7 /* TagsMainView.xib */; };
 		F654534120FD36DD003CF1F7 /* ImageCacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654534020FD36DD003CF1F7 /* ImageCacheData.swift */; };
 		F654534320FD37B8003CF1F7 /* ImageFileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654534220FD37B8003CF1F7 /* ImageFileData.swift */; };
@@ -53,6 +52,8 @@
 		F6B5931D1F24EBC200B4D139 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */; };
 		F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */; };
 		F6C30FD221013CC80066ABAB /* PhotosCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C30FD121013CC80066ABAB /* PhotosCodable.swift */; };
+		F6D927A0210CD76500703210 /* PhotoInfoMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */; };
+		F6D927A8210CD7C400703210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D927A3210CD7C400703210 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +69,6 @@
 		F64C09851F215B1B0020A548 /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		F64C09871F2161060020A548 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		F654530D20F6D787003CF1F7 /* PhotosMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosMainView.xib; sourceTree = "<group>"; };
-		F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoMainView.xib; sourceTree = "<group>"; };
 		F654533420F81A88003CF1F7 /* TagsMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagsMainView.xib; path = Photorama/Tags/View/TagsMainView.xib; sourceTree = SOURCE_ROOT; };
 		F654534020FD36DD003CF1F7 /* ImageCacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheData.swift; sourceTree = "<group>"; };
 		F654534220FD37B8003CF1F7 /* ImageFileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileData.swift; sourceTree = "<group>"; };
@@ -104,6 +104,9 @@
 		F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F6C30FD121013CC80066ABAB /* PhotosCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCodable.swift; sourceTree = "<group>"; };
+		F6D9279F210CD76500703210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhotoInfoMainView.xib; sourceTree = "<group>"; };
+		F6D927A4210CD7C400703210 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F6D927A5210CD7C400703210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,8 +340,8 @@
 		F6913F5A20F227F9000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */,
 				F60A65971F2407F4007F581B /* PhotoInfoView.swift */,
-				F654532020F7FC40003CF1F7 /* PhotoInfoMainView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 		F6913F6120F3F899000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6D927A3210CD7C400703210 /* Localizable.strings */,
 				F6913F6B20F3FCEC000A0630 /* TagsView.swift */,
 				F654533420F81A88003CF1F7 /* TagsMainView.xib */,
 			);
@@ -486,6 +490,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = F64C09651F2155320020A548;
 			productRefGroup = F64C096F1F2155320020A548 /* Products */;
@@ -502,10 +507,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F654532120F7FC40003CF1F7 /* PhotoInfoMainView.xib in Resources */,
 				F64C097C1F2155320020A548 /* LaunchScreen.storyboard in Resources */,
 				F64C09791F2155320020A548 /* Assets.xcassets in Resources */,
 				F64C09771F2155320020A548 /* Main.storyboard in Resources */,
+				F6D927A0210CD76500703210 /* PhotoInfoMainView.xib in Resources */,
+				F6D927A8210CD7C400703210 /* Localizable.strings in Resources */,
 				F6913F8F20F6A9E1000A0630 /* PhotosTableCellView.xib in Resources */,
 				F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */,
 				F654533620F81A88003CF1F7 /* TagsMainView.xib in Resources */,
@@ -578,6 +584,23 @@
 				F64C097B1F2155320020A548 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D9279F210CD76500703210 /* Base */,
+			);
+			name = PhotoInfoMainView.xib;
+			sourceTree = "<group>";
+		};
+		F6D927A3210CD7C400703210 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D927A4210CD7C400703210 /* es */,
+				F6D927A5210CD7C400703210 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
