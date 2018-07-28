@@ -30,11 +30,15 @@ class PhotosWebData {
     
     func getRecentPhotosFromFlickrAPI(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.recentPhotosURL()
-        URLSession.shared.dataTask(with: url) {
+        URLSession.shared.dataTask(with: url) { [weak self]
             (data, response, error) -> Void in
-            let result = self.processRecentPhotosRequest(data: data, error: error)
-            // meter en el hilo principal
-            completion(result)
+            guard let result = self?.processRecentPhotosRequest(data: data, error: error) else {
+                completion(.failure(FlickrError.invalidJSONData))
+                return
+            }
+            OperationQueue.main.addOperation{
+                completion(result)
+            }
         }.resume()
     }
     
