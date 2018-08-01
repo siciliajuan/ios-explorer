@@ -17,13 +17,11 @@ class TagsView: UIViewController {
     var photo: Photo!
     let cellIdentifier = "UITableViewCell"
     var tags: [String] = []
-    var selectedIndexPaths = [NSIndexPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareContentView()
         presenter?.viewDidLoad()
-        prepareTags()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
     }
@@ -67,15 +65,6 @@ class TagsView: UIViewController {
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    
-    func prepareTags() {
-        _ = photo.tags.map(){
-            if let index = tags.index(of:$0) {
-                let indexPath = NSIndexPath(row: index, section: 0)
-                selectedIndexPaths.append(indexPath)
-            }
-        }
-    }
 }
 
 extension TagsView: TagsViewProtocol {
@@ -91,18 +80,16 @@ extension TagsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tag = tags[indexPath.row]
-        if let index = selectedIndexPaths.index(of:indexPath as NSIndexPath) {
-            selectedIndexPaths.remove(at: index)
+        if photo.tags.index(of: tag) != nil {
             photo.removeTagObject(tag: tag)
         } else {
-            selectedIndexPaths.append(indexPath as NSIndexPath)
             photo.addTagObject(tag: tag)
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if selectedIndexPaths.index(of:indexPath as NSIndexPath) != nil {
+        if photo.tags.index(of: tags[indexPath.row]) != nil {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none

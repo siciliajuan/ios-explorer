@@ -15,9 +15,9 @@ class PhotosRepository {
     var photosWebData: PhotosWebData
     
     
-    init(coreDataStack: CoreDataStack) {
-        photosCoreData = PhotosCoreData(coreDataStack: coreDataStack)
-        photosWebData = PhotosWebData()
+    init(photosCoreData: PhotosCoreData, photosWebData: PhotosWebData) {
+        self.photosCoreData = photosCoreData
+        self.photosWebData = photosWebData
     }
     
     
@@ -35,8 +35,8 @@ class PhotosRepository {
         return try photosCoreData.getAllPersistedPhotos()
     }
     
-    func getPhoto(byId id: String) -> PhotoMO? {
-        return photosCoreData.getPhoto(byId: id)
+    func getPhoto(byId id: String, completion: @escaping (PhotoResult) -> Void) {
+        photosCoreData.getPhoto(byId: id, completion: completion)
     }
     
 }

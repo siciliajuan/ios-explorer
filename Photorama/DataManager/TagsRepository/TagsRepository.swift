@@ -13,8 +13,8 @@ class TagsRepository: TagsRepositoryProtocol {
     
     var tagsCoreData: TagsCoreData
     
-    init(coreDataStack: CoreDataStack) {
-        tagsCoreData = TagsCoreData(coreDataStack: coreDataStack)
+    init(tagsCoreData: TagsCoreData) {
+        self.tagsCoreData = tagsCoreData
     }
     
     func getTagsSortedByName() throws -> [String] {

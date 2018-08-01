@@ -31,12 +31,11 @@ struct FlickrAPI {
             "nojsoncallback": "1",
             "api_key": APIKey
         ]
-        // reducir
-        _ = baseParams.map{ key, value in queryItems.append(URLQueryItem(name: key, value: value))}
+        queryItems = baseParams.map{ key, value in URLQueryItem(name: key, value: value)}
         if let additionalParams = parameters {
-            _ = additionalParams.map{ key, value in queryItems.append(URLQueryItem(name: key, value: value))}
+            queryItems.append(contentsOf: additionalParams.map{ key, value in URLQueryItem(name: key, value: value)})
         }
-        components.queryItems = queryItems as [URLQueryItem]
+        components.queryItems = queryItems
         return components.url!
     }
     

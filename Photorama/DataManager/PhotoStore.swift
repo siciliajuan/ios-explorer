@@ -13,20 +13,38 @@ class PhotoStore {
     
     let coreDataStack = CoreDataStack(modelName: "Photorama")
     
-    let imageRepository = ImageRepository()
+    let imageRepository: ImageRepository
     let tagsRepository: TagsRepository
     let photosRepository: PhotosRepository
     
     init() {
-        self.tagsRepository = TagsRepository(coreDataStack: coreDataStack)
-        self.photosRepository = PhotosRepository(coreDataStack: coreDataStack)
+        let tagsCoreData = TagsCoreData(coreDataStack: coreDataStack)
+        self.tagsRepository = TagsRepository(tagsCoreData: tagsCoreData)
+        
+        let imageCache = ImageCacheData()
+        let imageFileSystem = ImageFileData()
+        let imageWebData = ImageWebData()
+        self.imageRepository = ImageRepository(imageCache: imageCache, imageFileSystem: imageFileSystem, imageWebData: imageWebData)
+        
+        let photosCoreData = PhotosCoreData(coreDataStack: coreDataStack)
+        let photosWebData = PhotosWebData()
+        self.photosRepository = PhotosRepository(photosCoreData: photosCoreData, photosWebData: photosWebData)
     }
     
-    func saveChanges() {
-        do {
-            try coreDataStack.saveChanges()
-        } catch let error {
-            print("Core Data save failed: \(error)")
+    func update(photo: Photo) {
+        photosRepository.getPhoto(byId: photo.photoID) {
+            (result) -> Void in
+            switch result {
+            case let .success(photoMO):
+                guard let tagsMO = self.tagsRepository.getTags(byNameList: photo.tags) else {
+                    print("Error trying to retrieved tags by photo: \(photo)")
+                    return
+                }
+                tagsMO.forEach{photoMO.addTagObject(tagMO: $0)}
+            case .failure:
+                print("Error trying to retrieved photo by id: \(photo.photoID)")
+                return
+            }
         }
     }
 }
@@ -39,18 +57,6 @@ extension PhotoStore: PhotosRepositoryProtocol {
     
     func getAllPersistedPhotos() throws -> [Photo] {
         return try photosRepository.getAllPersistedPhotos()
-    }
-    
-    func update(photo: Photo) {
-        guard
-            let photoMO = photosRepository.getPhoto(byId: photo.photoID),
-            let tagsMO = tagsRepository.getTags(byNameList: photo.tags)
-        else {
-            print("Error trying to retrieved photo by id: \(photo.photoID)")
-            return
-        }
-        _ = tagsMO.map{photoMO.addTagObject(tagMO: $0)}
-        saveChanges()
     }
 }
 
@@ -69,6 +75,5 @@ extension PhotoStore: TagsRepositoryProtocol {
     
     func save(tag: String) {
         tagsRepository.save(tag: tag)
-        saveChanges()
     }
 }

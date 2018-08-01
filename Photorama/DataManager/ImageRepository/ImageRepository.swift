@@ -14,10 +14,10 @@ class ImageRepository: ImageRepositoryProtocol {
     var imageFS: ImageFileData
     var imageWebData: ImageWebData
     
-    init() {
-        imageCache = ImageCacheData()
-        imageFS = ImageFileData()
-        imageWebData = ImageWebData()
+    init(imageCache: ImageCacheData, imageFileSystem imageFS: ImageFileData, imageWebData: ImageWebData) {
+        self.imageCache = imageCache
+        self.imageFS = imageFS
+        self.imageWebData = imageWebData
     }
     
     /*
@@ -60,11 +60,14 @@ class ImageRepository: ImageRepositoryProtocol {
                 if case let .success(image) = result {
                     self.setImage(image: image, forKey: photoKey)
                 }
-                completion(result)
+                OperationQueue.main.addOperation{
+                    completion(result)
+                }
             }
             return
         }
-        photo.image = image
-        completion(.success(image))
+        OperationQueue.main.addOperation{
+            completion(.success(image))
+        }
     }
 }

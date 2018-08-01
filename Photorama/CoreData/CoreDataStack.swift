@@ -29,14 +29,18 @@ class CoreDataStack {
         return container
     }()
     
-    lazy var managedObjectContext: NSManagedObjectContext =
-        self.persistentContainer.newBackgroundContext()
+    lazy var managedObjectMainContext: NSManagedObjectContext =
+        self.persistentContainer.viewContext
     
-    func saveChanges() throws {
+    func getNewManagedObjectContext() -> NSManagedObjectContext {
+        return self.persistentContainer.newBackgroundContext()
+    }
+    
+    func saveChanges(context: NSManagedObjectContext) {
         do {
-            try managedObjectContext.save()
+            try context.save()
         } catch let saveError {
-            throw saveError
+            print("Core Data save failed: \(saveError)")
         }
     }
 }

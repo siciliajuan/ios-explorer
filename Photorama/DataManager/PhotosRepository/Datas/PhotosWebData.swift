@@ -18,6 +18,7 @@ enum PhotosResult {
     case failure(Error)
 }
 
+
 /*
  This Error is for when trying to serialize the JSON from photosData
  there are some JSON error
@@ -33,7 +34,9 @@ class PhotosWebData {
         URLSession.shared.dataTask(with: url) { [weak self]
             (data, response, error) -> Void in
             guard let result = self?.processRecentPhotosRequest(data: data, error: error) else {
-                completion(.failure(FlickrError.invalidJSONData))
+                OperationQueue.main.addOperation{
+                    completion(.failure(FlickrError.invalidJSONData))
+                }
                 return
             }
             OperationQueue.main.addOperation{

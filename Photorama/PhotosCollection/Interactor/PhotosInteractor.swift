@@ -30,9 +30,7 @@ class PhotosInteractor: PhotosInteractorInputProtocol {
             switch result {
             case let .success(image):
                 photo.image = image
-                OperationQueue.main.addOperation{
-                    self.presenter.didRetrievedImage(forPhoto: photo)
-                }
+                self.presenter.didRetrievedImage(forPhoto: photo)
             case let .failure(error):
                 print("Error fetching image for photo: \(error)")
             }
