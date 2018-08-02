@@ -6,37 +6,26 @@
 //  Copyright © 2017 juan sicilia. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class CoreDataStack {
     
-    let managedObjectModelName: String
-    
-    
-    required init(modelName: String) {
-        managedObjectModelName = modelName
+    static var managedObjectMainContext: NSManagedObjectContext? {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate.persistentContainer.viewContext
+        }
+        return nil
     }
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: managedObjectModelName)
-        container.loadPersistentStores(completionHandler: {
-            storeDescription, error in
-            if let error = error {
-                fatalError("Could load data store: \(error)")
-            }
-        })
-        return container
-    }()
-    
-    lazy var managedObjectMainContext: NSManagedObjectContext =
-        self.persistentContainer.viewContext
-    
-    func getNewManagedObjectContext() -> NSManagedObjectContext {
-        return self.persistentContainer.newBackgroundContext()
+    static func getNewManagedObjectContext() -> NSManagedObjectContext? {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate.persistentContainer.viewContext
+        }
+        return nil
     }
     
-    func saveChanges(context: NSManagedObjectContext) {
+    static func saveChanges(context: NSManagedObjectContext) {
         do {
             try context.save()
         } catch let saveError {

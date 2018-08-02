@@ -16,20 +16,13 @@ enum PhotoResult {
 
 class PhotosCoreData {
     
-    let coreDataStack: CoreDataStack
-    
-    
-    init(coreDataStack: CoreDataStack) {
-        self.coreDataStack = coreDataStack
-    }
-    
     
     func getPhoto(byId id: String, completion: @escaping (PhotoResult) -> Void) {
         let predicate = NSPredicate(format: "photoID == %@", id)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = nil
         fetchRequest.predicate = predicate
-        let context = self.coreDataStack.managedObjectMainContext
+        let context = CoreDataStack.managedObjectMainContext!
         var contextQueuePhotos: [PhotoMO]?
         context.performAndWait() {
             do {
@@ -42,11 +35,11 @@ class PhotosCoreData {
             return completion(.failure)
         }
         completion(.success(photoMO))
-        coreDataStack.saveChanges(context: context)
+        CoreDataStack.saveChanges(context: context)
     }
     
     func persistRecentPhotos(photos: [Photo]) {
-        let context = coreDataStack.managedObjectMainContext
+        let context = CoreDataStack.managedObjectMainContext!
         photos.forEach{
             (photo) -> Void in
             getPhoto(byId: photo.photoID){
@@ -64,7 +57,7 @@ class PhotosCoreData {
                 }
             }
         }
-        self.coreDataStack.saveChanges(context: context)
+        CoreDataStack.saveChanges(context: context)
     }
     
     func getAllPersistedPhotos() throws -> [Photo] {
@@ -79,7 +72,7 @@ class PhotosCoreData {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = sortDescriptors
         fetchRequest.predicate = predicate
-        let mainQueueContext = self.coreDataStack.managedObjectMainContext
+        let mainQueueContext = CoreDataStack.managedObjectMainContext!
         var mainQueuePhotos: [PhotoMO]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait() {

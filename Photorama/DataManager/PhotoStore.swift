@@ -11,14 +11,12 @@ import CoreData
 
 class PhotoStore {
     
-    let coreDataStack = CoreDataStack(modelName: "Photorama")
-    
     let imageRepository: ImageRepository
     let tagsRepository: TagsRepository
     let photosRepository: PhotosRepository
     
     init() {
-        let tagsCoreData = TagsCoreData(coreDataStack: coreDataStack)
+        let tagsCoreData = TagsCoreData()
         self.tagsRepository = TagsRepository(tagsCoreData: tagsCoreData)
         
         let imageCache = ImageCacheData()
@@ -26,7 +24,7 @@ class PhotoStore {
         let imageWebData = ImageWebData()
         self.imageRepository = ImageRepository(imageCache: imageCache, imageFileSystem: imageFileSystem, imageWebData: imageWebData)
         
-        let photosCoreData = PhotosCoreData(coreDataStack: coreDataStack)
+        let photosCoreData = PhotosCoreData()
         let photosWebData = PhotosWebData()
         self.photosRepository = PhotosRepository(photosCoreData: photosCoreData, photosWebData: photosWebData)
     }
