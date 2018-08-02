@@ -11,40 +11,10 @@ import CoreData
 
 class PhotoStore {
     
-    let imageRepository: ImageRepository
-    let tagsRepository: TagsRepository
-    let photosRepository: PhotosRepository
+    var imageRepository: ImageRepository!
+    var tagsRepository: TagsRepository!
+    var photosRepository: PhotosRepository!
     
-    init() {
-        let tagsCoreData = TagsCoreData()
-        self.tagsRepository = TagsRepository(tagsCoreData: tagsCoreData)
-        
-        let imageCache = ImageCacheData()
-        let imageFileSystem = ImageFileData()
-        let imageWebData = ImageWebData()
-        self.imageRepository = ImageRepository(imageCache: imageCache, imageFileSystem: imageFileSystem, imageWebData: imageWebData)
-        
-        let photosCoreData = PhotosCoreData()
-        let photosWebData = PhotosWebData()
-        self.photosRepository = PhotosRepository(photosCoreData: photosCoreData, photosWebData: photosWebData)
-    }
-    
-    func update(photo: Photo) {
-        photosRepository.getPhoto(byId: photo.photoID) {
-            (result) -> Void in
-            switch result {
-            case let .success(photoMO):
-                guard let tagsMO = self.tagsRepository.getTags(byNameList: photo.tags) else {
-                    print("Error trying to retrieved tags by photo: \(photo)")
-                    return
-                }
-                tagsMO.forEach{photoMO.addTagObject(tagMO: $0)}
-            case .failure:
-                print("Error trying to retrieved photo by id: \(photo.photoID)")
-                return
-            }
-        }
-    }
 }
 
 extension PhotoStore: PhotosRepositoryProtocol {
@@ -55,6 +25,10 @@ extension PhotoStore: PhotosRepositoryProtocol {
     
     func getAllPersistedPhotos() throws -> [Photo] {
         return try photosRepository.getAllPersistedPhotos()
+    }
+    
+    func update(photo: Photo) {
+        photosRepository.update(photo: photo)
     }
 }
 

@@ -16,6 +16,18 @@ class TagsRouter: TagsWireFrameProtocol {
         guard let view = navController.childViewControllers.first as? TagsView else {
             fatalError("Imposible to create navController to load TagsNavigationController")
         }
+        
+        // prepare dataSource
+        let photoStore = PhotoStore()
+        let photosRepository = PhotosRepository()
+        let tagsRepository = TagsRepository()
+        tagsRepository.tagsCoreData = TagsCoreData()
+        photosRepository.photosCoreData = PhotosCoreData()
+        photosRepository.photosWebData = PhotosWebData()
+        photosRepository.tagsRepository = tagsRepository
+        photoStore.photosRepository = photosRepository
+        photoStore.tagsRepository = tagsRepository
+        
         var presenter: TagsPresenterProtocol & TagsInteractorOutputProtocol = TagsPresenter()
         let route: TagsWireFrameProtocol = TagsRouter()
         var interactor: TagsInteractorInputProtocol = TagsInteractor()

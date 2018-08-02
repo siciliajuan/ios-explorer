@@ -32,7 +32,7 @@ protocol PhotoInfoPresenterProtocol {
 // presenter -> route
 // other route -> route
 protocol PhotoInfoWireFrameProtocol {
-    static func createPhotoInfoModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
+    static func createPhotoInfoModuleVC(forPhoto photo: Photo) -> UIViewController
     func presentTagsVC(from: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore)
 }
 

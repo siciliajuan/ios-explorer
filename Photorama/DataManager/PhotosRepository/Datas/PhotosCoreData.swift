@@ -16,7 +16,6 @@ enum PhotoResult {
 
 class PhotosCoreData {
     
-    
     func getPhoto(byId id: String, completion: @escaping (PhotoResult) -> Void) {
         let predicate = NSPredicate(format: "photoID == %@", id)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")

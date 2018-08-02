@@ -10,15 +10,9 @@ import CoreData
 
 class PhotosRepository {
 
-    
-    var photosCoreData: PhotosCoreData
-    var photosWebData: PhotosWebData
-    
-    
-    init(photosCoreData: PhotosCoreData, photosWebData: PhotosWebData) {
-        self.photosCoreData = photosCoreData
-        self.photosWebData = photosWebData
-    }
+    var tagsRepository: TagsRepository!
+    var photosCoreData: PhotosCoreData!
+    var photosWebData: PhotosWebData!
     
     
     func fetchLastUploadedFlickerPhotos(completion: @escaping () -> Void) {
@@ -37,6 +31,23 @@ class PhotosRepository {
     
     func getPhoto(byId id: String, completion: @escaping (PhotoResult) -> Void) {
         photosCoreData.getPhoto(byId: id, completion: completion)
+    }
+    
+    func update(photo: Photo) {
+        getPhoto(byId: photo.photoID) {
+            (result) -> Void in
+            switch result {
+            case let .success(photoMO):
+                guard let tagsMO = self.tagsRepository.getTags(byNameList: photo.tags) else {
+                    print("Error trying to retrieved tags by photo: \(photo)")
+                    return
+                }
+                tagsMO.forEach{photoMO.addTagObject(tagMO: $0)}
+            case .failure:
+                print("Error trying to retrieved photo by id: \(photo.photoID)")
+                return
+            }
+        }
     }
     
 }

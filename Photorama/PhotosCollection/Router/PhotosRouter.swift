@@ -10,16 +10,29 @@ import UIKit
 
 class PhotosRouter: PhotosWireFrameProtocol {
     
-    class func createPhotosModuleVC(forPhotoStore store: PhotoStore) -> UIViewController {
+    class func createPhotosModuleVC() -> UIViewController {
         let navController = UINavigationController()
         navController.pushViewController(PhotosView(), animated: true)
         guard let view = navController.childViewControllers.first as? PhotosView else {
             fatalError("Imposible to create navController to load PhotosController")
         }
+        
+        // prepare dataSource
+        let photoStore = PhotoStore()
+        let photosRepository = PhotosRepository()
+        let imageRepository = ImageRepository()
+        imageRepository.imageCache = ImageCacheData()
+        imageRepository.imageFS = ImageFileData()
+        imageRepository.imageWebData = ImageWebData()
+        photosRepository.photosCoreData = PhotosCoreData()
+        photosRepository.photosWebData = PhotosWebData()
+        photoStore.photosRepository = photosRepository
+        photoStore.imageRepository = imageRepository
+        
         var presenter: PhotosPresenterProtocol & PhotosInteractorOutputProtocol = PhotosPresenter()
         let route: PhotosWireFrameProtocol = PhotosRouter()
         var interactor: PhotosInteractorInputProtocol = PhotosInteractor()
-        interactor.store = store
+        interactor.store = photoStore
         presenter.interactor = interactor
         presenter.route = route
         presenter.view = view
@@ -29,7 +42,7 @@ class PhotosRouter: PhotosWireFrameProtocol {
     }
     
     func presentPhotoInfoVC(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore) {
-        let PhotoInfoViewController = PhotoInfoRouter.createPhotoInfoModuleVC(forPhoto: photo, forPhotoStore: store)
+        let PhotoInfoViewController = PhotoInfoRouter.createPhotoInfoModuleVC(forPhoto: photo)
         guard let sourceView = view as? UIViewController else {
                 fatalError("Imposible to create viewControoler to load PhotoInfoViewController")
         }
