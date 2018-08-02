@@ -16,16 +16,18 @@ protocol TagsViewProtocol {
     var photo: Photo! { get set }
     
     func setTags(_ tags: [String])
+    func showAddTagAler()
 }
 
 // view -> presenter
 protocol TagsPresenterProtocol {
-    var view: TagsViewProtocol? { get set }
-    var route: TagsWireFrameProtocol? { get set }
-    var interactor: TagsInteractorInputProtocol? { get set }
+    var view: TagsViewProtocol! { get set }
+    var route: TagsWireFrameProtocol! { get set }
+    var interactor: TagsInteractorInputProtocol! { get set }
     
     func viewDidLoad()
     func didDoneTags(forPhoto photo: Photo)
+    func didAddTag()
     func didSave(tag: String)
 }
 

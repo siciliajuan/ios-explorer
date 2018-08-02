@@ -10,31 +10,35 @@ import UIKit
 
 class TagsPresenter {
     
-    var view: TagsViewProtocol?
-    var route: TagsWireFrameProtocol?
-    var interactor: TagsInteractorInputProtocol?
+    var view: TagsViewProtocol!
+    var route: TagsWireFrameProtocol!
+    var interactor: TagsInteractorInputProtocol!
     
     func viewDidLoad() {
-        interactor?.retrieveTags()
+        interactor.retrieveTags()
     }
 }
 
 extension TagsPresenter: TagsPresenterProtocol {
     
     func didDoneTags(forPhoto photo: Photo) {
-        interactor?.update(photo: photo)
-        route?.dismissTagsVC(from: view!)
+        interactor.update(photo: photo)
+        route.dismissTagsVC(from: view!)
+    }
+    
+    func didAddTag() {
+        view.showAddTagAler()
     }
     
     func didSave(tag: String) {
-        interactor?.save(tag: tag)
+        interactor.save(tag: tag)
     }
 }
 
 extension TagsPresenter: TagsInteractorOutputProtocol {
     
     func didRetrievedTags(_ tags: [String]) {
-        view?.setTags(tags)
+        view.setTags(tags)
     }
     
 }

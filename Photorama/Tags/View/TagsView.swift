@@ -40,7 +40,17 @@ class TagsView: UIViewController {
     }
     
     @objc func addNewTag() {
-        
+        presenter?.didAddTag()
+    }
+}
+
+extension TagsView: TagsViewProtocol {
+    
+    func setTags(_ tags: [String]) {
+        self.tags = tags
+    }
+    
+    func showAddTagAler() {
         // Localize texts
         let alertControllerTitle = NSLocalizedString("Add Tag", comment: "Alert Controller title")
         let alertControllerPlaceHoler = NSLocalizedString("Tag name", comment: "Alert Controller Placeholder")
@@ -64,13 +74,6 @@ class TagsView: UIViewController {
         let cancelAction = UIAlertAction(title: alertControllerCancelActionTitle, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension TagsView: TagsViewProtocol {
-    
-    func setTags(_ tags: [String]) {
-        self.tags = tags
     }
 }
 
