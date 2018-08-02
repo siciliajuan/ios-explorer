@@ -56,7 +56,7 @@ extension TagsView: TagsViewProtocol {
         let alertControllerPlaceHoler = NSLocalizedString("Tag name", comment: "Alert Controller Placeholder")
         let alertControllerOkActionTitle = NSLocalizedString("OK", comment: "Alert Controller OK action title")
         let alertControllerCancelActionTitle = NSLocalizedString("cancel", comment: "Alert Controller cancel action title")
-        
+
         let alertController = UIAlertController(title: alertControllerTitle, message: nil, preferredStyle: .alert)
         alertController.addTextField(){
             (texField) -> Void in
@@ -70,8 +70,8 @@ extension TagsView: TagsViewProtocol {
                 self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
             }
         })
-        alertController.addAction(okAction)
         let cancelAction = UIAlertAction(title: alertControllerCancelActionTitle, style: .cancel, handler: nil)
+        alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
