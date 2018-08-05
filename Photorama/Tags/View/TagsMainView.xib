@@ -29,10 +29,6 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <viewLayoutGuide key="safeArea" id="hyl-tZ-3YL"/>
             </view>
-            <navigationItem key="navigationItem" id="4es-7P-hyG">
-                <barButtonItem key="leftBarButtonItem" systemItem="done" id="tnY-Sv-OJb"/>
-                <barButtonItem key="rightBarButtonItem" systemItem="add" id="3bj-lT-Ghx"/>
-            </navigationItem>
             <point key="canvasLocation" x="-108" y="326"/>
         </viewController>
     </objects>

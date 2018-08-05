@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F60A65961F23A5D3007F581B /* PhotosTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A65951F23A5D3007F581B /* PhotosTableCellView.swift */; };
 		F60A65981F2407F4007F581B /* PhotoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A65971F2407F4007F581B /* PhotoInfoView.swift */; };
+		F6169B322117AD4F00618F77 /* PhotoInfoView.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6169B2F2117AD4F00618F77 /* PhotoInfoView.strings */; };
+		F6169B342117AED000618F77 /* View+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B332117AED000618F77 /* View+InstantiateFromNib.swift */; };
 		F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C45D320F0C77000248D36 /* ImageRepository.swift */; };
 		F64C09721F2155320020A548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09711F2155320020A548 /* AppDelegate.swift */; };
 		F64C09771F2155320020A548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64C09751F2155320020A548 /* Main.storyboard */; };
@@ -56,14 +58,16 @@
 		F6B5931D1F24EBC200B4D139 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */; };
 		F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */; };
 		F6C30FD221013CC80066ABAB /* PhotosCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C30FD121013CC80066ABAB /* PhotosCodable.swift */; };
-		F6D927A0210CD76500703210 /* PhotoInfoMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */; };
+		F6D927A0210CD76500703210 /* PhotoInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D9279E210CD76500703210 /* PhotoInfoView.xib */; };
 		F6D927A8210CD7C400703210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D927A3210CD7C400703210 /* Localizable.strings */; };
-		F6D927AC210CD81100703210 /* PhotoInfoMainView.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D927A9210CD81100703210 /* PhotoInfoMainView.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F60A65951F23A5D3007F581B /* PhotosTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableCellView.swift; sourceTree = "<group>"; };
 		F60A65971F2407F4007F581B /* PhotoInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoView.swift; sourceTree = "<group>"; };
+		F6169B302117AD4F00618F77 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PhotoInfoView.strings; sourceTree = "<group>"; };
+		F6169B312117AD4F00618F77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhotoInfoView.strings; sourceTree = "<group>"; };
+		F6169B332117AED000618F77 /* View+InstantiateFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+InstantiateFromNib.swift"; sourceTree = "<group>"; };
 		F63C45D320F0C77000248D36 /* ImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		F64C096E1F2155320020A548 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64C09711F2155320020A548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,11 +117,9 @@
 		F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F6C30FD121013CC80066ABAB /* PhotosCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCodable.swift; sourceTree = "<group>"; };
-		F6D9279F210CD76500703210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhotoInfoMainView.xib; sourceTree = "<group>"; };
+		F6D9279F210CD76500703210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhotoInfoView.xib; sourceTree = "<group>"; };
 		F6D927A4210CD7C400703210 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6D927A5210CD7C400703210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F6D927AA210CD81100703210 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PhotoInfoMainView.strings; sourceTree = "<group>"; };
-		F6D927AB210CD81100703210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhotoInfoMainView.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			children = (
 				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
 				F654535720FE73CC003CF1F7 /* DateHelper.swift */,
+				F6169B332117AED000618F77 /* View+InstantiateFromNib.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -351,8 +354,8 @@
 		F6913F5A20F227F9000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F6D927A9210CD81100703210 /* PhotoInfoMainView.strings */,
-				F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */,
+				F6169B2F2117AD4F00618F77 /* PhotoInfoView.strings */,
+				F6D9279E210CD76500703210 /* PhotoInfoView.xib */,
 				F60A65971F2407F4007F581B /* PhotoInfoView.swift */,
 			);
 			path = View;
@@ -526,11 +529,11 @@
 				F64C097C1F2155320020A548 /* LaunchScreen.storyboard in Resources */,
 				F64C09791F2155320020A548 /* Assets.xcassets in Resources */,
 				F64C09771F2155320020A548 /* Main.storyboard in Resources */,
-				F6D927A0210CD76500703210 /* PhotoInfoMainView.xib in Resources */,
-				F6D927AC210CD81100703210 /* PhotoInfoMainView.strings in Resources */,
+				F6D927A0210CD76500703210 /* PhotoInfoView.xib in Resources */,
 				F6D927A8210CD7C400703210 /* Localizable.strings in Resources */,
 				F6913F8F20F6A9E1000A0630 /* PhotosTableCellView.xib in Resources */,
 				F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */,
+				F6169B322117AD4F00618F77 /* PhotoInfoView.strings in Resources */,
 				F654533620F81A88003CF1F7 /* TagsMainView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +572,7 @@
 				F654535120FD42BB003CF1F7 /* TagsRepository.swift in Sources */,
 				F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */,
 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
+				F6169B342117AED000618F77 /* View+InstantiateFromNib.swift in Sources */,
 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,
 				F654537B21000A16003CF1F7 /* PhotosWebData.swift in Sources */,
 				F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */,
@@ -591,6 +595,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F6169B2F2117AD4F00618F77 /* PhotoInfoView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6169B302117AD4F00618F77 /* es */,
+				F6169B312117AD4F00618F77 /* en */,
+			);
+			name = PhotoInfoView.strings;
+			sourceTree = "<group>";
+		};
 		F64C09751F2155320020A548 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -607,12 +620,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		F6D9279E210CD76500703210 /* PhotoInfoMainView.xib */ = {
+		F6D9279E210CD76500703210 /* PhotoInfoView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F6D9279F210CD76500703210 /* Base */,
 			);
-			name = PhotoInfoMainView.xib;
+			name = PhotoInfoView.xib;
 			sourceTree = "<group>";
 		};
 		F6D927A3210CD7C400703210 /* Localizable.strings */ = {
@@ -622,15 +635,6 @@
 				F6D927A5210CD7C400703210 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		F6D927A9210CD81100703210 /* PhotoInfoMainView.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6D927AA210CD81100703210 /* es */,
-				F6D927AB210CD81100703210 /* en */,
-			);
-			name = PhotoInfoMainView.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

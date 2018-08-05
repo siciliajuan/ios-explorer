@@ -11,25 +11,19 @@ import UIKit
 class PhotoInfoView: UIViewController {
     
     var presenter: PhotoInfoPresenterProtocol!
-    var photo: Photo!
+    var photo: Photo! {
+        didSet {
+            presenter.photoDidSet(photo)
+        }
+    }
     
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var contentView: UIView!
     
     @IBAction func showTags() {
         presenter.didShowTags(forPhoto: photo)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareContentView()
-        presenter.viewDidLoad(photo)
-    }
-    
-    func prepareContentView() {
-        Bundle.main.loadNibNamed("PhotoInfoMainView", owner: self, options: nil)
-        contentView.frame = self.view.bounds
-        self.view.addSubview(contentView)
     }
 }
 
