@@ -11,11 +11,14 @@ import UIKit
 class PhotosRouter: PhotosWireFrameProtocol {
     
     class func createPhotosModuleVC() -> UIViewController {
-        let navController = UINavigationController()
-        navController.pushViewController(PhotosView(), animated: true)
-        guard let view = navController.childViewControllers.first as? PhotosView else {
-            fatalError("Imposible to create navController to load PhotosController")
+        
+        
+        guard let view = PhotosView.instantiateFromNib() else {
+            fatalError("Imposible to create navController to load TagsNavigationController")
         }
+        
+        let navController = UINavigationController()
+        navController.pushViewController(view, animated: true)
         
         // prepare dataSource
         let coreDataStack = CoreDataStack()

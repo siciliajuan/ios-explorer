@@ -25,7 +25,7 @@ protocol PhotoInfoPresenterProtocol {
     var route: PhotoInfoWireFrameProtocol! { get set }
     var interactor: PhotoInfoInteractorInputProtocol! { get set }
     
-    func photoDidSet(_ photo: Photo)
+    func viewDidLoad(_ photo: Photo)
     func didShowTags(forPhoto photo: Photo)
 }
 

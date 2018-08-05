@@ -12,24 +12,20 @@ class PhotosView: UIViewController {
     
     var presenter: PhotosPresenterProtocol!
     
-    @IBOutlet var table: UITableView!
+    @IBOutlet var table: UITableView! {
+        didSet {
+            table.delegate = self
+            table.dataSource = self
+            table.register(PhotosTableCellView.self, forCellReuseIdentifier: cellIdentifier)
+        }
+    }
     
     let cellIdentifier = "UITableViewCell"
     var photos = [Photo]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        prepareContentView()
-        presenter.viewDidLoad()
-    }
-    
-    func prepareContentView() {
-        Bundle.main.loadNibNamed("PhotosMainView", owner: self, options: nil)
-        self.table.frame = self.view.bounds
-        table.delegate = self
-        table.dataSource = self
-        table.register(PhotosTableCellView.self, forCellReuseIdentifier: cellIdentifier)
-        self.view.addSubview(table)
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        presenter?.viewDidLoad()
     }
 }
 

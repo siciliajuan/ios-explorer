@@ -11,19 +11,17 @@ import UIKit
 class PhotoInfoView: UIViewController {
     
     var presenter: PhotoInfoPresenterProtocol!
-    var photo: Photo! {
-        didSet {
-            presenter.photoDidSet(photo)
-        }
-    }
+    var photo: Photo!
     
     @IBOutlet var imageView: UIImageView!
     
     @IBAction func showTags() {
         presenter.didShowTags(forPhoto: photo)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewDidLoad(photo)
     }
 }
 

@@ -18,7 +18,7 @@
 		F64C097C1F2155320020A548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64C097A1F2155320020A548 /* LaunchScreen.storyboard */; };
 		F64C09861F215B1B0020A548 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09851F215B1B0020A548 /* FlickrAPI.swift */; };
 		F64C09881F2161060020A548 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09871F2161060020A548 /* PhotoStore.swift */; };
-		F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654530D20F6D787003CF1F7 /* PhotosMainView.xib */; };
+		F654530E20F6D787003CF1F7 /* PhotosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654530D20F6D787003CF1F7 /* PhotosView.xib */; };
 		F654533620F81A88003CF1F7 /* TagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F654533420F81A88003CF1F7 /* TagsView.xib */; };
 		F654534120FD36DD003CF1F7 /* ImageCacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654534020FD36DD003CF1F7 /* ImageCacheData.swift */; };
 		F654534320FD37B8003CF1F7 /* ImageFileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654534220FD37B8003CF1F7 /* ImageFileData.swift */; };
@@ -77,7 +77,7 @@
 		F64C097D1F2155320020A548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F64C09851F215B1B0020A548 /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		F64C09871F2161060020A548 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
-		F654530D20F6D787003CF1F7 /* PhotosMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosMainView.xib; sourceTree = "<group>"; };
+		F654530D20F6D787003CF1F7 /* PhotosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosView.xib; sourceTree = "<group>"; };
 		F654533420F81A88003CF1F7 /* TagsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagsView.xib; path = Photorama/Tags/View/TagsView.xib; sourceTree = SOURCE_ROOT; };
 		F654534020FD36DD003CF1F7 /* ImageCacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheData.swift; sourceTree = "<group>"; };
 		F654534220FD37B8003CF1F7 /* ImageFileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileData.swift; sourceTree = "<group>"; };
@@ -442,7 +442,7 @@
 			children = (
 				F6913F8E20F6A9E1000A0630 /* PhotosTableCellView.xib */,
 				F60A65951F23A5D3007F581B /* PhotosTableCellView.swift */,
-				F654530D20F6D787003CF1F7 /* PhotosMainView.xib */,
+				F654530D20F6D787003CF1F7 /* PhotosView.xib */,
 				F6913F7620F55DB7000A0630 /* PhotosView.swift */,
 				F6B4FF3C21170475008527D6 /* PhotosView+Delegate.swift */,
 				F6B4FF3A2117046A008527D6 /* PhotosView+DataSource.swift */,
@@ -532,7 +532,7 @@
 				F6D927A0210CD76500703210 /* PhotoInfoView.xib in Resources */,
 				F6D927A8210CD7C400703210 /* Localizable.strings in Resources */,
 				F6913F8F20F6A9E1000A0630 /* PhotosTableCellView.xib in Resources */,
-				F654530E20F6D787003CF1F7 /* PhotosMainView.xib in Resources */,
+				F654530E20F6D787003CF1F7 /* PhotosView.xib in Resources */,
 				F6169B322117AD4F00618F77 /* PhotoInfoView.strings in Resources */,
 				F654533620F81A88003CF1F7 /* TagsView.xib in Resources */,
 			);

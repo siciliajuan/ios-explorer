@@ -13,13 +13,13 @@ class TagsPresenter {
     var view: TagsViewProtocol!
     var route: TagsWireFrameProtocol!
     var interactor: TagsInteractorInputProtocol!
+    
+    func viewDidLoad() {
+        interactor.retrieveTags()
+    }
 }
 
 extension TagsPresenter: TagsPresenterProtocol {
-    
-    func photoDidSet() {
-        interactor.retrieveTags()
-    }
     
     func didDoneTags(forPhoto photo: Photo) {
         interactor.update(photo: photo)

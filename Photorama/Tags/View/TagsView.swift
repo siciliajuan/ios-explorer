@@ -18,19 +18,20 @@ class TagsView: UIViewController {
         }
     }
     
-    var presenter: TagsPresenterProtocol?
+    var presenter: TagsPresenterProtocol!
     
     let cellIdentifier = "UITableViewCell"
     var tags: [String] = []
-    var photo: Photo! {
-        didSet {
-            presenter?.photoDidSet()
-        }
-    }
+    var photo: Photo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareContentView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewDidLoad()
     }
     
     func prepareContentView() {

@@ -15,7 +15,7 @@ class PhotoInfoPresenter: PhotoInfoPresenterProtocol {
     var route: PhotoInfoWireFrameProtocol!
     var interactor: PhotoInfoInteractorInputProtocol!
     
-    func photoDidSet(_ photo: Photo) {
+    func viewDidLoad(_ photo: Photo) {
         interactor.retrieveImage(forPhoto: photo)
         
     }

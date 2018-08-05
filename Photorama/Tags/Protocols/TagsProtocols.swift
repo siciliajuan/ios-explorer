@@ -11,7 +11,7 @@ import UIKit
 
 // presenter -> view
 protocol TagsViewProtocol {
-    var presenter: TagsPresenterProtocol? { get set }
+    var presenter: TagsPresenterProtocol! { get set }
     
     var photo: Photo! { get set }
     
@@ -25,7 +25,7 @@ protocol TagsPresenterProtocol {
     var route: TagsWireFrameProtocol! { get set }
     var interactor: TagsInteractorInputProtocol! { get set }
     
-    func photoDidSet()
+    func viewDidLoad()
     func didDoneTags(forPhoto photo: Photo)
     func didAddTag()
     func didSave(tag: String)
