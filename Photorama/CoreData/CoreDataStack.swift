@@ -26,7 +26,9 @@ class CoreDataStack {
     }()
     
     func getNewManagedObjectContext() -> NSManagedObjectContext? {
-        return persistentContainer.newBackgroundContext()
+        let context = persistentContainer.newBackgroundContext()
+        context.automaticallyMergesChangesFromParent = true
+        return context
     }
     
     func saveChanges(context: NSManagedObjectContext) {

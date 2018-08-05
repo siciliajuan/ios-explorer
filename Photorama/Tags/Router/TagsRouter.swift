@@ -29,7 +29,6 @@ class TagsRouter: TagsWireFrameProtocol {
         photosCoreData.coreDataStack = coreDataStack
         photosRepository.photosCoreData = photosCoreData
         photosRepository.photosWebData = PhotosWebData()
-        photosRepository.tagsRepository = tagsRepository
         photoStore.photosRepository = photosRepository
         photoStore.tagsRepository = tagsRepository
         

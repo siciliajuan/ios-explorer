@@ -20,8 +20,4 @@ class TagsRepository: TagsRepositoryProtocol {
     func save(tag: String) {
         tagsCoreData.saveTag(tag)
     }
-    
-    func getTags(byNameList names: [String]) -> [NSManagedObject]? {
-        return tagsCoreData.getTags(byNameList: names)
-    }
 }

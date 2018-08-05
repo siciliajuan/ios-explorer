@@ -13,32 +13,11 @@ class TagsCoreData {
     
     var coreDataStack: CoreDataStack!
     
-    func getTags(byNameList names: [String]) -> [NSManagedObject]? {
-        let predicate = NSPredicate(format: "name IN %@", names)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
-        fetchRequest.sortDescriptors = nil
-        fetchRequest.predicate = predicate
-        let mainQueueContext = coreDataStack.managedObjectMainContext!
-        var mainQueueTags: [NSManagedObject]?
-        mainQueueContext.performAndWait() {
-            do {
-                mainQueueTags = try mainQueueContext.fetch(fetchRequest) as? [NSManagedObject]
-            } catch let error {
-                print("Error getting tags by names: \(names), gets error: \(error)")
-            }
-        }
-        guard let tags = mainQueueTags else {
-            print("Error trying to retrieve tags by names: \(names) on coreData; not found")
-            return nil
-        }
-        return tags
-    }
-    
     func getTagsSortedByName() throws -> [String] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchRequest.predicate = nil
-        let mainQueueContext = coreDataStack.managedObjectMainContext!
+        let mainQueueContext = coreDataStack.getNewManagedObjectContext()!
         var mainQueueTags: [NSManagedObject]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait() {
@@ -55,7 +34,7 @@ class TagsCoreData {
     }
     
     func saveTag(_ tagName: String) {
-        let context = coreDataStack.managedObjectMainContext!
+        let context = coreDataStack.getNewManagedObjectContext()!
         let newTag = NSEntityDescription.insertNewObject(forEntityName: "TagMO", into: context)
         newTag.setValue(tagName, forKey: "name")
         coreDataStack.saveChanges(context: context)

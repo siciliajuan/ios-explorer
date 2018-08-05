@@ -23,24 +23,53 @@ class PhotosCoreData {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = nil
         fetchRequest.predicate = predicate
-        let context = coreDataStack.managedObjectMainContext!
-        var contextQueuePhotos: [PhotoMO]?
+        let context = coreDataStack.getNewManagedObjectContext()!
+        var queuePhotos: [PhotoMO]?
         context.performAndWait() {
             do {
-                contextQueuePhotos = try context.fetch(fetchRequest) as? [PhotoMO]
+                queuePhotos = try context.fetch(fetchRequest) as? [PhotoMO]
             } catch {
                 return
             }
         }
-        guard let photosMO = contextQueuePhotos, let photoMO = photosMO.first else {
+        guard let photosMO = queuePhotos, let photoMO = photosMO.first else {
             return completion(.failure)
         }
         completion(.success(photoMO))
+    }
+    
+    func update(photo: Photo) {
+        let tagsPredicate = NSPredicate(format: "name IN %@", photo.tags)
+        let tagsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
+        tagsFetchRequest.sortDescriptors = nil
+        tagsFetchRequest.predicate = tagsPredicate
+        let photoPredicate = NSPredicate(format: "photoID == %@", photo.photoID)
+        let photoFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
+        photoFetchRequest.sortDescriptors = nil
+        photoFetchRequest.predicate = photoPredicate
+        let context = coreDataStack.getNewManagedObjectContext()!
+        var queuePhotos: [PhotoMO]?
+        var queueTags: [NSManagedObject]?
+        context.performAndWait() {
+            do {
+                queuePhotos = try context.fetch(photoFetchRequest) as? [PhotoMO]
+                queueTags = try context.fetch(tagsFetchRequest) as? [NSManagedObject]
+            } catch {
+                return
+            }
+        }
+        guard
+            let photosMO = queuePhotos,
+            let photoMO = photosMO.first,
+            let tagsMO = queueTags else {
+            return
+        }
+        tagsMO.forEach{photoMO.addTagObject(tagMO: $0)}
         coreDataStack.saveChanges(context: context)
     }
     
     func persistRecentPhotos(photos: [Photo]) {
-        let context = coreDataStack.managedObjectMainContext!
+        let context = coreDataStack.getNewManagedObjectContext()!
         photos.forEach{
             (photo) -> Void in
             getPhoto(byId: photo.photoID){
