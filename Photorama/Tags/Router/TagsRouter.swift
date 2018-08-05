@@ -11,11 +11,13 @@ import UIKit
 class TagsRouter: TagsWireFrameProtocol {
     
     class func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
-        let navController = UINavigationController()
-        navController.pushViewController(TagsView(), animated: true)
-        guard let view = navController.childViewControllers.first as? TagsView else {
+        
+        guard let view = TagsView.instantiateFromNib() else {
             fatalError("Imposible to create navController to load TagsNavigationController")
         }
+        
+        let navController = UINavigationController()
+        navController.pushViewController(view, animated: true)
         
         // prepare dataSource
         let coreDataStack = CoreDataStack()

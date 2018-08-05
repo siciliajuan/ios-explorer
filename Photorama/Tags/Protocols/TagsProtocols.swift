@@ -25,7 +25,7 @@ protocol TagsPresenterProtocol {
     var route: TagsWireFrameProtocol! { get set }
     var interactor: TagsInteractorInputProtocol! { get set }
     
-    func viewDidLoad()
+    func photoDidSet()
     func didDoneTags(forPhoto photo: Photo)
     func didAddTag()
     func didSave(tag: String)

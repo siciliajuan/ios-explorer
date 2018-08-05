@@ -10,29 +10,32 @@ import UIKit
 
 class TagsView: UIViewController {
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        }
+    }
     
     var presenter: TagsPresenterProtocol?
     
-    var photo: Photo!
     let cellIdentifier = "UITableViewCell"
     var tags: [String] = []
+    var photo: Photo! {
+        didSet {
+            presenter?.photoDidSet()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareContentView()
-        presenter?.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
     }
     
     func prepareContentView() {
-        Bundle.main.loadNibNamed("TagsMainView", owner: self, options: nil)
-        tableView.frame = self.view.bounds
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        self.view.addSubview(tableView)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
     }
     
     @objc func done() {
