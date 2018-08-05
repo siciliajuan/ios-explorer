@@ -49,31 +49,3 @@ extension PhotosView: PhotosViewProtocol {
         cell.updateWithImage(image: photo.image)
     }
 }
-
-extension PhotosView: UITableViewDelegate, UITableViewDataSource {
-    
-    
-    // Delegate
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let photo = photos[indexPath.row]
-        presenter.getImageCell(forPhoto: photo)
-    }
-    
-    func tableView(_ UITableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let photo = photos[indexPath.row]
-        presenter.didShowPhotoInfoView(forPhoto: photo)
-    }
-    
-    // DataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photos.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PhotosTableCellView
-        cell.photo = photos[indexPath.row]
-        return cell
-    }
-}

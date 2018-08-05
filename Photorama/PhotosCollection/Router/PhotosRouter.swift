@@ -18,13 +18,16 @@ class PhotosRouter: PhotosWireFrameProtocol {
         }
         
         // prepare dataSource
+        let coreDataStack = CoreDataStack()
         let photoStore = PhotoStore()
         let photosRepository = PhotosRepository()
         let imageRepository = ImageRepository()
         imageRepository.imageCache = ImageCacheData()
         imageRepository.imageFS = ImageFileData()
         imageRepository.imageWebData = ImageWebData()
-        photosRepository.photosCoreData = PhotosCoreData()
+        let photosCoreData = PhotosCoreData()
+        photosCoreData.coreDataStack = coreDataStack
+        photosRepository.photosCoreData = photosCoreData
         photosRepository.photosWebData = PhotosWebData()
         photoStore.photosRepository = photosRepository
         photoStore.imageRepository = imageRepository

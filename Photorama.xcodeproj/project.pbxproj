@@ -48,6 +48,10 @@
 		F6913F7B20F55DCF000A0630 /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F7A20F55DCF000A0630 /* PhotosPresenter.swift */; };
 		F6913F7D20F55DDB000A0630 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F7C20F55DDB000A0630 /* PhotosInteractor.swift */; };
 		F6913F8F20F6A9E1000A0630 /* PhotosTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6913F8E20F6A9E1000A0630 /* PhotosTableCellView.xib */; };
+		F6B4FF3721170380008527D6 /* TagsView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B4FF3621170380008527D6 /* TagsView+DataSource.swift */; };
+		F6B4FF39211703D9008527D6 /* TagsView-Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B4FF38211703D9008527D6 /* TagsView-Delegate.swift */; };
+		F6B4FF3B2117046A008527D6 /* PhotosView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B4FF3A2117046A008527D6 /* PhotosView+DataSource.swift */; };
+		F6B4FF3D21170475008527D6 /* PhotosView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B4FF3C21170475008527D6 /* PhotosView+Delegate.swift */; };
 		F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */; };
 		F6B5931D1F24EBC200B4D139 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */; };
 		F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */; };
@@ -101,6 +105,10 @@
 		F6913F7A20F55DCF000A0630 /* PhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenter.swift; sourceTree = "<group>"; };
 		F6913F7C20F55DDB000A0630 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		F6913F8E20F6A9E1000A0630 /* PhotosTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosTableCellView.xib; sourceTree = "<group>"; };
+		F6B4FF3621170380008527D6 /* TagsView+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsView+DataSource.swift"; sourceTree = "<group>"; };
+		F6B4FF38211703D9008527D6 /* TagsView-Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsView-Delegate.swift"; sourceTree = "<group>"; };
+		F6B4FF3A2117046A008527D6 /* PhotosView+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosView+DataSource.swift"; sourceTree = "<group>"; };
+		F6B4FF3C21170475008527D6 /* PhotosView+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosView+Delegate.swift"; sourceTree = "<group>"; };
 		F6B5931A1F24EBC200B4D139 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F6B5931B1F24EBC200B4D139 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6B5931E1F24ED0B00B4D139 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -370,8 +378,10 @@
 			isa = PBXGroup;
 			children = (
 				F6D927A3210CD7C400703210 /* Localizable.strings */,
-				F6913F6B20F3FCEC000A0630 /* TagsView.swift */,
 				F654533420F81A88003CF1F7 /* TagsMainView.xib */,
+				F6913F6B20F3FCEC000A0630 /* TagsView.swift */,
+				F6B4FF38211703D9008527D6 /* TagsView-Delegate.swift */,
+				F6B4FF3621170380008527D6 /* TagsView+DataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,10 +437,12 @@
 		F6913F7220F55AE1000A0630 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F6913F7620F55DB7000A0630 /* PhotosView.swift */,
-				F654530D20F6D787003CF1F7 /* PhotosMainView.xib */,
-				F60A65951F23A5D3007F581B /* PhotosTableCellView.swift */,
 				F6913F8E20F6A9E1000A0630 /* PhotosTableCellView.xib */,
+				F60A65951F23A5D3007F581B /* PhotosTableCellView.swift */,
+				F654530D20F6D787003CF1F7 /* PhotosMainView.xib */,
+				F6913F7620F55DB7000A0630 /* PhotosView.swift */,
+				F6B4FF3C21170475008527D6 /* PhotosView+Delegate.swift */,
+				F6B4FF3A2117046A008527D6 /* PhotosView+DataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -546,6 +558,8 @@
 				F654537720FFF203003CF1F7 /* PhotosRepositoryProtocol.swift in Sources */,
 				F654534320FD37B8003CF1F7 /* ImageFileData.swift in Sources */,
 				F654536B20FFDE58003CF1F7 /* Photo.swift in Sources */,
+				F6B4FF39211703D9008527D6 /* TagsView-Delegate.swift in Sources */,
+				F6B4FF3D21170475008527D6 /* PhotosView+Delegate.swift in Sources */,
 				F654534120FD36DD003CF1F7 /* ImageCacheData.swift in Sources */,
 				F6913F6C20F3FCEC000A0630 /* TagsView.swift in Sources */,
 				F60A65961F23A5D3007F581B /* PhotosTableCellView.swift in Sources */,
@@ -558,6 +572,8 @@
 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,
 				F654537B21000A16003CF1F7 /* PhotosWebData.swift in Sources */,
 				F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */,
+				F6B4FF3721170380008527D6 /* TagsView+DataSource.swift in Sources */,
+				F6B4FF3B2117046A008527D6 /* PhotosView+DataSource.swift in Sources */,
 				F654537920FFF9A9003CF1F7 /* ImageWebData.swift in Sources */,
 				F6913F6820F3FCCF000A0630 /* TagsPresenter.swift in Sources */,
 				F60A65981F2407F4007F581B /* PhotoInfoView.swift in Sources */,

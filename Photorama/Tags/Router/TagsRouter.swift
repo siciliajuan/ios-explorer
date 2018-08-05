@@ -18,11 +18,16 @@ class TagsRouter: TagsWireFrameProtocol {
         }
         
         // prepare dataSource
+        let coreDataStack = CoreDataStack()
         let photoStore = PhotoStore()
         let photosRepository = PhotosRepository()
         let tagsRepository = TagsRepository()
-        tagsRepository.tagsCoreData = TagsCoreData()
-        photosRepository.photosCoreData = PhotosCoreData()
+        let tagsCoreData = TagsCoreData()
+        tagsCoreData.coreDataStack = coreDataStack
+        tagsRepository.tagsCoreData = tagsCoreData
+        let photosCoreData = PhotosCoreData()
+        photosCoreData.coreDataStack = coreDataStack
+        photosRepository.photosCoreData = photosCoreData
         photosRepository.photosWebData = PhotosWebData()
         photosRepository.tagsRepository = tagsRepository
         photoStore.photosRepository = photosRepository

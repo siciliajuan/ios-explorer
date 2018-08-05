@@ -6,7 +6,7 @@
 //  Copyright © 2018 juan sicilia. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class TagsPresenter {
     

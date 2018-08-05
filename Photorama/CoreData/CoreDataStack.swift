@@ -11,21 +11,25 @@ import CoreData
 
 class CoreDataStack {
     
-    static var managedObjectMainContext: NSManagedObjectContext? {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            return appDelegate.persistentContainer.viewContext
-        }
-        return nil
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Photorama")
+        container.loadPersistentStores(completionHandler: { storeDescription, error in
+            if let error = error {
+                fatalError("Could load data store: \(error)")
+            }
+        })
+        return container
+    }()
+    
+    lazy var managedObjectMainContext: NSManagedObjectContext? = {
+        return persistentContainer.viewContext
+    }()
+    
+    func getNewManagedObjectContext() -> NSManagedObjectContext? {
+        return persistentContainer.newBackgroundContext()
     }
     
-    static func getNewManagedObjectContext() -> NSManagedObjectContext? {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            return appDelegate.persistentContainer.viewContext
-        }
-        return nil
-    }
-    
-    static func saveChanges(context: NSManagedObjectContext) {
+    func saveChanges(context: NSManagedObjectContext) {
         do {
             try context.save()
         } catch let saveError {

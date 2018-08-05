@@ -67,6 +67,7 @@ extension TagsView: TagsViewProtocol {
             (action) -> Void in
             if let tagName = alertController.textFields?.first!.text {
                 self.presenter?.didSave(tag: tagName)
+                // la vista debería ser pasiva
                 self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
             }
         })
@@ -74,43 +75,6 @@ extension TagsView: TagsViewProtocol {
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension TagsView: UITableViewDelegate, UITableViewDataSource {
-    
-    // Delegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tag = tags[indexPath.row]
-        if photo.tags.index(of: tag) != nil {
-            photo.removeTagObject(tag: tag)
-        } else {
-            photo.addTagObject(tag: tag)
-        }
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if photo.tags.index(of: tags[indexPath.row]) != nil {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-    }
-    
-    // DataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tags.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        let tag = tags[indexPath.row]
-        let name = tag
-        cell?.textLabel?.text = name
-        return cell!
     }
 }
 

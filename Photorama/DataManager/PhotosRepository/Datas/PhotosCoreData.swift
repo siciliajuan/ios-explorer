@@ -16,12 +16,14 @@ enum PhotoResult {
 
 class PhotosCoreData {
     
+    var coreDataStack: CoreDataStack!
+    
     func getPhoto(byId id: String, completion: @escaping (PhotoResult) -> Void) {
         let predicate = NSPredicate(format: "photoID == %@", id)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = nil
         fetchRequest.predicate = predicate
-        let context = CoreDataStack.managedObjectMainContext!
+        let context = coreDataStack.managedObjectMainContext!
         var contextQueuePhotos: [PhotoMO]?
         context.performAndWait() {
             do {
@@ -34,11 +36,11 @@ class PhotosCoreData {
             return completion(.failure)
         }
         completion(.success(photoMO))
-        CoreDataStack.saveChanges(context: context)
+        coreDataStack.saveChanges(context: context)
     }
     
     func persistRecentPhotos(photos: [Photo]) {
-        let context = CoreDataStack.managedObjectMainContext!
+        let context = coreDataStack.managedObjectMainContext!
         photos.forEach{
             (photo) -> Void in
             getPhoto(byId: photo.photoID){
@@ -56,7 +58,7 @@ class PhotosCoreData {
                 }
             }
         }
-        CoreDataStack.saveChanges(context: context)
+        coreDataStack.saveChanges(context: context)
     }
     
     func getAllPersistedPhotos() throws -> [Photo] {
@@ -71,7 +73,7 @@ class PhotosCoreData {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = sortDescriptors
         fetchRequest.predicate = predicate
-        let mainQueueContext = CoreDataStack.managedObjectMainContext!
+        let mainQueueContext = coreDataStack.managedObjectMainContext!
         var mainQueuePhotos: [PhotoMO]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait() {
