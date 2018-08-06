@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-
+import Swinject
 
 class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     

@@ -7,10 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33F905FFADE42A0FAA00EC84 /* Pods_Photorama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD67B62E003AD474A5D58D0 /* Pods_Photorama.framework */; };
+		796FEF37DB68579A655E81E1 /* Pods_PhotoramaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C95C7E2F5B70D57C83C2893 /* Pods_PhotoramaTests.framework */; };
 		F60A65961F23A5D3007F581B /* PhotosTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A65951F23A5D3007F581B /* PhotosTableCellView.swift */; };
 		F60A65981F2407F4007F581B /* PhotoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A65971F2407F4007F581B /* PhotoInfoView.swift */; };
 		F6169B322117AD4F00618F77 /* PhotoInfoView.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6169B2F2117AD4F00618F77 /* PhotoInfoView.strings */; };
-		F6169B342117AED000618F77 /* View+InstantiateFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B332117AED000618F77 /* View+InstantiateFromNib.swift */; };
+		F6169B3C2118F6EA00618F77 /* PhotoramaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B3B2118F6EA00618F77 /* PhotoramaTests.swift */; };
+		F6169B492118F7B500618F77 /* TagsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B482118F7B500618F77 /* TagsInteractorTests.swift */; };
+		F6169B4B2118F7F800618F77 /* TagsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B4A2118F7F800618F77 /* TagsPresenterTests.swift */; };
+		F6169B4D2118F82D00618F77 /* TagsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B4C2118F82D00618F77 /* TagsViewTests.swift */; };
+		F6169B4F2118F86000618F77 /* TagsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B4E2118F86000618F77 /* TagsRouterTests.swift */; };
+		F6169B572118F92E00618F77 /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B562118F92E00618F77 /* CoreDataStackTests.swift */; };
+		F6169B5A2118F96000618F77 /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B592118F96000618F77 /* PhotoTests.swift */; };
+		F6169B5C2118F98800618F77 /* PhotoTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B5B2118F98800618F77 /* PhotoTransferTests.swift */; };
+		F6169B622118F9F900618F77 /* TagsCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B612118F9F900618F77 /* TagsCoreDataTests.swift */; };
+		F6169B642118FA2900618F77 /* TagsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B632118FA2900618F77 /* TagsRepositoryTests.swift */; };
+		F6169B662118FAAD00618F77 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B652118FAAD00618F77 /* DateHelperTests.swift */; };
+		F6169B702118FB3600618F77 /* PhotosInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */; };
+		F6169B722118FB8200618F77 /* PhotosPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B712118FB8200618F77 /* PhotosPresenterTests.swift */; };
+		F6169B742118FBB400618F77 /* PhotosTableCellViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B732118FBB400618F77 /* PhotosTableCellViewTests.swift */; };
+		F6169B762118FBC700618F77 /* PhotosViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B752118FBC700618F77 /* PhotosViewTests.swift */; };
+		F6169B782118FBDE00618F77 /* PhotosView+DelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B772118FBDE00618F77 /* PhotosView+DelegateTests.swift */; };
+		F6169B7A2118FBEE00618F77 /* PhotosView+DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B792118FBEE00618F77 /* PhotosView+DataSourceTests.swift */; };
+		F6169B7C2118FC4300618F77 /* PhotosRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7B2118FC4300618F77 /* PhotosRouterTests.swift */; };
+		F6169B7E2118FD2B00618F77 /* PhotoInfoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7D2118FD2B00618F77 /* PhotoInfoViewTests.swift */; };
+		F6169B802118FD3D00618F77 /* PhotoInfoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */; };
+		F6169B822118FD4E00618F77 /* PhotoInfoInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B812118FD4E00618F77 /* PhotoInfoInteractorTests.swift */; };
+		F6169B842118FD5F00618F77 /* PhotoInfoRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */; };
 		F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C45D320F0C77000248D36 /* ImageRepository.swift */; };
 		F64C09721F2155320020A548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09711F2155320020A548 /* AppDelegate.swift */; };
 		F64C09771F2155320020A548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64C09751F2155320020A548 /* Main.storyboard */; };
@@ -62,12 +85,51 @@
 		F6D927A8210CD7C400703210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D927A3210CD7C400703210 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F6169B3E2118F6EA00618F77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F64C09661F2155320020A548 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F64C096D1F2155320020A548;
+			remoteInfo = Photorama;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		2C95C7E2F5B70D57C83C2893 /* Pods_PhotoramaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoramaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F9ABD079B2B5295630D1805 /* Pods-Photorama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photorama.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photorama/Pods-Photorama.debug.xcconfig"; sourceTree = "<group>"; };
+		85867D90C5CE6327C85FC257 /* Pods-PhotoramaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoramaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoramaTests/Pods-PhotoramaTests.release.xcconfig"; sourceTree = "<group>"; };
+		8BAEE9D2CA0F5F7DDD2DDB91 /* Pods-Photorama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photorama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photorama/Pods-Photorama.release.xcconfig"; sourceTree = "<group>"; };
+		9AD67B62E003AD474A5D58D0 /* Pods_Photorama.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photorama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFCD6F9404CCD2557C10743C /* Pods-PhotoramaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoramaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoramaTests/Pods-PhotoramaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F60A65951F23A5D3007F581B /* PhotosTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableCellView.swift; sourceTree = "<group>"; };
 		F60A65971F2407F4007F581B /* PhotoInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoView.swift; sourceTree = "<group>"; };
 		F6169B302117AD4F00618F77 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PhotoInfoView.strings; sourceTree = "<group>"; };
 		F6169B312117AD4F00618F77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhotoInfoView.strings; sourceTree = "<group>"; };
-		F6169B332117AED000618F77 /* View+InstantiateFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+InstantiateFromNib.swift"; sourceTree = "<group>"; };
+		F6169B392118F6EA00618F77 /* PhotoramaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoramaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6169B3B2118F6EA00618F77 /* PhotoramaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoramaTests.swift; sourceTree = "<group>"; };
+		F6169B3D2118F6EA00618F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6169B482118F7B500618F77 /* TagsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInteractorTests.swift; sourceTree = "<group>"; };
+		F6169B4A2118F7F800618F77 /* TagsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPresenterTests.swift; sourceTree = "<group>"; };
+		F6169B4C2118F82D00618F77 /* TagsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewTests.swift; sourceTree = "<group>"; };
+		F6169B4E2118F86000618F77 /* TagsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRouterTests.swift; sourceTree = "<group>"; };
+		F6169B562118F92E00618F77 /* CoreDataStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
+		F6169B592118F96000618F77 /* PhotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
+		F6169B5B2118F98800618F77 /* PhotoTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTransferTests.swift; sourceTree = "<group>"; };
+		F6169B612118F9F900618F77 /* TagsCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataTests.swift; sourceTree = "<group>"; };
+		F6169B632118FA2900618F77 /* TagsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepositoryTests.swift; sourceTree = "<group>"; };
+		F6169B652118FAAD00618F77 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
+		F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractorTests.swift; sourceTree = "<group>"; };
+		F6169B712118FB8200618F77 /* PhotosPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenterTests.swift; sourceTree = "<group>"; };
+		F6169B732118FBB400618F77 /* PhotosTableCellViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableCellViewTests.swift; sourceTree = "<group>"; };
+		F6169B752118FBC700618F77 /* PhotosViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewTests.swift; sourceTree = "<group>"; };
+		F6169B772118FBDE00618F77 /* PhotosView+DelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosView+DelegateTests.swift"; sourceTree = "<group>"; };
+		F6169B792118FBEE00618F77 /* PhotosView+DataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosView+DataSourceTests.swift"; sourceTree = "<group>"; };
+		F6169B7B2118FC4300618F77 /* PhotosRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouterTests.swift; sourceTree = "<group>"; };
+		F6169B7D2118FD2B00618F77 /* PhotoInfoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewTests.swift; sourceTree = "<group>"; };
+		F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenterTests.swift; sourceTree = "<group>"; };
+		F6169B812118FD4E00618F77 /* PhotoInfoInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoInteractorTests.swift; sourceTree = "<group>"; };
+		F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouterTests.swift; sourceTree = "<group>"; };
 		F63C45D320F0C77000248D36 /* ImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		F64C096E1F2155320020A548 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64C09711F2155320020A548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,16 +185,267 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F6169B362118F6EA00618F77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				796FEF37DB68579A655E81E1 /* Pods_PhotoramaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F64C096B1F2155320020A548 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F905FFADE42A0FAA00EC84 /* Pods_Photorama.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B560349D08ABA5064E273AF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AD67B62E003AD474A5D58D0 /* Pods_Photorama.framework */,
+				2C95C7E2F5B70D57C83C2893 /* Pods_PhotoramaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCE136F3C804E4ADC7CFEC71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F9ABD079B2B5295630D1805 /* Pods-Photorama.debug.xcconfig */,
+				8BAEE9D2CA0F5F7DDD2DDB91 /* Pods-Photorama.release.xcconfig */,
+				DFCD6F9404CCD2557C10743C /* Pods-PhotoramaTests.debug.xcconfig */,
+				85867D90C5CE6327C85FC257 /* Pods-PhotoramaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6169B3A2118F6EA00618F77 /* PhotoramaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B552118F91600618F77 /* CoreData */,
+				F6169B542118F91000618F77 /* Entities */,
+				F6169B532118F8FB00618F77 /* DataManager */,
+				F6169B522118F8F200618F77 /* Helpers */,
+				F6169B512118F8C500618F77 /* PhotosTable */,
+				F6169B502118F8B900618F77 /* PhotoInfo */,
+				F6169B432118F6F800618F77 /* Tags */,
+				F6169B3B2118F6EA00618F77 /* PhotoramaTests.swift */,
+				F6169B3D2118F6EA00618F77 /* Info.plist */,
+			);
+			path = PhotoramaTests;
+			sourceTree = "<group>";
+		};
+		F6169B432118F6F800618F77 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B442118F73A00618F77 /* Interactor */,
+				F6169B452118F74100618F77 /* Presenter */,
+				F6169B462118F74B00618F77 /* View */,
+				F6169B472118F75900618F77 /* Router */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		F6169B442118F73A00618F77 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B482118F7B500618F77 /* TagsInteractorTests.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F6169B452118F74100618F77 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B4A2118F7F800618F77 /* TagsPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F6169B462118F74B00618F77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B4C2118F82D00618F77 /* TagsViewTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6169B472118F75900618F77 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B4E2118F86000618F77 /* TagsRouterTests.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F6169B502118F8B900618F77 /* PhotoInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B6A2118FAFC00618F77 /* Interactor */,
+				F6169B692118FAF400618F77 /* Presenter */,
+				F6169B682118FAEE00618F77 /* View */,
+				F6169B672118FAE500618F77 /* Router */,
+			);
+			path = PhotoInfo;
+			sourceTree = "<group>";
+		};
+		F6169B512118F8C500618F77 /* PhotosTable */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B6E2118FB1600618F77 /* Interactor */,
+				F6169B6D2118FB0F00618F77 /* Presenter */,
+				F6169B6C2118FB0A00618F77 /* View */,
+				F6169B6B2118FB0400618F77 /* Router */,
+			);
+			path = PhotosTable;
+			sourceTree = "<group>";
+		};
+		F6169B522118F8F200618F77 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B652118FAAD00618F77 /* DateHelperTests.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F6169B532118F8FB00618F77 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B5F2118F9CC00618F77 /* TagsRepository */,
+				F6169B5E2118F9BF00618F77 /* ImageRepository */,
+				F6169B5D2118F9B400618F77 /* PhotosRepository */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		F6169B542118F91000618F77 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B582118F94A00618F77 /* transfers */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		F6169B552118F91600618F77 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B562118F92E00618F77 /* CoreDataStackTests.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F6169B582118F94A00618F77 /* transfers */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B592118F96000618F77 /* PhotoTests.swift */,
+				F6169B5B2118F98800618F77 /* PhotoTransferTests.swift */,
+			);
+			path = transfers;
+			sourceTree = "<group>";
+		};
+		F6169B5D2118F9B400618F77 /* PhotosRepository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotosRepository;
+			sourceTree = "<group>";
+		};
+		F6169B5E2118F9BF00618F77 /* ImageRepository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ImageRepository;
+			sourceTree = "<group>";
+		};
+		F6169B5F2118F9CC00618F77 /* TagsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B602118F9E400618F77 /* Datas */,
+				F6169B632118FA2900618F77 /* TagsRepositoryTests.swift */,
+			);
+			path = TagsRepository;
+			sourceTree = "<group>";
+		};
+		F6169B602118F9E400618F77 /* Datas */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B612118F9F900618F77 /* TagsCoreDataTests.swift */,
+			);
+			path = Datas;
+			sourceTree = "<group>";
+		};
+		F6169B672118FAE500618F77 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F6169B682118FAEE00618F77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B7D2118FD2B00618F77 /* PhotoInfoViewTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6169B692118FAF400618F77 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F6169B6A2118FAFC00618F77 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B812118FD4E00618F77 /* PhotoInfoInteractorTests.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F6169B6B2118FB0400618F77 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B7B2118FC4300618F77 /* PhotosRouterTests.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F6169B6C2118FB0A00618F77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B732118FBB400618F77 /* PhotosTableCellViewTests.swift */,
+				F6169B752118FBC700618F77 /* PhotosViewTests.swift */,
+				F6169B772118FBDE00618F77 /* PhotosView+DelegateTests.swift */,
+				F6169B792118FBEE00618F77 /* PhotosView+DataSourceTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6169B6D2118FB0F00618F77 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B712118FB8200618F77 /* PhotosPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F6169B6E2118FB1600618F77 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		F63C45D520F0CF6300248D36 /* PhotosTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +475,10 @@
 			isa = PBXGroup;
 			children = (
 				F64C09701F2155320020A548 /* Photorama */,
+				F6169B3A2118F6EA00618F77 /* PhotoramaTests */,
 				F64C096F1F2155320020A548 /* Products */,
+				DCE136F3C804E4ADC7CFEC71 /* Pods */,
+				B560349D08ABA5064E273AF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				F64C096E1F2155320020A548 /* Photorama.app */,
+				F6169B392118F6EA00618F77 /* PhotoramaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,7 +569,6 @@
 			children = (
 				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
 				F654535720FE73CC003CF1F7 /* DateHelper.swift */,
-				F6169B332117AED000618F77 /* View+InstantiateFromNib.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -470,13 +786,35 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F6169B382118F6EA00618F77 /* PhotoramaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6169B402118F6EA00618F77 /* Build configuration list for PBXNativeTarget "PhotoramaTests" */;
+			buildPhases = (
+				CE4620AE7174D3B1AECC978B /* [CP] Check Pods Manifest.lock */,
+				F6169B352118F6EA00618F77 /* Sources */,
+				F6169B362118F6EA00618F77 /* Frameworks */,
+				F6169B372118F6EA00618F77 /* Resources */,
+				4E07049A1110B8D85302B062 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6169B3F2118F6EA00618F77 /* PBXTargetDependency */,
+			);
+			name = PhotoramaTests;
+			productName = PhotoramaTests;
+			productReference = F6169B392118F6EA00618F77 /* PhotoramaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F64C096D1F2155320020A548 /* Photorama */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F64C09801F2155320020A548 /* Build configuration list for PBXNativeTarget "Photorama" */;
 			buildPhases = (
+				C2AD344EDFEEDAABE2143E9A /* [CP] Check Pods Manifest.lock */,
 				F64C096A1F2155320020A548 /* Sources */,
 				F64C096B1F2155320020A548 /* Frameworks */,
 				F64C096C1F2155320020A548 /* Resources */,
+				2CA33420D5609CAB8F7D19C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -493,10 +831,15 @@
 		F64C09661F2155320020A548 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "juan sicilia";
 				TargetAttributes = {
+					F6169B382118F6EA00618F77 = {
+						CreatedOnToolsVersion = 9.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F64C096D1F2155320020A548;
+					};
 					F64C096D1F2155320020A548 = {
 						CreatedOnToolsVersion = 9.0;
 					};
@@ -517,11 +860,19 @@
 			projectRoot = "";
 			targets = (
 				F64C096D1F2155320020A548 /* Photorama */,
+				F6169B382118F6EA00618F77 /* PhotoramaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F6169B372118F6EA00618F77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F64C096C1F2155320020A548 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -540,7 +891,111 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CA33420D5609CAB8F7D19C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Photorama/Pods-Photorama-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Photorama/Pods-Photorama-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E07049A1110B8D85302B062 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoramaTests/Pods-PhotoramaTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoramaTests/Pods-PhotoramaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2AD344EDFEEDAABE2143E9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Photorama-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE4620AE7174D3B1AECC978B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoramaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		F6169B352118F6EA00618F77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6169B622118F9F900618F77 /* TagsCoreDataTests.swift in Sources */,
+				F6169B802118FD3D00618F77 /* PhotoInfoPresenterTests.swift in Sources */,
+				F6169B702118FB3600618F77 /* PhotosInteractorTests.swift in Sources */,
+				F6169B3C2118F6EA00618F77 /* PhotoramaTests.swift in Sources */,
+				F6169B7C2118FC4300618F77 /* PhotosRouterTests.swift in Sources */,
+				F6169B642118FA2900618F77 /* TagsRepositoryTests.swift in Sources */,
+				F6169B572118F92E00618F77 /* CoreDataStackTests.swift in Sources */,
+				F6169B492118F7B500618F77 /* TagsInteractorTests.swift in Sources */,
+				F6169B722118FB8200618F77 /* PhotosPresenterTests.swift in Sources */,
+				F6169B5A2118F96000618F77 /* PhotoTests.swift in Sources */,
+				F6169B4F2118F86000618F77 /* TagsRouterTests.swift in Sources */,
+				F6169B5C2118F98800618F77 /* PhotoTransferTests.swift in Sources */,
+				F6169B7A2118FBEE00618F77 /* PhotosView+DataSourceTests.swift in Sources */,
+				F6169B782118FBDE00618F77 /* PhotosView+DelegateTests.swift in Sources */,
+				F6169B662118FAAD00618F77 /* DateHelperTests.swift in Sources */,
+				F6169B4B2118F7F800618F77 /* TagsPresenterTests.swift in Sources */,
+				F6169B742118FBB400618F77 /* PhotosTableCellViewTests.swift in Sources */,
+				F6169B7E2118FD2B00618F77 /* PhotoInfoViewTests.swift in Sources */,
+				F6169B822118FD4E00618F77 /* PhotoInfoInteractorTests.swift in Sources */,
+				F6169B842118FD5F00618F77 /* PhotoInfoRouterTests.swift in Sources */,
+				F6169B4D2118F82D00618F77 /* TagsViewTests.swift in Sources */,
+				F6169B762118FBC700618F77 /* PhotosViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F64C096A1F2155320020A548 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,7 +1027,6 @@
 				F654535120FD42BB003CF1F7 /* TagsRepository.swift in Sources */,
 				F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */,
 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
-				F6169B342117AED000618F77 /* View+InstantiateFromNib.swift in Sources */,
 				F6B5931C1F24EBC200B4D139 /* Photo+CoreDataClass.swift in Sources */,
 				F654537B21000A16003CF1F7 /* PhotosWebData.swift in Sources */,
 				F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */,
@@ -593,6 +1047,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F6169B3F2118F6EA00618F77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F64C096D1F2155320020A548 /* Photorama */;
+			targetProxy = F6169B3E2118F6EA00618F77 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F6169B2F2117AD4F00618F77 /* PhotoInfoView.strings */ = {
@@ -640,6 +1102,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F6169B412118F6EA00618F77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFCD6F9404CCD2557C10743C /* Pods-PhotoramaTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PhotoramaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.juansicilia.PhotoramaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photorama.app/Photorama";
+			};
+			name = Debug;
+		};
+		F6169B422118F6EA00618F77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85867D90C5CE6327C85FC257 /* Pods-PhotoramaTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PhotoramaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.juansicilia.PhotoramaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photorama.app/Photorama";
+			};
+			name = Release;
+		};
 		F64C097E1F2155320020A548 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -753,6 +1251,7 @@
 		};
 		F64C09811F2155320020A548 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F9ABD079B2B5295630D1805 /* Pods-Photorama.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CX8LB8JWWF;
@@ -767,6 +1266,7 @@
 		};
 		F64C09821F2155320020A548 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BAEE9D2CA0F5F7DDD2DDB91 /* Pods-Photorama.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CX8LB8JWWF;
@@ -782,6 +1282,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F6169B402118F6EA00618F77 /* Build configuration list for PBXNativeTarget "PhotoramaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6169B412118F6EA00618F77 /* Debug */,
+				F6169B422118F6EA00618F77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F64C09691F2155320020A548 /* Build configuration list for PBXProject "Photorama" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 
 class PhotosRouter: PhotosWireFrameProtocol {
     
