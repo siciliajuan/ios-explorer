@@ -9,31 +9,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="Kee-l6-QtL" customClass="PhotosView" customModule="Photorama" customModuleProvider="target">
-            <view key="view" contentMode="scaleToFill" id="BGr-sR-dgU">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <subviews>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Na4-o9-v1c">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tableView>
-                </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                <constraints>
-                    <constraint firstItem="Yiy-Kr-i4f" firstAttribute="trailing" secondItem="Na4-o9-v1c" secondAttribute="trailing" id="1eW-XY-3V1"/>
-                    <constraint firstItem="Yiy-Kr-i4f" firstAttribute="bottom" secondItem="Na4-o9-v1c" secondAttribute="bottom" id="9K3-5X-xwQ"/>
-                    <constraint firstItem="Na4-o9-v1c" firstAttribute="top" secondItem="Yiy-Kr-i4f" secondAttribute="top" id="UuS-0A-fzg"/>
-                    <constraint firstItem="Na4-o9-v1c" firstAttribute="leading" secondItem="Yiy-Kr-i4f" secondAttribute="leading" id="bKn-mf-hac"/>
-                </constraints>
-                <viewLayoutGuide key="safeArea" id="Yiy-Kr-i4f"/>
-            </view>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosView" customModule="Photorama" customModuleProvider="target">
             <connections>
-                <outlet property="table" destination="Na4-o9-v1c" id="O3I-pj-YcD"/>
+                <outlet property="table" destination="Na4-o9-v1c" id="jzf-OF-3od"/>
+                <outlet property="view" destination="BGr-sR-dgU" id="JIq-kU-fw5"/>
             </connections>
-            <point key="canvasLocation" x="-1393" y="-531"/>
-        </viewController>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="BGr-sR-dgU">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Na4-o9-v1c">
+                    <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Yiy-Kr-i4f" firstAttribute="trailing" secondItem="Na4-o9-v1c" secondAttribute="trailing" id="1eW-XY-3V1"/>
+                <constraint firstItem="Yiy-Kr-i4f" firstAttribute="bottom" secondItem="Na4-o9-v1c" secondAttribute="bottom" id="9K3-5X-xwQ"/>
+                <constraint firstItem="Na4-o9-v1c" firstAttribute="top" secondItem="Yiy-Kr-i4f" secondAttribute="top" id="UuS-0A-fzg"/>
+                <constraint firstItem="Na4-o9-v1c" firstAttribute="leading" secondItem="Yiy-Kr-i4f" secondAttribute="leading" id="bKn-mf-hac"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Yiy-Kr-i4f"/>
+        </view>
     </objects>
 </document>

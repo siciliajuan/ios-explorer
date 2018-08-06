@@ -19,8 +19,8 @@ class PhotoInfoView: UIViewController {
         presenter.didShowTags(forPhoto: photo)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         presenter.viewDidLoad(photo)
     }
 }

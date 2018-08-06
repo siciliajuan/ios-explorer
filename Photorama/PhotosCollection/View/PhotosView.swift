@@ -23,8 +23,8 @@ class PhotosView: UIViewController {
     let cellIdentifier = "UITableViewCell"
     var photos = [Photo]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         presenter?.viewDidLoad()
     }
 }

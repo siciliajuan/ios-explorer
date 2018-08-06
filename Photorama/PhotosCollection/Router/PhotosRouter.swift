@@ -12,14 +12,6 @@ class PhotosRouter: PhotosWireFrameProtocol {
     
     class func createPhotosModuleVC() -> UIViewController {
         
-        
-        guard let view = PhotosView.instantiateFromNib() else {
-            fatalError("Imposible to create navController to load TagsNavigationController")
-        }
-        
-        let navController = UINavigationController()
-        navController.pushViewController(view, animated: true)
-        
         // prepare dataSource
         let coreDataStack = CoreDataStack()
         let photoStore = PhotoStore()
@@ -35,6 +27,7 @@ class PhotosRouter: PhotosWireFrameProtocol {
         photoStore.photosRepository = photosRepository
         photoStore.imageRepository = imageRepository
         
+        let view = PhotosView.init(nibName: String(describing: PhotosView.self), bundle: Bundle.main)
         var presenter: PhotosPresenterProtocol & PhotosInteractorOutputProtocol = PhotosPresenter()
         let route: PhotosWireFrameProtocol = PhotosRouter()
         var interactor: PhotosInteractorInputProtocol = PhotosInteractor()
@@ -44,6 +37,8 @@ class PhotosRouter: PhotosWireFrameProtocol {
         presenter.view = view
         interactor.presenter = presenter
         view.presenter = presenter
+        let navController = UINavigationController()
+        navController.pushViewController(view, animated: true)
         return navController
     }
     

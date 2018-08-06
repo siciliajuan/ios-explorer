@@ -12,12 +12,7 @@ class TagsRouter: TagsWireFrameProtocol {
     
     class func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         
-        guard let view = TagsView.instantiateFromNib() else {
-            fatalError("Imposible to create navController to load TagsNavigationController")
-        }
         
-        let navController = UINavigationController()
-        navController.pushViewController(view, animated: true)
         
         // prepare dataSource
         let coreDataStack = CoreDataStack()
@@ -34,6 +29,7 @@ class TagsRouter: TagsWireFrameProtocol {
         photoStore.photosRepository = photosRepository
         photoStore.tagsRepository = tagsRepository
         
+        let view = TagsView.init(nibName: String(describing: TagsView.self), bundle: Bundle.main)
         var presenter: TagsPresenterProtocol & TagsInteractorOutputProtocol = TagsPresenter()
         let route: TagsWireFrameProtocol = TagsRouter()
         var interactor: TagsInteractorInputProtocol = TagsInteractor()
@@ -44,6 +40,8 @@ class TagsRouter: TagsWireFrameProtocol {
         interactor.presenter = presenter
         view.presenter = presenter
         view.photo = photo
+        let navController = UINavigationController()
+        navController.pushViewController(view, animated: true)
         return navController
     }
     

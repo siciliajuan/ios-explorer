@@ -27,10 +27,6 @@ class TagsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareContentView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         presenter.viewDidLoad()
     }
     
