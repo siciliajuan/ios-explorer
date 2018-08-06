@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosTableCellView">
             <connections>
+                <outlet property="backgroundView" destination="fCY-Ho-2S4" id="xze-wp-FVg"/>
                 <outlet property="customImageView" destination="98V-tB-5ix" id="H5c-1u-cu2"/>
                 <outlet property="labelDate" destination="rcx-ix-rBH" id="Y1g-W0-66x"/>
                 <outlet property="labelTitle" destination="OCW-Xb-5xP" id="fyK-dl-Uou"/>
                 <outlet property="spinner" destination="Mhw-wE-jTW" id="q02-bb-eiA"/>
-                <outlet property="view" destination="fCY-Ho-2S4" id="4jX-F1-t4R"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

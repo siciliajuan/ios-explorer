@@ -10,8 +10,6 @@ import UIKit
 
 class PhotosTableCellView: UITableViewCell {
     
-    @IBOutlet var view: UITableViewCell!
-    
     @IBOutlet var customImageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet var labelTitle: UILabel!
@@ -38,7 +36,6 @@ class PhotosTableCellView: UITableViewCell {
     func prepare() {
         Bundle.main.loadNibNamed("PhotosTableCellView", owner: self, options: nil)
         self.selectionStyle = .none
-        self.backgroundView = self.view
         updateWithImage(image: nil)
     }
     
@@ -60,10 +57,5 @@ class PhotosTableCellView: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         updateWithImage(image: nil)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.view.frame = self.bounds
     }
 }

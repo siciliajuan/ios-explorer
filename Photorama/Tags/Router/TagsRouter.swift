@@ -12,8 +12,6 @@ class TagsRouter: TagsWireFrameProtocol {
     
     class func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         
-        
-        
         // prepare dataSource
         let coreDataStack = CoreDataStack()
         let photoStore = PhotoStore()
