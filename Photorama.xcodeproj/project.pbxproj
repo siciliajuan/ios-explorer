@@ -34,6 +34,10 @@
 		F6169B802118FD3D00618F77 /* PhotoInfoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */; };
 		F6169B822118FD4E00618F77 /* PhotoInfoInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B812118FD4E00618F77 /* PhotoInfoInteractorTests.swift */; };
 		F6169B842118FD5F00618F77 /* PhotoInfoRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */; };
+		F6169B8B211A3E9700618F77 /* PhotosRouterDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B8A211A3E9700618F77 /* PhotosRouterDI.swift */; };
+		F6169B8D211A4A2E00618F77 /* PhotoInfoRouterDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B8C211A4A2E00618F77 /* PhotoInfoRouterDI.swift */; };
+		F6169B8F211A4B4F00618F77 /* TagsRouterDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B8E211A4B4F00618F77 /* TagsRouterDI.swift */; };
+		F6169B91211A4DD200618F77 /* RouterDIProtrocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B90211A4DD200618F77 /* RouterDIProtrocol.swift */; };
 		F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C45D320F0C77000248D36 /* ImageRepository.swift */; };
 		F64C09721F2155320020A548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09711F2155320020A548 /* AppDelegate.swift */; };
 		F64C09771F2155320020A548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64C09751F2155320020A548 /* Main.storyboard */; };
@@ -130,6 +134,10 @@
 		F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenterTests.swift; sourceTree = "<group>"; };
 		F6169B812118FD4E00618F77 /* PhotoInfoInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoInteractorTests.swift; sourceTree = "<group>"; };
 		F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouterTests.swift; sourceTree = "<group>"; };
+		F6169B8A211A3E9700618F77 /* PhotosRouterDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouterDI.swift; sourceTree = "<group>"; };
+		F6169B8C211A4A2E00618F77 /* PhotoInfoRouterDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouterDI.swift; sourceTree = "<group>"; };
+		F6169B8E211A4B4F00618F77 /* TagsRouterDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRouterDI.swift; sourceTree = "<group>"; };
+		F6169B90211A4DD200618F77 /* RouterDIProtrocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDIProtrocol.swift; sourceTree = "<group>"; };
 		F63C45D320F0C77000248D36 /* ImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		F64C096E1F2155320020A548 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64C09711F2155320020A548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -569,6 +577,7 @@
 			children = (
 				F64C09851F215B1B0020A548 /* FlickrAPI.swift */,
 				F654535720FE73CC003CF1F7 /* DateHelper.swift */,
+				F6169B90211A4DD200618F77 /* RouterDIProtrocol.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -663,6 +672,7 @@
 			isa = PBXGroup;
 			children = (
 				F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */,
+				F6169B8C211A4A2E00618F77 /* PhotoInfoRouterDI.swift */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -689,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				F6913F6D20F3FCFF000A0630 /* TagsRouter.swift */,
+				F6169B8E211A4B4F00618F77 /* TagsRouterDI.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -770,6 +781,7 @@
 			isa = PBXGroup;
 			children = (
 				F6913F7420F55DAA000A0630 /* PhotosRouter.swift */,
+				F6169B8A211A3E9700618F77 /* PhotosRouterDI.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1005,8 +1017,10 @@
 				F654537320FFF1A2003CF1F7 /* PhotosRepository.swift in Sources */,
 				F64C09861F215B1B0020A548 /* FlickrAPI.swift in Sources */,
 				F654535520FD4337003CF1F7 /* TagsCoreData.swift in Sources */,
+				F6169B8B211A3E9700618F77 /* PhotosRouterDI.swift in Sources */,
 				F6C30FD221013CC80066ABAB /* PhotosCodable.swift in Sources */,
 				F654537520FFF1C8003CF1F7 /* PhotosCoreData.swift in Sources */,
+				F6169B8F211A4B4F00618F77 /* TagsRouterDI.swift in Sources */,
 				F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */,
 				F6913F7B20F55DCF000A0630 /* PhotosPresenter.swift in Sources */,
 				F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */,
@@ -1032,6 +1046,7 @@
 				F6913F6E20F3FCFF000A0630 /* TagsRouter.swift in Sources */,
 				F6B4FF3721170380008527D6 /* TagsView+DataSource.swift in Sources */,
 				F6B4FF3B2117046A008527D6 /* PhotosView+DataSource.swift in Sources */,
+				F6169B91211A4DD200618F77 /* RouterDIProtrocol.swift in Sources */,
 				F654537920FFF9A9003CF1F7 /* ImageWebData.swift in Sources */,
 				F6913F6820F3FCCF000A0630 /* TagsPresenter.swift in Sources */,
 				F60A65981F2407F4007F581B /* PhotoInfoView.swift in Sources */,
@@ -1039,6 +1054,7 @@
 				F6913F6A20F3FCDD000A0630 /* TagsProtocols.swift in Sources */,
 				F6913F6620F3FCBA000A0630 /* TagsInteractor.swift in Sources */,
 				F6913F7D20F55DDB000A0630 /* PhotosInteractor.swift in Sources */,
+				F6169B8D211A4A2E00618F77 /* PhotoInfoRouterDI.swift in Sources */,
 				F654534520FD37CC003CF1F7 /* ImageRepositoryProtocols.swift in Sources */,
 				F64C09721F2155320020A548 /* AppDelegate.swift in Sources */,
 				F654535320FD42E9003CF1F7 /* TagsRepositoryProtocols.swift in Sources */,

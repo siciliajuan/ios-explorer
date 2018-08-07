@@ -14,19 +14,14 @@ class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
     // separate en constructor and navigator
     class func createPhotoInfoModuleVC(forPhoto photo: Photo) -> UIViewController {
         
-        // prepare dataSource
-        let photoStore = PhotoStore()
-        let imageRepository = ImageRepository()
-        imageRepository.imageCache = ImageCacheData()
-        imageRepository.imageFS = ImageFileData()
-        imageRepository.imageWebData = ImageWebData()
-        photoStore.imageRepository = imageRepository
+        let container = Container()
+        PhotoInfoRouterDI.preparePhotoStore(forContainer: container)
         
         let view = PhotoInfoView.init(nibName: String(describing: PhotoInfoView.self), bundle: Bundle.main)
         var presenter: PhotoInfoPresenterProtocol & PhotoInfoInteractorOutputProtocol = PhotoInfoPresenter()
         let wireFrame: PhotoInfoWireFrameProtocol = PhotoInfoRouter()
         var interactor: PhotoInfoInteractorInputProtocol = PhotoInfoInteractor()
-        interactor.store = photoStore
+        interactor.store = container.resolve(PhotoStore.self)
         presenter.view = view
         presenter.interactor = interactor
         presenter.route = wireFrame

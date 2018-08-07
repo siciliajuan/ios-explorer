@@ -13,26 +13,14 @@ class TagsRouter: TagsWireFrameProtocol {
     
     class func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
         
-        // prepare dataSource
-        let coreDataStack = CoreDataStack()
-        let photoStore = PhotoStore()
-        let photosRepository = PhotosRepository()
-        let tagsRepository = TagsRepository()
-        let tagsCoreData = TagsCoreData()
-        tagsCoreData.coreDataStack = coreDataStack
-        tagsRepository.tagsCoreData = tagsCoreData
-        let photosCoreData = PhotosCoreData()
-        photosCoreData.coreDataStack = coreDataStack
-        photosRepository.photosCoreData = photosCoreData
-        photosRepository.photosWebData = PhotosWebData()
-        photoStore.photosRepository = photosRepository
-        photoStore.tagsRepository = tagsRepository
+        let container = Container()
+        TagsRouterDI.preparePhotoStore(forContainer: container)
         
         let view = TagsView.init(nibName: String(describing: TagsView.self), bundle: Bundle.main)
         var presenter: TagsPresenterProtocol & TagsInteractorOutputProtocol = TagsPresenter()
         let route: TagsWireFrameProtocol = TagsRouter()
         var interactor: TagsInteractorInputProtocol = TagsInteractor()
-        interactor.store = photoStore
+        interactor.store = container.resolve(PhotoStore.self)
         presenter.interactor = interactor
         presenter.route = route
         presenter.view = view
