@@ -22,19 +22,17 @@ class PhotosTableCellView: UITableViewCell {
         }
     }
     
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         prepare()
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
         prepare()
     }
     
     func prepare() {
-        Bundle.main.loadNibNamed("PhotosTableCellView", owner: self, options: nil)
         self.selectionStyle = .none
         updateWithImage(image: nil)
     }
@@ -47,15 +45,5 @@ class PhotosTableCellView: UITableViewCell {
             spinner.startAnimating()
             customImageView.image = nil
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        updateWithImage(image: nil)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        updateWithImage(image: nil)
     }
 }

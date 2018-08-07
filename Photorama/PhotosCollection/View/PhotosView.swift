@@ -16,7 +16,7 @@ class PhotosView: UIViewController {
         didSet {
             table.delegate = self
             table.dataSource = self
-            table.register(PhotosTableCellView.self, forCellReuseIdentifier: cellIdentifier)
+            table.register(UINib(nibName: String(describing: PhotosTableCellView.self), bundle: Bundle.main), forCellReuseIdentifier: cellIdentifier)
         }
     }
     

@@ -9,17 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosTableCellView">
-            <connections>
-                <outlet property="backgroundView" destination="fCY-Ho-2S4" id="xze-wp-FVg"/>
-                <outlet property="customImageView" destination="98V-tB-5ix" id="H5c-1u-cu2"/>
-                <outlet property="labelDate" destination="rcx-ix-rBH" id="Y1g-W0-66x"/>
-                <outlet property="labelTitle" destination="OCW-Xb-5xP" id="fyK-dl-Uou"/>
-                <outlet property="spinner" destination="Mhw-wE-jTW" id="q02-bb-eiA"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="fCY-Ho-2S4">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="fCY-Ho-2S4" customClass="PhotosTableCellView" customModule="Photorama" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fCY-Ho-2S4" id="CnN-PJ-fCy">
@@ -62,6 +54,12 @@
                     <constraint firstAttribute="bottom" secondItem="98V-tB-5ix" secondAttribute="bottom" id="r4K-AI-2az"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="customImageView" destination="98V-tB-5ix" id="JOg-Fc-ude"/>
+                <outlet property="labelDate" destination="rcx-ix-rBH" id="pbp-iq-Re5"/>
+                <outlet property="labelTitle" destination="OCW-Xb-5xP" id="xM2-pS-xsZ"/>
+                <outlet property="spinner" destination="Mhw-wE-jTW" id="f1w-kN-Dod"/>
+            </connections>
             <point key="canvasLocation" x="78.5" y="257"/>
         </tableViewCell>
     </objects>
