@@ -91,18 +91,17 @@ class PhotosCoreData {
     }
     
     func getAllPersistedPhotos() throws -> [Photo] {
-        let photosMO = try fetchMainQueuePhotos()
-        return PhotoTransfer.photosMOToPhotos(photosMO: photosMO)
+        return try fetchMainQueuePhotos()
     }
     
     /*
      Return all photos that match the predicate sorted by sortDescription
      */
-    func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = [NSSortDescriptor(key: "dateTaken", ascending: true)]) throws -> [PhotoMO] {
+    func fetchMainQueuePhotos(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = [NSSortDescriptor(key: "dateTaken", ascending: true)]) throws -> [Photo] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoMO")
         fetchRequest.sortDescriptors = sortDescriptors
         fetchRequest.predicate = predicate
-        let mainQueueContext = coreDataStack.managedObjectMainContext!
+        let mainQueueContext = coreDataStack.getNewManagedObjectContext()!
         var mainQueuePhotos: [PhotoMO]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait() {
@@ -112,10 +111,10 @@ class PhotosCoreData {
                 fetchRequestError = error
             }
         }
-        guard let photos = mainQueuePhotos else {
+        guard let photosMO = mainQueuePhotos else {
             throw fetchRequestError!
         }
-        return photos
+        return PhotoTransfer.photosMOToPhotos(photosMO: photosMO)
         
     }
     
