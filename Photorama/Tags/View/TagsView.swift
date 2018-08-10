@@ -36,11 +36,11 @@ class TagsView: UIViewController {
     }
     
     @objc func done() {
-        presenter?.didDoneTags(forPhoto: photo)
+        presenter.didDoneTags(forPhoto: photo)
     }
     
     @objc func addNewTag() {
-        presenter?.didAddTag()
+        presenter.didAddTag()
     }
 }
 
@@ -66,7 +66,7 @@ extension TagsView: TagsViewProtocol {
         let okAction = UIAlertAction(title: alertControllerOkActionTitle, style: .default, handler: {
             (action) -> Void in
             if let tagName = alertController.textFields?.first!.text {
-                self.presenter?.didSave(tag: tagName)
+                self.presenter.didSave(tag: tagName)
                 // la vista debería ser pasiva
                 self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
             }

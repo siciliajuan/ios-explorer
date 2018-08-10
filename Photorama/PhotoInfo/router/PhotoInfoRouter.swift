@@ -31,16 +31,12 @@ class PhotoInfoRouter: PhotoInfoWireFrameProtocol {
         return view
     }
     
-    func presentTagsVC(from view: PhotoInfoViewProtocol, photo: Photo, store: PhotoStore) {
-        let tagsViewController = TagsRouter.createTagsModuleVC(forPhoto: photo, forPhotoStore: store)
+    func presentTagsVC(from view: PhotoInfoViewProtocol, photo: Photo) {
+        let tagsViewController = TagsRouter.createTagsModuleVC(forPhoto: photo)
         guard let sourceView = view as? UIViewController else {
                 fatalError("Imposible to create viewController to load tagsViewController")
         }
         sourceView.present(tagsViewController, animated: true)
-    }
-    
-    static var mainStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
 }

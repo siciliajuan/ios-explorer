@@ -11,7 +11,7 @@ import Swinject
 
 class TagsRouter: TagsWireFrameProtocol {
     
-    class func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController {
+    class func createTagsModuleVC(forPhoto photo: Photo) -> UIViewController {
         
         let container = Container()
         TagsRouterDI.preparePhotoStore(forContainer: container)
@@ -38,7 +38,4 @@ class TagsRouter: TagsWireFrameProtocol {
         }
         sourceView.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
-    static var mainStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: Bundle.main)
-    }}
+}

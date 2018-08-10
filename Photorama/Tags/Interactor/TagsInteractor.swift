@@ -11,12 +11,12 @@ import CoreData
 
 class TagsInteractor: TagsInteractorInputProtocol {
     
-    var presenter: TagsInteractorOutputProtocol?
+    var presenter: TagsInteractorOutputProtocol!
     
-    var store: PhotoStore!
+    var store: (PhotosRepositoryProtocol & TagsRepositoryProtocol)!
     
     func retrieveTags() {
-        presenter?.didRetrievedTags(try! store.getTagsSortedByName())
+        presenter.didRetrievedTags(try! store.getTagsSortedByName())
     }
     
     func save(tag: String) {

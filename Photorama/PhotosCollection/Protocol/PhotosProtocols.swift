@@ -46,5 +46,5 @@ protocol PhotosInteractorOutputProtocol {
 // presenter -> route
 // other route -> route
 protocol PhotosWireFrameProtocol {
-    func presentPhotoInfoVC(from view: PhotosViewProtocol, photo: Photo, store: PhotoStore)
+    func presentPhotoInfoVC(from view: PhotosViewProtocol, photo: Photo)
 }

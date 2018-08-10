@@ -25,7 +25,7 @@ class PhotosView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
     }
 }
 

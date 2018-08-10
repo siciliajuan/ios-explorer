@@ -10,26 +10,41 @@ import XCTest
 
 class TagsInteractorTests: XCTestCase {
     
+    var interactor: TagsInteractor = TagsInteractor()
+    var presenter: MockTagsPresenter = MockTagsPresenter()
+    var store: MockPhotoStore = MockPhotoStore()
+    
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        interactor.store = store
+        interactor.presenter = presenter
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        presenter.tags = nil
+        store.getTagsSortedByNameCalled = false
+        store.tags = []
+        store.photo = nil
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRetrieveTags() {
+        interactor.retrieveTags()
+        XCTAssertTrue(store.getTagsSortedByNameCalled, "Error getTagsSortedByName isn't been called")
+        XCTAssertNotNil(presenter.tags, "Error photoStore tags doesn't match retrieved tags")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSaveTag() {
+        let newTag = "new tag"
+        interactor.save(tag: newTag)
+        XCTAssertEqual(store.tags[0], newTag, "Error tags hasn't been saved")
+    }
+    
+    func testUpdatePhoto() {
+        let photo = TestHelpers.createGenericPhoto()
+        interactor.update(photo: photo)
+        XCTAssertEqual(store.photo, photo, "Error store photo doesn't match the updated one")
     }
     
 }

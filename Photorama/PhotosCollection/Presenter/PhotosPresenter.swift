@@ -19,7 +19,7 @@ class PhotosPresenter: PhotosPresenterProtocol {
     }
     
     func didShowPhotoInfoView(forPhoto photo: Photo) {
-        route.presentPhotoInfoVC(from: view!, photo: photo, store: interactor.store!)
+        route.presentPhotoInfoVC(from: view!, photo: photo)
     }
     
     func getImageCell(forPhoto photo: Photo) {

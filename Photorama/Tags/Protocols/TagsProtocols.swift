@@ -34,15 +34,15 @@ protocol TagsPresenterProtocol {
 // presenter -> router
 // other route -> route
 protocol TagsWireFrameProtocol {
-    static func createTagsModuleVC(forPhoto photo: Photo, forPhotoStore photoStore: PhotoStore) -> UIViewController
+    static func createTagsModuleVC(forPhoto photo: Photo) -> UIViewController
     func dismissTagsVC(from: TagsViewProtocol)
 }
 
 // presenter -> interactor
 protocol TagsInteractorInputProtocol {
-    var presenter: TagsInteractorOutputProtocol? { get set }
+    var presenter: TagsInteractorOutputProtocol! { get set }
     
-    var store: PhotoStore! { get set }
+    var store: (PhotosRepositoryProtocol & TagsRepositoryProtocol)! { get set }
     
     func retrieveTags()
     func save(tag: String)
