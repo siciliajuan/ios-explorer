@@ -15,9 +15,6 @@
 		F6169B3C2118F6EA00618F77 /* PhotoramaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B3B2118F6EA00618F77 /* PhotoramaTests.swift */; };
 		F6169B492118F7B500618F77 /* TagsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B482118F7B500618F77 /* TagsInteractorTests.swift */; };
 		F6169B4B2118F7F800618F77 /* TagsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B4A2118F7F800618F77 /* TagsPresenterTests.swift */; };
-		F6169B4D2118F82D00618F77 /* TagsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B4C2118F82D00618F77 /* TagsViewTests.swift */; };
-		F6169B4F2118F86000618F77 /* TagsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B4E2118F86000618F77 /* TagsRouterTests.swift */; };
-		F6169B572118F92E00618F77 /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B562118F92E00618F77 /* CoreDataStackTests.swift */; };
 		F6169B5A2118F96000618F77 /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B592118F96000618F77 /* PhotoTests.swift */; };
 		F6169B5C2118F98800618F77 /* PhotoTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B5B2118F98800618F77 /* PhotoTransferTests.swift */; };
 		F6169B622118F9F900618F77 /* TagsCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B612118F9F900618F77 /* TagsCoreDataTests.swift */; };
@@ -25,20 +22,14 @@
 		F6169B662118FAAD00618F77 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B652118FAAD00618F77 /* DateHelperTests.swift */; };
 		F6169B702118FB3600618F77 /* PhotosInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */; };
 		F6169B722118FB8200618F77 /* PhotosPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B712118FB8200618F77 /* PhotosPresenterTests.swift */; };
-		F6169B742118FBB400618F77 /* PhotosTableCellViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B732118FBB400618F77 /* PhotosTableCellViewTests.swift */; };
-		F6169B762118FBC700618F77 /* PhotosViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B752118FBC700618F77 /* PhotosViewTests.swift */; };
-		F6169B782118FBDE00618F77 /* PhotosView+DelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B772118FBDE00618F77 /* PhotosView+DelegateTests.swift */; };
-		F6169B7A2118FBEE00618F77 /* PhotosView+DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B792118FBEE00618F77 /* PhotosView+DataSourceTests.swift */; };
-		F6169B7C2118FC4300618F77 /* PhotosRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7B2118FC4300618F77 /* PhotosRouterTests.swift */; };
-		F6169B7E2118FD2B00618F77 /* PhotoInfoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7D2118FD2B00618F77 /* PhotoInfoViewTests.swift */; };
 		F6169B802118FD3D00618F77 /* PhotoInfoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */; };
 		F6169B822118FD4E00618F77 /* PhotoInfoInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B812118FD4E00618F77 /* PhotoInfoInteractorTests.swift */; };
-		F6169B842118FD5F00618F77 /* PhotoInfoRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */; };
 		F6169B8B211A3E9700618F77 /* PhotosRouterDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B8A211A3E9700618F77 /* PhotosRouterDI.swift */; };
 		F6169B8D211A4A2E00618F77 /* PhotoInfoRouterDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B8C211A4A2E00618F77 /* PhotoInfoRouterDI.swift */; };
 		F6169B8F211A4B4F00618F77 /* TagsRouterDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B8E211A4B4F00618F77 /* TagsRouterDI.swift */; };
 		F6169B91211A4DD200618F77 /* RouterDIProtrocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B90211A4DD200618F77 /* RouterDIProtrocol.swift */; };
 		F6180E32211CEC01008BA6E1 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6180E31211CEC01008BA6E1 /* TestHelpers.swift */; };
+		F6180E352120387D008BA6E1 /* MockcoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6180E342120387D008BA6E1 /* MockcoreDataStack.swift */; };
 		F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C45D320F0C77000248D36 /* ImageRepository.swift */; };
 		F64C09721F2155320020A548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C09711F2155320020A548 /* AppDelegate.swift */; };
 		F64C09771F2155320020A548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64C09751F2155320020A548 /* Main.storyboard */; };
@@ -173,9 +164,6 @@
 		F6169B3D2118F6EA00618F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6169B482118F7B500618F77 /* TagsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInteractorTests.swift; sourceTree = "<group>"; };
 		F6169B4A2118F7F800618F77 /* TagsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPresenterTests.swift; sourceTree = "<group>"; };
-		F6169B4C2118F82D00618F77 /* TagsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewTests.swift; sourceTree = "<group>"; };
-		F6169B4E2118F86000618F77 /* TagsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRouterTests.swift; sourceTree = "<group>"; };
-		F6169B562118F92E00618F77 /* CoreDataStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
 		F6169B592118F96000618F77 /* PhotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
 		F6169B5B2118F98800618F77 /* PhotoTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTransferTests.swift; sourceTree = "<group>"; };
 		F6169B612118F9F900618F77 /* TagsCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataTests.swift; sourceTree = "<group>"; };
@@ -183,20 +171,14 @@
 		F6169B652118FAAD00618F77 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractorTests.swift; sourceTree = "<group>"; };
 		F6169B712118FB8200618F77 /* PhotosPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenterTests.swift; sourceTree = "<group>"; };
-		F6169B732118FBB400618F77 /* PhotosTableCellViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableCellViewTests.swift; sourceTree = "<group>"; };
-		F6169B752118FBC700618F77 /* PhotosViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewTests.swift; sourceTree = "<group>"; };
-		F6169B772118FBDE00618F77 /* PhotosView+DelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosView+DelegateTests.swift"; sourceTree = "<group>"; };
-		F6169B792118FBEE00618F77 /* PhotosView+DataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosView+DataSourceTests.swift"; sourceTree = "<group>"; };
-		F6169B7B2118FC4300618F77 /* PhotosRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouterTests.swift; sourceTree = "<group>"; };
-		F6169B7D2118FD2B00618F77 /* PhotoInfoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewTests.swift; sourceTree = "<group>"; };
 		F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenterTests.swift; sourceTree = "<group>"; };
 		F6169B812118FD4E00618F77 /* PhotoInfoInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoInteractorTests.swift; sourceTree = "<group>"; };
-		F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouterTests.swift; sourceTree = "<group>"; };
 		F6169B8A211A3E9700618F77 /* PhotosRouterDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouterDI.swift; sourceTree = "<group>"; };
 		F6169B8C211A4A2E00618F77 /* PhotoInfoRouterDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouterDI.swift; sourceTree = "<group>"; };
 		F6169B8E211A4B4F00618F77 /* TagsRouterDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRouterDI.swift; sourceTree = "<group>"; };
 		F6169B90211A4DD200618F77 /* RouterDIProtrocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDIProtrocol.swift; sourceTree = "<group>"; };
 		F6180E31211CEC01008BA6E1 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		F6180E342120387D008BA6E1 /* MockcoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockcoreDataStack.swift; sourceTree = "<group>"; };
 		F63C45D320F0C77000248D36 /* ImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		F64C096E1F2155320020A548 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64C09711F2155320020A548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -299,7 +281,6 @@
 		F6169B3A2118F6EA00618F77 /* PhotoramaTests */ = {
 			isa = PBXGroup;
 			children = (
-				F6169B552118F91600618F77 /* CoreData */,
 				F6169B542118F91000618F77 /* Entities */,
 				F6169B532118F8FB00618F77 /* DataManager */,
 				F6169B522118F8F200618F77 /* Helpers */,
@@ -319,8 +300,6 @@
 				F6ED4AC8211B970800FB05EC /* Mocks */,
 				F6169B442118F73A00618F77 /* Interactor */,
 				F6169B452118F74100618F77 /* Presenter */,
-				F6169B462118F74B00618F77 /* View */,
-				F6169B472118F75900618F77 /* Router */,
 			);
 			path = Tags;
 			sourceTree = "<group>";
@@ -341,29 +320,11 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		F6169B462118F74B00618F77 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B4C2118F82D00618F77 /* TagsViewTests.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F6169B472118F75900618F77 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B4E2118F86000618F77 /* TagsRouterTests.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		F6169B502118F8B900618F77 /* PhotoInfo */ = {
 			isa = PBXGroup;
 			children = (
 				F6169B6A2118FAFC00618F77 /* Interactor */,
 				F6169B692118FAF400618F77 /* Presenter */,
-				F6169B682118FAEE00618F77 /* View */,
-				F6169B672118FAE500618F77 /* Router */,
 			);
 			path = PhotoInfo;
 			sourceTree = "<group>";
@@ -373,8 +334,6 @@
 			children = (
 				F6169B6E2118FB1600618F77 /* Interactor */,
 				F6169B6D2118FB0F00618F77 /* Presenter */,
-				F6169B6C2118FB0A00618F77 /* View */,
-				F6169B6B2118FB0400618F77 /* Router */,
 			);
 			path = PhotosTable;
 			sourceTree = "<group>";
@@ -390,6 +349,7 @@
 		F6169B532118F8FB00618F77 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				F6180E332120386C008BA6E1 /* Mocks */,
 				F6169B5F2118F9CC00618F77 /* TagsRepository */,
 				F6169B5E2118F9BF00618F77 /* ImageRepository */,
 				F6169B5D2118F9B400618F77 /* PhotosRepository */,
@@ -403,14 +363,6 @@
 				F6169B582118F94A00618F77 /* transfers */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		F6169B552118F91600618F77 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B562118F92E00618F77 /* CoreDataStackTests.swift */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		F6169B582118F94A00618F77 /* transfers */ = {
@@ -453,22 +405,6 @@
 			path = Datas;
 			sourceTree = "<group>";
 		};
-		F6169B672118FAE500618F77 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B832118FD5F00618F77 /* PhotoInfoRouterTests.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		F6169B682118FAEE00618F77 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B7D2118FD2B00618F77 /* PhotoInfoViewTests.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F6169B692118FAF400618F77 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,25 +421,6 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		F6169B6B2118FB0400618F77 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B7B2118FC4300618F77 /* PhotosRouterTests.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		F6169B6C2118FB0A00618F77 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B732118FBB400618F77 /* PhotosTableCellViewTests.swift */,
-				F6169B752118FBC700618F77 /* PhotosViewTests.swift */,
-				F6169B772118FBDE00618F77 /* PhotosView+DelegateTests.swift */,
-				F6169B792118FBEE00618F77 /* PhotosView+DataSourceTests.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F6169B6D2118FB0F00618F77 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +435,14 @@
 				F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F6180E332120386C008BA6E1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F6180E342120387D008BA6E1 /* MockcoreDataStack.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		F63C45D520F0CF6300248D36 /* PhotosTable */ = {
@@ -1083,9 +1008,7 @@
 				F6169B702118FB3600618F77 /* PhotosInteractorTests.swift in Sources */,
 				F6ED4AD3211B9BA300FB05EC /* TagsView-Delegate.swift in Sources */,
 				F6169B3C2118F6EA00618F77 /* PhotoramaTests.swift in Sources */,
-				F6169B7C2118FC4300618F77 /* PhotosRouterTests.swift in Sources */,
 				F6169B642118FA2900618F77 /* TagsRepositoryTests.swift in Sources */,
-				F6169B572118F92E00618F77 /* CoreDataStackTests.swift in Sources */,
 				F6ED4ADD211B9C0D00FB05EC /* Photo+CoreDataClass.swift in Sources */,
 				F6ED4ADE211B9C1000FB05EC /* Photo+CoreDataProperties.swift in Sources */,
 				F6169B492118F7B500618F77 /* TagsInteractorTests.swift in Sources */,
@@ -1103,7 +1026,6 @@
 				F6ED4AFA211B9C8500FB05EC /* PhotoInfoInteractor.swift in Sources */,
 				F6ED4AE5211B9C2C00FB05EC /* ImageRepository.swift in Sources */,
 				F6ED4AE0211B9C1B00FB05EC /* TagsRepository.swift in Sources */,
-				F6169B4F2118F86000618F77 /* TagsRouterTests.swift in Sources */,
 				F6ED4AEA211B9C4000FB05EC /* PhotosRepository.swift in Sources */,
 				F6ED4AF6211B9C7400FB05EC /* PhotosView+Delegate.swift in Sources */,
 				F6ED4ACF211B9B9600FB05EC /* TagsInteractor.swift in Sources */,
@@ -1111,33 +1033,27 @@
 				F6ED4AD8211B9BB700FB05EC /* TagsRouterDI.swift in Sources */,
 				F6169B5C2118F98800618F77 /* PhotoTransferTests.swift in Sources */,
 				F6ED4AF7211B9C7700FB05EC /* PhotosView+DataSource.swift in Sources */,
-				F6169B7A2118FBEE00618F77 /* PhotosView+DataSourceTests.swift in Sources */,
 				F6ED4ACC211B972900FB05EC /* MockTagsRouter.swift in Sources */,
 				F6ED4AED211B9C4A00FB05EC /* DateHelper.swift in Sources */,
-				F6169B782118FBDE00618F77 /* PhotosView+DelegateTests.swift in Sources */,
 				F6ED4AD0211B9B9900FB05EC /* TagsPresenter.swift in Sources */,
 				F6169B662118FAAD00618F77 /* DateHelperTests.swift in Sources */,
 				F6169B4B2118F7F800618F77 /* TagsPresenterTests.swift in Sources */,
 				F6ED4ADC211B9C0B00FB05EC /* photoTransfer.swift in Sources */,
-				F6169B742118FBB400618F77 /* PhotosTableCellViewTests.swift in Sources */,
 				F6ED4ADB211B9BFE00FB05EC /* CoreDataStack.swift in Sources */,
 				F6ED4AD7211B9BB400FB05EC /* TagsRouter.swift in Sources */,
 				F6ED4B00211B9CB200FB05EC /* PhotoInfoRouter.swift in Sources */,
-				F6169B7E2118FD2B00618F77 /* PhotoInfoViewTests.swift in Sources */,
 				F6ED4AE3211B9C2500FB05EC /* ImageWebData.swift in Sources */,
 				F6169B822118FD4E00618F77 /* PhotoInfoInteractorTests.swift in Sources */,
 				F6ED4AC5211B96EA00FB05EC /* MockTagsInteractor.swift in Sources */,
 				F6ED4AF9211B9C7F00FB05EC /* PhotosRouterDI.swift in Sources */,
-				F6169B842118FD5F00618F77 /* PhotoInfoRouterTests.swift in Sources */,
 				F6ED4ADA211B9BFB00FB05EC /* Photorama.xcdatamodeld in Sources */,
 				F6ED4AEF211B9C5800FB05EC /* PhotosInteractor.swift in Sources */,
 				F6ED4AEB211B9C4400FB05EC /* PhotoStore.swift in Sources */,
 				F6ED4ADF211B9C1700FB05EC /* TagsCoreData.swift in Sources */,
-				F6169B4D2118F82D00618F77 /* TagsViewTests.swift in Sources */,
+				F6180E352120387D008BA6E1 /* MockcoreDataStack.swift in Sources */,
 				F6ED4AE1211B9C1F00FB05EC /* ImageCacheData.swift in Sources */,
 				F6ED4ACE211B973700FB05EC /* MockPhotoStore.swift in Sources */,
 				F6ED4AD1211B9B9C00FB05EC /* TagsProtocols.swift in Sources */,
-				F6169B762118FBC700618F77 /* PhotosViewTests.swift in Sources */,
 				F6ED4AF8211B9C7C00FB05EC /* PhotosRouter.swift in Sources */,
 				F6ED4AF1211B9C6100FB05EC /* PhotosProtocols.swift in Sources */,
 				F6ED4AE2211B9C2200FB05EC /* ImageFileData.swift in Sources */,

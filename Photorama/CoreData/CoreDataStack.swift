@@ -11,7 +11,9 @@ import CoreData
 
 class CoreDataStack {
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer = preparePersistentContainer()
+    
+    func preparePersistentContainer() -> NSPersistentContainer{
         let container = NSPersistentContainer(name: "Photorama")
         container.loadPersistentStores(completionHandler: { storeDescription, error in
             if let error = error {
@@ -19,7 +21,7 @@ class CoreDataStack {
             }
         })
         return container
-    }()
+    }
     
     func getNewManagedObjectContext() -> NSManagedObjectContext? {
         let context = persistentContainer.newBackgroundContext()

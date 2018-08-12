@@ -7,29 +7,84 @@
 //
 
 import XCTest
+import CoreData
 
 class TagsCoreDataTests: XCTestCase {
     
+    var tagsCoreData: TagsCoreData = TagsCoreData()
+    var mockcoreDataStack: MockcoreDataStack = MockcoreDataStack()
+    
+    // for test purpose
+    let initialTags = ["a_tag_one","c_tag_three","b_tag_two","e_tag_five","d_tag_four"]
+    let tagsAlphabeticalOrder = [0,2,1,4,3]
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        tagsCoreData.coreDataStack = mockcoreDataStack
+        initStubs()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        flushData()
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetTagsSortedByName() {
+        let tags = try! tagsCoreData.getTagsSortedByName()
+        XCTAssertEqual(tags.count, 5, "Error wrong tags amount")
+        for (index, element) in tags.enumerated() {
+            XCTAssertEqual(element, initialTags[tagsAlphabeticalOrder[index]], "wrong tags order")
+        }
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testGetTagsSortedByNameWithNewTagInsertedFirstPosition() {
+        let newTag = "1_la_primera"
+        tagsCoreData.saveTag(newTag)
+        let tags = try! tagsCoreData.getTagsSortedByName()
+        XCTAssertEqual(tags.count, 6, "Error wrong tags amount")
+        for (index, element) in tags.enumerated() {
+            print(element)
+            if index == 0 {
+                XCTAssertEqual(element, newTag, "wrong tags order")
+            } else {
+                XCTAssertEqual(element, initialTags[tagsAlphabeticalOrder[index - 1]], "wrong tags order")
+            }
         }
+    }
+    
+    func testGetTagsSortedByNameWithNewTagInsertedLastPosition() {
+        let newTag = "z_la_primera"
+        tagsCoreData.saveTag(newTag)
+        let tags = try! tagsCoreData.getTagsSortedByName()
+        XCTAssertEqual(tags.count, 6, "Error wrong tags amount")
+        for (index, element) in tags.enumerated() {
+            print(element)
+            if index == 5 {
+                XCTAssertEqual(element, newTag, "wrong tags order")
+            } else {
+                XCTAssertEqual(element, initialTags[tagsAlphabeticalOrder[index]], "wrong tags order")
+            }
+        }
+    }
+    
+    func initStubs() {
+        let context = mockcoreDataStack.getNewManagedObjectContext()!
+        func insertTag(_ tagName: String) {
+            let newTag = NSEntityDescription.insertNewObject(forEntityName: "TagMO", into: context)
+            newTag.setValue(tagName, forKey: "name")
+        }
+        initialTags.forEach{insertTag($0)}
+        mockcoreDataStack.saveChanges(context: context)
+    }
+    
+    func flushData() {
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")
+        let context = mockcoreDataStack.getNewManagedObjectContext()!
+        let objs = try! context.fetch(fetchRequest)
+        for case let obj as NSManagedObject in objs {
+            context.delete(obj)
+        }
+        mockcoreDataStack.saveChanges(context: context)
     }
     
 }
