@@ -21,10 +21,6 @@ class CoreDataStack {
         return container
     }()
     
-    lazy var managedObjectMainContext: NSManagedObjectContext? = {
-        return persistentContainer.viewContext
-    }()
-    
     func getNewManagedObjectContext() -> NSManagedObjectContext? {
         let context = persistentContainer.newBackgroundContext()
         context.automaticallyMergesChangesFromParent = true
