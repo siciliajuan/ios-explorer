@@ -54,6 +54,9 @@
                     <constraint firstAttribute="bottom" secondItem="98V-tB-5ix" secondAttribute="bottom" id="r4K-AI-2az"/>
                 </constraints>
             </tableViewCellContentView>
+            <accessibility key="accessibilityConfiguration">
+                <bool key="isElement" value="YES"/>
+            </accessibility>
             <connections>
                 <outlet property="customImageView" destination="98V-tB-5ix" id="JOg-Fc-ude"/>
                 <outlet property="labelDate" destination="rcx-ix-rBH" id="pbp-iq-Re5"/>

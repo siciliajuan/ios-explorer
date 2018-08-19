@@ -26,6 +26,9 @@ class PhotosView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        self.isAccessibilityElement = true
+        table.isAccessibilityElement = true
+        table.accessibilityIdentifier = "PhotosTable"
     }
 }
 

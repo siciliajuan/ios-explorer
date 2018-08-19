@@ -28,6 +28,7 @@ class PhotosRouter: PhotosWireFrameProtocol {
         view.presenter = presenter
         let navController = UINavigationController()
         navController.pushViewController(view, animated: true)
+        navController.isAccessibilityElement = true
         return navController
     }
     

@@ -61,6 +61,7 @@ extension TagsView: TagsViewProtocol {
         alertController.addTextField(){
             (texField) -> Void in
             texField.placeholder = alertControllerPlaceHoler
+            texField.accessibilityIdentifier = "tagTextField"
             texField.autocapitalizationType = .words
         }
         let okAction = UIAlertAction(title: alertControllerOkActionTitle, style: .default, handler: {

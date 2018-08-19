@@ -17,6 +17,9 @@ extension PhotosView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PhotosTableCellView
         cell.photo = photos[indexPath.row]
+        
+        cell.isAccessibilityElement = true
+        cell.accessibilityIdentifier = "PhotosTableCell_\(indexPath.row)"
         return cell
     }
 }
