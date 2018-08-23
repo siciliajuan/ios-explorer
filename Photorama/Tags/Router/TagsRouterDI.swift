@@ -16,27 +16,18 @@ struct TagsRouterDI: RouterDIProtrocol {
         container.register(CoreDataStack.self) { _ in CoreDataStack() }
         
         container.register(TagsCoreData.self) { r in
-            let tagsCoreData = TagsCoreData()
-            tagsCoreData.coreDataStack = r.resolve(CoreDataStack.self)
-            return tagsCoreData
+            return TagsCoreData(coreDataStack: r.resolve(CoreDataStack.self)!)
         }
         container.register(TagsRepository.self) { r in
-            let tagsRepository = TagsRepository()
-            tagsRepository.tagsCoreData = r.resolve(TagsCoreData.self)!
-            return tagsRepository
+            return TagsRepository(tagsCoreData: r.resolve(TagsCoreData.self)!)
         }
         
         container.register(PhotosCoreData.self) { r in
-            let photosCoreData = PhotosCoreData()
-            photosCoreData.coreDataStack = r.resolve(CoreDataStack.self)
-            return photosCoreData
+            return PhotosCoreData(coreDataStack: r.resolve(CoreDataStack.self)!)
         }
         container.register(PhotosWebData.self) { _ in PhotosWebData() }
         container.register(PhotosRepository.self) { r in
-            let photosRepository = PhotosRepository()
-            photosRepository.photosCoreData = r.resolve(PhotosCoreData.self)!
-            photosRepository.photosWebData = r.resolve(PhotosWebData.self)!
-            return photosRepository
+            return PhotosRepository(photosCoreData: r.resolve(PhotosCoreData.self)!, photosWebData: r.resolve(PhotosWebData.self)!)
         }
         
         container.register(PhotoStore.self) { r in

@@ -19,7 +19,6 @@
 		F6169B5C2118F98800618F77 /* PhotoTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B5B2118F98800618F77 /* PhotoTransferTests.swift */; };
 		F6169B622118F9F900618F77 /* TagsCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B612118F9F900618F77 /* TagsCoreDataTests.swift */; };
 		F6169B642118FA2900618F77 /* TagsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B632118FA2900618F77 /* TagsRepositoryTests.swift */; };
-		F6169B662118FAAD00618F77 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B652118FAAD00618F77 /* DateHelperTests.swift */; };
 		F6169B702118FB3600618F77 /* PhotosInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */; };
 		F6169B722118FB8200618F77 /* PhotosPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B712118FB8200618F77 /* PhotosPresenterTests.swift */; };
 		F6169B802118FD3D00618F77 /* PhotoInfoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */; };
@@ -179,7 +178,6 @@
 		F6169B5B2118F98800618F77 /* PhotoTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTransferTests.swift; sourceTree = "<group>"; };
 		F6169B612118F9F900618F77 /* TagsCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataTests.swift; sourceTree = "<group>"; };
 		F6169B632118FA2900618F77 /* TagsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepositoryTests.swift; sourceTree = "<group>"; };
-		F6169B652118FAAD00618F77 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		F6169B6F2118FB3600618F77 /* PhotosInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractorTests.swift; sourceTree = "<group>"; };
 		F6169B712118FB8200618F77 /* PhotosPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenterTests.swift; sourceTree = "<group>"; };
 		F6169B7F2118FD3D00618F77 /* PhotoInfoPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenterTests.swift; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 			children = (
 				F6169B542118F91000618F77 /* Entities */,
 				F6169B532118F8FB00618F77 /* DataManager */,
-				F6169B522118F8F200618F77 /* Helpers */,
 				F6169B512118F8C500618F77 /* PhotosTable */,
 				F6169B502118F8B900618F77 /* PhotoInfo */,
 				F6169B432118F6F800618F77 /* Tags */,
@@ -360,14 +357,6 @@
 				F6169B6D2118FB0F00618F77 /* Presenter */,
 			);
 			path = PhotosTable;
-			sourceTree = "<group>";
-		};
-		F6169B522118F8F200618F77 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				F6169B652118FAAD00618F77 /* DateHelperTests.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F6169B532118F8FB00618F77 /* DataManager */ = {
@@ -1129,7 +1118,6 @@
 				F6ED4ACC211B972900FB05EC /* MockTagsRouter.swift in Sources */,
 				F6ED4AED211B9C4A00FB05EC /* DateHelper.swift in Sources */,
 				F6ED4AD0211B9B9900FB05EC /* TagsPresenter.swift in Sources */,
-				F6169B662118FAAD00618F77 /* DateHelperTests.swift in Sources */,
 				F6169B4B2118F7F800618F77 /* TagsPresenterTests.swift in Sources */,
 				F6ED4ADC211B9C0B00FB05EC /* photoTransfer.swift in Sources */,
 				F6ED4ADB211B9BFE00FB05EC /* CoreDataStack.swift in Sources */,

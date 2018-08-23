@@ -32,8 +32,8 @@ class TagsCoreDataTests: XCTestCase {
     func testGetTagsSortedByName() {
         let tags = try! tagsCoreData.getTagsSortedByName()
         XCTAssertEqual(tags.count, 5, "Error wrong tags amount")
-        for (index, element) in tags.enumerated() {
-            XCTAssertEqual(element, initialTags[tagsAlphabeticalOrder[index]], "wrong tags order")
+        tags.enumerated().forEach { (index, element) in
+             XCTAssertEqual(element, initialTags[tagsAlphabeticalOrder[index]], "wrong tags order")
         }
     }
     
@@ -42,7 +42,7 @@ class TagsCoreDataTests: XCTestCase {
         tagsCoreData.saveTag(newTag)
         let tags = try! tagsCoreData.getTagsSortedByName()
         XCTAssertEqual(tags.count, 6, "Error wrong tags amount")
-        for (index, element) in tags.enumerated() {
+        tags.enumerated().forEach { (index, element) in
             print(element)
             if index == 0 {
                 XCTAssertEqual(element, newTag, "wrong tags order")
@@ -57,7 +57,7 @@ class TagsCoreDataTests: XCTestCase {
         tagsCoreData.saveTag(newTag)
         let tags = try! tagsCoreData.getTagsSortedByName()
         XCTAssertEqual(tags.count, 6, "Error wrong tags amount")
-        for (index, element) in tags.enumerated() {
+        tags.enumerated().forEach { (index, element) in
             print(element)
             if index == 5 {
                 XCTAssertEqual(element, newTag, "wrong tags order")

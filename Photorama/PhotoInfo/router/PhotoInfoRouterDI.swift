@@ -17,11 +17,7 @@ struct PhotoInfoRouterDI: RouterDIProtrocol {
         container.register(ImageFileData.self) { _ in ImageFileData() }
         container.register(ImageCacheData.self) { _ in ImageCacheData() }
         container.register(ImageRepository.self) { r in
-            let imageRepository = ImageRepository()
-            imageRepository.imageCache = r.resolve(ImageCacheData.self)!
-            imageRepository.imageFS = r.resolve(ImageFileData.self)!
-            imageRepository.imageWebData = r.resolve(ImageWebData.self)!
-            return imageRepository
+            return ImageRepository(imageCache: r.resolve(ImageCacheData.self)!, imageFS: r.resolve(ImageFileData.self)!, imageWebData: r.resolve(ImageWebData.self)!)
         }
         
         container.register(PhotoStore.self) { r in

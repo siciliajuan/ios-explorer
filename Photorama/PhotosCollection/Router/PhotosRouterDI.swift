@@ -19,24 +19,15 @@ struct PhotosRouterDI: RouterDIProtrocol {
         container.register(ImageFileData.self) { _ in ImageFileData() }
         container.register(ImageCacheData.self) { _ in ImageCacheData() }
         container.register(ImageRepository.self) { r in
-            let imageRepository = ImageRepository()
-            imageRepository.imageCache = r.resolve(ImageCacheData.self)!
-            imageRepository.imageFS = r.resolve(ImageFileData.self)!
-            imageRepository.imageWebData = r.resolve(ImageWebData.self)!
-            return imageRepository
+            return ImageRepository(imageCache: r.resolve(ImageCacheData.self)!, imageFS: r.resolve(ImageFileData.self)!, imageWebData: r.resolve(ImageWebData.self)!)
         }
         
         container.register(PhotosCoreData.self) { r in
-            let photosCoreData = PhotosCoreData()
-            photosCoreData.coreDataStack = r.resolve(CoreDataStack.self)
-            return photosCoreData
+            return PhotosCoreData(coreDataStack: r.resolve(CoreDataStack.self)!)
         }
         container.register(PhotosWebData.self) { _ in PhotosWebData() }
         container.register(PhotosRepository.self) { r in
-            let photosRepository = PhotosRepository()
-            photosRepository.photosCoreData = r.resolve(PhotosCoreData.self)!
-            photosRepository.photosWebData = r.resolve(PhotosWebData.self)!
-            return photosRepository
+            return PhotosRepository(photosCoreData: r.resolve(PhotosCoreData.self)!, photosWebData: r.resolve(PhotosWebData.self)!)
         }
         
         container.register(PhotoStore.self) { r in

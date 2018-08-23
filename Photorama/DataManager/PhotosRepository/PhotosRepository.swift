@@ -10,8 +10,13 @@ import CoreData
 
 class PhotosRepository {
 
-    var photosCoreData: PhotosCoreData!
-    var photosWebData: PhotosWebData!
+    var photosCoreData: PhotosCoreData
+    var photosWebData: PhotosWebData
+    
+    init (photosCoreData: PhotosCoreData, photosWebData: PhotosWebData) {
+        self.photosCoreData = photosCoreData
+        self.photosWebData = photosWebData
+    }
     
     
     func fetchLastUploadedFlickerPhotos(completion: @escaping () -> Void) {

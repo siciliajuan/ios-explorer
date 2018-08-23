@@ -11,7 +11,11 @@ import CoreData
 
 class TagsCoreData {
     
-    var coreDataStack: CoreDataStack!
+    var coreDataStack: CoreDataStack
+    
+    init (coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
+    }
     
     func getTagsSortedByName() throws -> [String] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TagMO")

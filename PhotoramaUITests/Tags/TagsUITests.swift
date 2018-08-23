@@ -35,10 +35,10 @@ class TagsUITests: XCTestCase {
         app.alerts["Añadir Tag"].buttons["Guardar"].tap()
         
         XCTAssertTrue(app.tables.staticTexts[NEW_TAG].exists)
-        //privateTestCheckATagInTagsList()
-        //privateTestUncheckATagInTagsList()
+        privateTestCheckATagInTagsList()
+        privateTestUncheckATagInTagsList()
     }
-    /*
+    
     func privateTestCheckATagInTagsList() {
         app.tables.staticTexts[NEW_TAG].tap()
         XCTAssertTrue(app.tables.staticTexts[NEW_TAG].isEnabled)
@@ -48,6 +48,6 @@ class TagsUITests: XCTestCase {
         app.tables.staticTexts[NEW_TAG].tap()
         XCTAssertFalse(app.tables.staticTexts[NEW_TAG].isEnabled)
     }
-    */
+    
     
 }

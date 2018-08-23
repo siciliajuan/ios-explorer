@@ -16,7 +16,11 @@ enum PhotoResult {
 
 class PhotosCoreData {
     
-    var coreDataStack: CoreDataStack!
+    var coreDataStack: CoreDataStack
+    
+    init (coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
+    }
     
     func getPhoto(byId id: String, completion: @escaping (PhotoResult) -> Void) {
         let predicate = NSPredicate(format: "photoID == %@", id)

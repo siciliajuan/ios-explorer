@@ -11,7 +11,11 @@ import CoreData
 
 class TagsRepository: TagsRepositoryProtocol {
     
-    var tagsCoreData: TagsCoreData!
+    var tagsCoreData: TagsCoreData
+    
+    init (tagsCoreData: TagsCoreData) {
+        self.tagsCoreData = tagsCoreData
+    }
     
     func getTagsSortedByName() throws -> [String] {
         return try tagsCoreData.getTagsSortedByName()

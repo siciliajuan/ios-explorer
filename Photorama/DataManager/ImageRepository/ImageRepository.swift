@@ -10,9 +10,15 @@ import UIKit
 
 class ImageRepository: ImageRepositoryProtocol {
     
-    var imageCache: ImageCacheData!
-    var imageFS: ImageFileData!
-    var imageWebData: ImageWebData!
+    var imageCache: ImageCacheData
+    var imageFS: ImageFileData
+    var imageWebData: ImageWebData
+    
+    init (imageCache: ImageCacheData, imageFS: ImageFileData, imageWebData: ImageWebData) {
+        self.imageCache = imageCache
+        self.imageFS = imageFS
+        self.imageWebData = imageWebData
+    }
     
     /*
      Sets a new image in the ImageStore. First it sets the
