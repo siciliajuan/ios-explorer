@@ -36,4 +36,23 @@ class CoreDataStack {
             print("Core Data save failed: \(saveError)")
         }
     }
+    
+    func clearAllData() {
+        let names = persistentContainer.managedObjectModel.entities.map({ (entity) -> String in
+            return entity.name!
+        })
+        for name in names {
+            clearCoreDataEntity(byEntityName: name)
+        }
+    }
+    
+    private func clearCoreDataEntity(byEntityName entity: String) {
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let context = getNewManagedObjectContext()!
+        let objs = try! context.fetch(fetchRequest)
+        for case let obj as NSManagedObject in objs {
+            context.delete(obj)
+        }
+        saveChanges(context: context)
+    }
 }

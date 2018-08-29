@@ -56,7 +56,6 @@
 		F654537920FFF9A9003CF1F7 /* ImageWebData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654537820FFF9A9003CF1F7 /* ImageWebData.swift */; };
 		F654537B21000A16003CF1F7 /* PhotosWebData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654537A21000A16003CF1F7 /* PhotosWebData.swift */; };
 		F6586D8F1F24E21D003ED305 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6586D8D1F24E21D003ED305 /* Photorama.xcdatamodeld */; };
-		F66F105B212F4E58005AE142 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66F105A212F4E58005AE142 /* main.swift */; };
 		F6913F5520F221A8000A0630 /* PhotoInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */; };
 		F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */; };
 		F6913F5C20F2A667000A0630 /* PhotoInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */; };
@@ -219,7 +218,6 @@
 		F654537820FFF9A9003CF1F7 /* ImageWebData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWebData.swift; sourceTree = "<group>"; };
 		F654537A21000A16003CF1F7 /* PhotosWebData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosWebData.swift; sourceTree = "<group>"; };
 		F6586D8E1F24E21D003ED305 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
-		F66F105A212F4E58005AE142 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F6913F5420F221A8000A0630 /* PhotoInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPresenter.swift; sourceTree = "<group>"; };
 		F6913F5720F221E2000A0630 /* PhotoInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoProtocols.swift; sourceTree = "<group>"; };
 		F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoRouter.swift; sourceTree = "<group>"; };
@@ -551,7 +549,6 @@
 				F63C45D620F0CF8400248D36 /* PhotoInfo */,
 				F6913F3820F209FE000A0630 /* Tags */,
 				F64C09711F2155320020A548 /* AppDelegate.swift */,
-				F66F105A212F4E58005AE142 /* main.swift */,
 				F64C09751F2155320020A548 /* Main.storyboard */,
 				F64C09781F2155320020A548 /* Assets.xcassets */,
 				F64C097A1F2155320020A548 /* LaunchScreen.storyboard */,
@@ -1181,7 +1178,6 @@
 				F6913F7920F55DC2000A0630 /* PhotosProtocols.swift in Sources */,
 				F6913F5820F221E2000A0630 /* PhotoInfoProtocols.swift in Sources */,
 				F654536E20FFDFE8003CF1F7 /* photoTransfer.swift in Sources */,
-				F66F105B212F4E58005AE142 /* main.swift in Sources */,
 				F654535120FD42BB003CF1F7 /* TagsRepository.swift in Sources */,
 				F63C45D420F0C77100248D36 /* ImageRepository.swift in Sources */,
 				F6B5931F1F24ED0B00B4D139 /* CoreDataStack.swift in Sources */,
