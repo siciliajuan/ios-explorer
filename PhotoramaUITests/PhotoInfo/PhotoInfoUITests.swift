@@ -16,6 +16,7 @@ class PhotoInfoUITests: XCTestCase {
         super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments = ["--Reset"]
         app.launch()
     }
     

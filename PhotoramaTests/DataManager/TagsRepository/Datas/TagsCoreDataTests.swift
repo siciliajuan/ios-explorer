@@ -11,7 +11,7 @@ import CoreData
 
 class TagsCoreDataTests: XCTestCase {
     
-    var tagsCoreData: TagsCoreData = TagsCoreData()
+    var tagsCoreData: TagsCoreData!
     var mockcoreDataStack: MockcoreDataStack = MockcoreDataStack()
     
     // for test purpose
@@ -20,7 +20,7 @@ class TagsCoreDataTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        tagsCoreData.coreDataStack = mockcoreDataStack
+        tagsCoreData = TagsCoreData(coreDataStack: mockcoreDataStack)
         initStubs()
     }
     

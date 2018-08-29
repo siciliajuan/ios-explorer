@@ -15,6 +15,12 @@ class PhotoStore {
     var tagsRepository: TagsRepository!
     var photosRepository: PhotosRepository!
     
+    init(imageRepository: ImageRepository?, tagsRepository: TagsRepository?, photosRepository: PhotosRepository?) {
+        self.imageRepository = imageRepository
+        self.tagsRepository = tagsRepository
+        self.photosRepository = photosRepository
+    }
+    
 }
 
 extension PhotoStore: PhotosRepositoryProtocol {

@@ -31,9 +31,7 @@ struct PhotosRouterDI: RouterDIProtrocol {
         }
         
         container.register(PhotoStore.self) { r in
-            let photoStore = PhotoStore()
-            photoStore.imageRepository = r.resolve(ImageRepository.self)
-            photoStore.photosRepository = r.resolve(PhotosRepository.self)
+            let photoStore = PhotoStore(imageRepository: r.resolve(ImageRepository.self), tagsRepository: nil, photosRepository: r.resolve(PhotosRepository.self))
             return photoStore
         }
     }

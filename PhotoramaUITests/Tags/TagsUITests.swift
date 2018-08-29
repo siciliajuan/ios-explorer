@@ -18,6 +18,7 @@ class TagsUITests: XCTestCase {
         super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments = ["--Reset"]
         app.launch()
     }
     
@@ -41,12 +42,12 @@ class TagsUITests: XCTestCase {
     
     func privateTestCheckATagInTagsList() {
         app.tables.staticTexts[NEW_TAG].tap()
-        XCTAssertTrue(app.tables.staticTexts[NEW_TAG].isEnabled)
+        XCTAssertTrue(app.tables.buttons["Más información"].exists)
     }
     
     func privateTestUncheckATagInTagsList() {
         app.tables.staticTexts[NEW_TAG].tap()
-        XCTAssertFalse(app.tables.staticTexts[NEW_TAG].isEnabled)
+        XCTAssertFalse(app.tables.buttons["Más información"].exists)
     }
     
     
