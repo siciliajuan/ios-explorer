@@ -11,6 +11,7 @@ import XCTest
 class PhotosTableUITests: XCTestCase {
     
     var app: XCUIApplication!
+    var photosTablePageObject: PhotosTablePageObject!
     
     override func setUp() {
         super.setUp()
@@ -18,6 +19,7 @@ class PhotosTableUITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments = ["--Reset"]
         app.launch()
+        self.photosTablePageObject = PhotosTablePageObject(forApp: app)
     }
     
     override func tearDown() {
@@ -26,7 +28,7 @@ class PhotosTableUITests: XCTestCase {
     }
     
     func testPhotosTableIsLoaded() {
-        XCTAssertTrue(app.tables["PhotosTable"].exists)
+        XCTAssertTrue(photosTablePageObject.tableOnScreen().exists)
     }
     
 }

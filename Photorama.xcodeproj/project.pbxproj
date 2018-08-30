@@ -138,6 +138,10 @@
 		F6ED4B00211B9CB200FB05EC /* PhotoInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6913F5B20F2A667000A0630 /* PhotoInfoRouter.swift */; };
 		F6ED4B01211B9CB600FB05EC /* PhotoInfoRouterDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6169B8C211A4A2E00618F77 /* PhotoInfoRouterDI.swift */; };
 		F6ED4B02211B9EBD00FB05EC /* TagsRepositoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654535220FD42E9003CF1F7 /* TagsRepositoryProtocols.swift */; };
+		F6F3E975213756BF006C9652 /* PhotosTablePageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3E974213756BF006C9652 /* PhotosTablePageObject.swift */; };
+		F6F3E977213756D2006C9652 /* PhotoInfoPageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3E976213756D2006C9652 /* PhotoInfoPageObject.swift */; };
+		F6F3E979213756EA006C9652 /* TagsPageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3E978213756EA006C9652 /* TagsPageObject.swift */; };
+		F6F3E97B213757A7006C9652 /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3E97A213757A7006C9652 /* BaseScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +253,10 @@
 		F6ED4AC9211B971A00FB05EC /* MockTagsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTagsPresenter.swift; sourceTree = "<group>"; };
 		F6ED4ACB211B972900FB05EC /* MockTagsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTagsRouter.swift; sourceTree = "<group>"; };
 		F6ED4ACD211B973700FB05EC /* MockPhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotoStore.swift; sourceTree = "<group>"; };
+		F6F3E974213756BF006C9652 /* PhotosTablePageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTablePageObject.swift; sourceTree = "<group>"; };
+		F6F3E976213756D2006C9652 /* PhotoInfoPageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoPageObject.swift; sourceTree = "<group>"; };
+		F6F3E978213756EA006C9652 /* TagsPageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPageObject.swift; sourceTree = "<group>"; };
+		F6F3E97A213757A7006C9652 /* BaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,6 +467,7 @@
 		F6180E672120E064008BA6E1 /* PhotoramaUITests */ = {
 			isa = PBXGroup;
 			children = (
+				F6F3E9732137568D006C9652 /* pageObjects */,
 				F6180E702120E0B5008BA6E1 /* PhotosTable */,
 				F6180E722120E0CD008BA6E1 /* PhotoInfo */,
 				F6180E732120E0DE008BA6E1 /* Tags */,
@@ -846,6 +855,17 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		F6F3E9732137568D006C9652 /* pageObjects */ = {
+			isa = PBXGroup;
+			children = (
+				F6F3E974213756BF006C9652 /* PhotosTablePageObject.swift */,
+				F6F3E976213756D2006C9652 /* PhotoInfoPageObject.swift */,
+				F6F3E978213756EA006C9652 /* TagsPageObject.swift */,
+				F6F3E97A213757A7006C9652 /* BaseScreen.swift */,
+			);
+			path = pageObjects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1142,9 +1162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F3E977213756D2006C9652 /* PhotoInfoPageObject.swift in Sources */,
 				F6180E792120E1B4008BA6E1 /* TagsUITests.swift in Sources */,
+				F6F3E97B213757A7006C9652 /* BaseScreen.swift in Sources */,
 				F6180E752120E12C008BA6E1 /* PhotosTableUITests.swift in Sources */,
 				F6180E772120E199008BA6E1 /* PhotoInfoUITests.swift in Sources */,
+				F6F3E979213756EA006C9652 /* TagsPageObject.swift in Sources */,
+				F6F3E975213756BF006C9652 /* PhotosTablePageObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,8 @@ import XCTest
 class PhotoInfoUITests: XCTestCase {
     
     var app: XCUIApplication!
+    var photosTablePageObject: PhotosTablePageObject!
+    var photoInfoPageObject: PhotoInfoPageObject!
     
     override func setUp() {
         super.setUp()
@@ -18,6 +20,8 @@ class PhotoInfoUITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments = ["--Reset"]
         app.launch()
+        self.photosTablePageObject = PhotosTablePageObject(forApp: app)
+        self.photoInfoPageObject = PhotoInfoPageObject(forApp: app)
     }
     
     override func tearDown() {
@@ -26,10 +30,9 @@ class PhotoInfoUITests: XCTestCase {
     }
     
     func testPhotoNameSelectedInPhotosTableIsTheSameInPhotoInfo() {
-        let cell = app.tables["PhotosTable"].cells["PhotosTableCell_0"]
-        let photoName = cell.label.components(separatedBy: ", ")[0]
-        cell.tap()
-        XCTAssertTrue(app.navigationBars[photoName].exists)
+        let photoName = photosTablePageObject.cellName(byPosition: 0)
+        photosTablePageObject.tapCell(byPosition: 0)
+        XCTAssertTrue(photoInfoPageObject.getNavigationBar(byName: photoName).exists)
         
     }
     

@@ -11,6 +11,9 @@ import XCTest
 class TagsUITests: XCTestCase {
     
     var app: XCUIApplication!
+    var photosTablePageObject: PhotosTablePageObject!
+    var photoInfoPageObject: PhotoInfoPageObject!
+    var tagsPageObject: TagsPageObject!
     
     let NEW_TAG = "new_tag"
     
@@ -20,6 +23,9 @@ class TagsUITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments = ["--Reset"]
         app.launch()
+        self.photosTablePageObject = PhotosTablePageObject(forApp: app)
+        self.photoInfoPageObject = PhotoInfoPageObject(forApp: app)
+        self.tagsPageObject = TagsPageObject(forApp: app)
     }
     
     override func tearDown() {
@@ -27,27 +33,26 @@ class TagsUITests: XCTestCase {
     }
     
     func testAddNewTag() {
-        let cell = app.tables["PhotosTable"].cells["PhotosTableCell_0"]
-        cell.tap()
-        app.toolbars["Toolbar"].buttons["Etiquetas"].tap()
-        app.navigationBars["Photorama.TagsView"].buttons["Añadir"].tap()
-        app.alerts["Añadir Tag"].collectionViews.textFields["tagTextField"].tap()
-        app.alerts["Añadir Tag"].collectionViews.textFields["tagTextField"].typeText(NEW_TAG)
-        app.alerts["Añadir Tag"].buttons["Guardar"].tap()
+        photosTablePageObject.tapCell(byPosition: 0)
+        photoInfoPageObject.tapTagsButton()
+        tagsPageObject.tapAddButton()
+                      .tapTagTextField()
+                      .tagTextFieldTypeNewTag(newTag: NEW_TAG)
+                      .tapSaveButton()
         
-        XCTAssertTrue(app.tables.staticTexts[NEW_TAG].exists)
+        XCTAssertTrue(tagsPageObject.isStaticText(byNAme: NEW_TAG))
         privateTestCheckATagInTagsList()
         privateTestUncheckATagInTagsList()
     }
     
     func privateTestCheckATagInTagsList() {
-        app.tables.staticTexts[NEW_TAG].tap()
-        XCTAssertTrue(app.tables.buttons["Más información"].exists)
+        tagsPageObject.tapStaticText(byNAme: NEW_TAG)
+        XCTAssertTrue(tagsPageObject.isMoreInformationButton())
     }
     
     func privateTestUncheckATagInTagsList() {
-        app.tables.staticTexts[NEW_TAG].tap()
-        XCTAssertFalse(app.tables.buttons["Más información"].exists)
+        tagsPageObject.tapStaticText(byNAme: NEW_TAG)
+        XCTAssertFalse(tagsPageObject.isMoreInformationButton())
     }
     
     
