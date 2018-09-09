@@ -12,6 +12,7 @@ import XCTest
 class PhotosTablePageObject: BaseScreen {
     
     var app: XCUIApplication!
+    var photoInfoPageObject: PhotoInfoPageObject!
     
     private lazy var cells = table.cells
     private lazy var table = tables["PhotosTable"]
@@ -19,6 +20,7 @@ class PhotosTablePageObject: BaseScreen {
     
     init(forApp app: XCUIApplication) {
         self.app = app
+        self.photoInfoPageObject = PhotoInfoPageObject(forApp: app)
     }
     
     func tableOnScreen() -> XCUIElement {
@@ -31,9 +33,11 @@ class PhotosTablePageObject: BaseScreen {
         return photoName
     }
     
-    func tapCell(byPosition position: Int) {
+    @discardableResult
+    func tapCell(byPosition position: Int) -> PhotoInfoPageObject {
         let cell = getCell(byPosition: position)
         cell.tap()
+        return self.photoInfoPageObject
     }
     
     private func getCell(byPosition position: Int) -> XCUIElement {

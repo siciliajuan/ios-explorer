@@ -8,24 +8,17 @@
 
 import XCTest
 
-class TagsUITests: XCTestCase {
-    
+class TagsUITests: XCTestCase, BaseTestCase {
+        
     var app: XCUIApplication!
     var photosTablePageObject: PhotosTablePageObject!
-    var photoInfoPageObject: PhotoInfoPageObject!
-    var tagsPageObject: TagsPageObject!
     
     let NEW_TAG = "new_tag"
     
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        app = XCUIApplication()
-        app.launchArguments = ["--Reset"]
-        app.launch()
-        self.photosTablePageObject = PhotosTablePageObject(forApp: app)
-        self.photoInfoPageObject = PhotoInfoPageObject(forApp: app)
-        self.tagsPageObject = TagsPageObject(forApp: app)
+        prepareTest()
     }
     
     override func tearDown() {
@@ -33,25 +26,38 @@ class TagsUITests: XCTestCase {
     }
     
     func testAddNewTag() {
-        photosTablePageObject.tapCell(byPosition: 0)
-        photoInfoPageObject.tapTagsButton()
-        tagsPageObject.tapAddButton()
-                      .tapTagTextField()
-                      .tagTextFieldTypeNewTag(newTag: NEW_TAG)
-                      .tapSaveButton()
+        let tagsPageObject = photosTablePageObject.tapCell(byPosition: 0)
+            .tapTagsButton()
+            .tapAddButton()
+            .tapTagTextField()
+            .tagTextFieldTypeNewTag(newTag: NEW_TAG)
+            .tapSaveButton()
         
         XCTAssertTrue(tagsPageObject.isStaticText(byNAme: NEW_TAG))
-        privateTestCheckATagInTagsList()
-        privateTestUncheckATagInTagsList()
     }
     
     func privateTestCheckATagInTagsList() {
-        tagsPageObject.tapStaticText(byNAme: NEW_TAG)
+        let tagsPageObject = photosTablePageObject.tapCell(byPosition: 0)
+            .tapTagsButton()
+            .tapAddButton()
+            .tapTagTextField()
+            .tagTextFieldTypeNewTag(newTag: NEW_TAG)
+            .tapSaveButton()
+            .tapStaticText(byNAme: NEW_TAG)
+        
         XCTAssertTrue(tagsPageObject.isMoreInformationButton())
     }
     
     func privateTestUncheckATagInTagsList() {
-        tagsPageObject.tapStaticText(byNAme: NEW_TAG)
+        let tagsPageObject = photosTablePageObject.tapCell(byPosition: 0)
+            .tapTagsButton()
+            .tapAddButton()
+            .tapTagTextField()
+            .tagTextFieldTypeNewTag(newTag: NEW_TAG)
+            .tapSaveButton()
+            .tapStaticText(byNAme: NEW_TAG)
+            .tapStaticText(byNAme: NEW_TAG)
+        
         XCTAssertFalse(tagsPageObject.isMoreInformationButton())
     }
     

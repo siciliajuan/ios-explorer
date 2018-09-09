@@ -12,8 +12,9 @@ import XCTest
 class TagsPageObject: BaseScreen {
     
     var app: XCUIApplication!
+    
     private lazy var tagTextField = textFields["tagTextField"]
-    private lazy var addButton = buttons["Añadir"]
+    private lazy var addButton = buttons["Añadir"].firstMatch
     private lazy var moreInformationButton = buttons["Más información"]
     private lazy var saveButton = buttons["Guardar"]
     private lazy var buttons = findAll(.button)
@@ -29,6 +30,7 @@ class TagsPageObject: BaseScreen {
         return self
     }
     
+    @discardableResult
     func tapSaveButton() -> TagsPageObject {
         saveButton.tap()
         return self
@@ -48,8 +50,9 @@ class TagsPageObject: BaseScreen {
         return moreInformationButton.exists
     }
     
-    func tapStaticText(byNAme name: String) {
+    func tapStaticText(byNAme name: String) -> TagsPageObject {
         staticTexts[name].tap()
+        return self
     }
     
     func isStaticText(byNAme name: String) -> Bool {
