@@ -9,20 +9,21 @@
 import Foundation
 import XCTest
 
-protocol BaseTestCase: class {
+class  BaseTestCase: XCTestCase {
     
-    var app: XCUIApplication! {get set}
-    var photosTablePageObject: PhotosTablePageObject! {get set}
+    var app: XCUIApplication!
+    var photosTablePageObject: PhotosTablePageObject!
     
-}
-
-extension BaseTestCase {
-
-    func prepareTest() {
+    override func setUp() {
+        super.setUp()
         app = XCUIApplication()
         app.launchArguments = ["--Reset"]
         app.launch()
+        continueAfterFailure = false
         photosTablePageObject = PhotosTablePageObject(forApp: app)
     }
     
+    override func tearDown() {
+        super.tearDown()
+    }
 }

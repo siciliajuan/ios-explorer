@@ -8,20 +8,7 @@
 
 import XCTest
 
-class PhotoInfoUITests: XCTestCase, BaseTestCase {
-        
-    var app: XCUIApplication!
-    var photosTablePageObject: PhotosTablePageObject!
-    
-    override func setUp() {
-        super.setUp()
-        continueAfterFailure = false
-        prepareTest()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
+class PhotoInfoUITests: BaseTestCase {
     
     func testPhotoNameSelectedInPhotosTableIsTheSameInPhotoInfo() {
         let photoName = photosTablePageObject.cellName(byPosition: 0)

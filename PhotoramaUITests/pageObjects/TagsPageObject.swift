@@ -21,10 +21,6 @@ class TagsPageObject: BaseScreen {
     private lazy var textFields = findAll(.textField)
     private lazy var staticTexts = findAll(.staticText)
     
-    init(forApp app: XCUIApplication) {
-        self.app = app
-    }
-    
     func tapAddButton() -> TagsPageObject {
         addButton.tap()
         return self

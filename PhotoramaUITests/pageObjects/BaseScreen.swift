@@ -15,6 +15,10 @@ protocol BaseScreen {
 
 extension BaseScreen {
     
+    init(forApp app: XCUIApplication) {
+        self.app = app
+    }
+    
     func findAll(_ type: XCUIElement.ElementType) -> XCUIElementQuery {
         return app.descendants(matching: type)
     }

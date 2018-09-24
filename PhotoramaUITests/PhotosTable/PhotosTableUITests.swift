@@ -8,20 +8,7 @@
 
 import XCTest
 
-class PhotosTableUITests: XCTestCase, BaseTestCase {
-        
-    var app: XCUIApplication!
-    var photosTablePageObject: PhotosTablePageObject!
-    
-    override func setUp() {
-        super.setUp()
-        continueAfterFailure = false
-        prepareTest()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
+class PhotosTableUITests: BaseTestCase {
     
     func testPhotosTableIsLoaded() {
         XCTAssertTrue(photosTablePageObject.tableOnScreen().exists)

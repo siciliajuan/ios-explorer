@@ -8,23 +8,10 @@
 
 import XCTest
 
-class TagsUITests: XCTestCase, BaseTestCase {
-        
-    var app: XCUIApplication!
-    var photosTablePageObject: PhotosTablePageObject!
+class TagsUITests: BaseTestCase {
     
     let NEW_TAG = "new_tag"
-    
-    override func setUp() {
-        super.setUp()
-        continueAfterFailure = false
-        prepareTest()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
+
     func testAddNewTag() {
         let tagsPageObject = photosTablePageObject.tapCell(byPosition: 0)
             .tapTagsButton()
